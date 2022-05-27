@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace VIZPub.Helper
+namespace VIZPub
 {
     /// <summary>
     /// Input File Format
@@ -21,8 +21,30 @@ namespace VIZPub.Helper
         RVM = 1
     }
 
+    /// <summary>
+    /// Output File Format
+    /// </summary>
     public enum OutputFileFormat
     {
+        /// <summary>
+        /// SOFTHILLS VIZ FILE FORMAT
+        /// </summary>
+        VIZ = 0
+    }
 
+    /// <summary>
+    /// VIZ FILE VERSION
+    /// </summary>
+    public enum FileVersion
+    {
+        /// <summary>
+        /// VIZ FILE VERSION 303
+        /// </summary>
+        V303 = 303,
+
+        /// <summary>
+        /// VIZ FILE VERSION 304
+        /// </summary>
+        V304 = 304
     }
 }
