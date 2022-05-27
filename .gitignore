@@ -1,0 +1,6 @@
+v15
+.vs/
+bin/
+obj/
+Thumbs.db
+*.user
