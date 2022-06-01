@@ -114,4 +114,19 @@ namespace VIZPub
         ORIGINAL_PATH = 0,
         LOCAL_PATH = 1
     }
+
+    public enum LogKind
+    {
+        Disable = 0,
+        Basic = 1,
+        Detail = 2,
+        Information = 3
+    }
+
+    public enum WriteOptions
+    {
+        AsIs = 0,
+        LeafAssemblyToPart = 1,
+        AllToPart = 2
+    }
 }

@@ -10,7 +10,7 @@ namespace VIZPub
         // ================================================
         // Attribute & Property
         // ================================================
-        internal Dictionary<PublishParameters, string> Parameter { get; set; }
+        internal Dictionary<PublishParameters, object> Parameter { get; set; }
 
 
         // ================================================
@@ -18,20 +18,46 @@ namespace VIZPub
         // ================================================
         public PublishParameter()
         {
-            Parameter = new Dictionary<PublishParameters, string>();
+            Parameter = new Dictionary<PublishParameters, object>();
         }
 
         // ================================================
         // Function
         // ================================================
-        internal string GetParameter(PublishParameters key, string value)
+        internal bool GetBoolean(object value)
+        {
+            bool val = false;
+
+            if (value is System.Boolean)
+                val = ((bool)value) == true ? true : false;
+            else if (value is System.Int32)
+                val = ((int)value) == 1 ? true : false;
+            else if (value is System.String)
+                val = ((string)value) == "1" ? true : false;
+
+            return val;
+        }
+
+        internal int GetInteger(object value)
+        {
+            int val = 0;
+
+            if (value is System.String)
+                val = Convert.ToInt32((string)value);
+            else if (value is System.Int32)
+                val = (int)value;
+
+            return val;
+        }
+
+        internal string GetParameter(PublishParameters key, object value)
         {
             string parameter = String.Empty;
 
             switch (key)
             {
                 case PublishParameters.MODE:
-                    parameter = string.Format("-mode {0}", value);
+                    parameter = string.Format("-mode {0}", GetInteger(value));
                     break;
                 case PublishParameters.INPUT:
                     parameter = string.Format("-i \"{0}\"", value);
@@ -54,30 +80,31 @@ namespace VIZPub
                     parameter = string.Format("-rfm \"{0}\"", value);
                     break;
                 case PublishParameters.ATTRIBUTE_FILE:
+                    parameter = string.Format("-a \"{0}\"", value);
                     break;
                 case PublishParameters.GENERATE_EDGE:
-                    parameter = string.Format("-e {0}", value);
+                    parameter = string.Format("-e {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.GENERATE_THUMBNAIL:
-                    parameter = string.Format("-t {0}", value);
+                    parameter = string.Format("-t {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.NORMAL_CYLINDER_COUNT:
-                    parameter = string.Format("-csn {0}", value);
+                    parameter = string.Format("-csn {0}", GetInteger(value));
                     break;
                 case PublishParameters.SMALL_CYLINDER_COUNT:
-                    parameter = string.Format("-css {0}", value);
+                    parameter = string.Format("-css {0}", GetInteger(value));
                     break;
                 case PublishParameters.REMOVE_NODENAME_SLASH:
-                    parameter = string.Format("-rs {0}", value);
+                    parameter = string.Format("-rs {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.DGN_QUALITY:
                     parameter = string.Format("-dq {0}", value);
                     break;
                 case PublishParameters.THUMBNAIL_WIDTH:
-                    parameter = string.Format("-w {0}", value);
+                    parameter = string.Format("-w {0}", GetInteger(value));
                     break;
                 case PublishParameters.THUMBNAIL_HEIGHT:
-                    parameter = string.Format("-h {0}", value);
+                    parameter = string.Format("-h {0}", GetInteger(value));
                     break;
                 case PublishParameters.THUMBNAIL_VIEW_DIRECTION:
                     parameter = string.Format("-vd {0}", value);
@@ -107,7 +134,7 @@ namespace VIZPub
                     parameter = string.Format("-cb {0}", value);
                     break;
                 case PublishParameters.BOUNDBOX_INSPECTIOIN:
-                    parameter = string.Format("-eb {0}", value);
+                    parameter = string.Format("-eb {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.BOUNDBOX_MIN_X:
                     parameter = string.Format("-minx {0}", value);
@@ -128,13 +155,13 @@ namespace VIZPub
                     parameter = string.Format("-maxz {0}", value);
                     break;
                 case PublishParameters.LIMIT_TRIANGLE:
-                    parameter = string.Format("-lt {0}", value);
+                    parameter = string.Format("-lt {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.LIMIT_TRIANGEL_COUNT:
                     parameter = string.Format("-tc {0}", value);
                     break;
                 case PublishParameters.DEBUG:
-                    parameter = string.Format("-debug {0}", value);
+                    parameter = string.Format("-debug {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.LOG:
                     parameter = string.Format("-log {0}", value);
@@ -154,7 +181,7 @@ namespace VIZPub
         // ================================================
         // Method
         // ================================================
-        public bool Add(PublishParameters key, string value)
+        public bool Add(PublishParameters key, object value)
         {
             if (Parameter.ContainsKey(key) == true) return false;
 
@@ -166,7 +193,7 @@ namespace VIZPub
         {
             string parameter = String.Empty;
 
-            foreach (KeyValuePair<PublishParameters, string> item in Parameter)
+            foreach (KeyValuePair<PublishParameters, object> item in Parameter)
             {
                 parameter += string.Format(" {0}", GetParameter(item.Key, item.Value));
             }

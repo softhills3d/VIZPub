@@ -71,6 +71,10 @@ namespace VIZPub
         // ================================================
         public bool ExportVIZ(PublishParameter parameter)
         {
+            parameter.Add(PublishParameters.MODE, 0);
+
+            string param = parameter.ToString();
+
             return false;
         }
 
