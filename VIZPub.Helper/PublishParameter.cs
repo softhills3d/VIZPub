@@ -189,6 +189,11 @@ namespace VIZPub
             return true;
         }
 
+        public bool Exist(PublishParameters key)
+        {
+            return Parameter.ContainsKey(key);
+        }
+
         public override string ToString()
         {
             string parameter = String.Empty;

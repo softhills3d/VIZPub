@@ -50,7 +50,7 @@ namespace VIZPub
             VIZPub_Path = vizpub_path;
 
             if (String.IsNullOrEmpty(VIZPub_Path) == true)
-                throw new NullReferenceException("VIZPub Path is null.");
+                throw new NullReferenceException("VIZPub Program Path is null.");
 
             if (System.IO.File.Exists(VIZPub_Path) == false)
                 throw new System.IO.FileNotFoundException(string.Format("File Not Found.\r\n{0}", VIZPub_Path));
@@ -71,7 +71,20 @@ namespace VIZPub
         // ================================================
         public bool ExportVIZ(PublishParameter parameter)
         {
+            // Add Mode
             parameter.Add(PublishParameters.MODE, 0);
+
+            // Check Necessary Parameter  
+            if (parameter.Exist(PublishParameters.INPUT) == false)
+                throw new NullReferenceException("INPUT is null.");
+
+            if(parameter.Exist(PublishParameters.OUTPUT) == false)
+                throw new NullReferenceException("OUTPUT is null.");
+
+            // Working : Local, Original
+            if (PublishWorkingLocation == WorkingLocation.LOCAL_PATH)
+            {
+            }
 
             string param = parameter.ToString();
 
