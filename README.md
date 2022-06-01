@@ -1,2 +1,2 @@
 # VIZPub
-VIZPub Examples
+VIZPub Helper Class Library, Examples and so on.
