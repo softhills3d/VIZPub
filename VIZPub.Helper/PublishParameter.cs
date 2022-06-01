@@ -72,7 +72,7 @@ namespace VIZPub
                     parameter = string.Format("-ow \"{0}\"", value);
                     break;
                 case PublishParameters.VERSION:
-                    parameter = string.Format("-ver {0}", value);
+                    parameter = string.Format("-ver {0}", GetInteger(value));
                     break;
                 case PublishParameters.EXPORT_MERGE_NODE:
                     break;
@@ -88,10 +88,10 @@ namespace VIZPub
                 case PublishParameters.GENERATE_THUMBNAIL:
                     parameter = string.Format("-t {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
-                case PublishParameters.NORMAL_CYLINDER_COUNT:
+                case PublishParameters.CYLINDER_SIDE_COUNT_NORMAL:
                     parameter = string.Format("-csn {0}", GetInteger(value));
                     break;
-                case PublishParameters.SMALL_CYLINDER_COUNT:
+                case PublishParameters.CYLINDER_SIDE_COUNT_SMALL:
                     parameter = string.Format("-css {0}", GetInteger(value));
                     break;
                 case PublishParameters.REMOVE_NODENAME_SLASH:
@@ -192,6 +192,20 @@ namespace VIZPub
         public bool Exist(PublishParameters key)
         {
             return Parameter.ContainsKey(key);
+        }
+
+        public object GetValue(PublishParameters key)
+        {
+            if (Exist(key) == true) return Parameter[key];
+            else return null;
+        }
+
+        public void SetValue(PublishParameters key, object value)
+        {
+            if (Exist(key) == false)
+                Add(key, value);
+            else
+                Parameter[key] = value;
         }
 
         public override string ToString()

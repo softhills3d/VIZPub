@@ -75,8 +75,8 @@ namespace VIZPub
 
         GENERATE_EDGE = 30,
         GENERATE_THUMBNAIL = 31,
-        NORMAL_CYLINDER_COUNT = 32,
-        SMALL_CYLINDER_COUNT = 33,
+        CYLINDER_SIDE_COUNT_NORMAL = 32,
+        CYLINDER_SIDE_COUNT_SMALL = 33,
         REMOVE_NODENAME_SLASH = 34,
         DGN_QUALITY = 35,
 
@@ -109,12 +109,6 @@ namespace VIZPub
         LOG = 99
     }
 
-    public enum WorkingLocation
-    {
-        ORIGINAL_PATH = 0,
-        LOCAL_PATH = 1
-    }
-
     public enum LogKind
     {
         Disable = 0,
@@ -128,5 +122,12 @@ namespace VIZPub
         AsIs = 0,
         LeafAssemblyToPart = 1,
         AllToPart = 2
+    }
+
+    public enum LocalPaths
+    {
+        Input = 0,
+        Intermediate = 1,
+        Output = 2
     }
 }
