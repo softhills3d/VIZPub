@@ -13,8 +13,29 @@ namespace VIZPub.Test.Console
         {
             VIZPub_Path = "D:\\SH_GitHub\\VIZPub\\VIZPub\\VIZPub.exe";
 
-            //ExportVIZ();
+            ExportVIZ();
             ExportVIZM();
+            ExportVIZW();
+
+            // (2) Extract Metadata
+            // (3) Merge VIZ By Metadata
+            // (4) Merge VIZM By Metadata
+            // (5) Merge VIZW By Metadata
+            // (6) Thumbnail
+            // (8) Export Attribute
+            // (9) Import Attribute
+            // (10) Remove Attribute
+            // (12) Leaf Assembly To Part
+            // (13) Merge By Rule XML File
+            // (14) Export Node
+            // (15) Export Neutral File
+            // (16) Create VTD
+            // (17) Simplify
+            // (18) Export VIZWide3D
+            // (19) NWD to HMF
+            // (60) Change Color
+            // (100) HMF to VIZ, VIZW
+            // (200) VIZ to FBX
         }
 
         private static void ExportVIZ()
@@ -34,6 +55,8 @@ namespace VIZPub.Test.Console
 
             parameter.Add(PublishParameters.VERSION, 303);                          // [Optional] 303 or 304. Default(303)
 
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportVIZ(parameter);
         }
@@ -42,9 +65,12 @@ namespace VIZPub.Test.Console
         {
             VIZPub.PublishParameter parameter = new PublishParameter();
 
+            //parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.rvm");
             parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
             parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.vizm");
 
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportVIZM(parameter);
         }
@@ -53,9 +79,12 @@ namespace VIZPub.Test.Console
         {
             VIZPub.PublishParameter parameter = new PublishParameter();
 
+            //parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.rvm");
             parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
             parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.vizw");
 
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportVIZW(parameter);
         }

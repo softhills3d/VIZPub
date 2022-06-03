@@ -12,7 +12,8 @@ namespace VIZPub
     /// <param name="e"></param>
     public delegate void DataEventHandler(object sender, DataEventArgs e);
 
-    public class ProcessHelper
+
+    internal class ProcessHelper
     {
         // ================================================
         // Attribute & Property

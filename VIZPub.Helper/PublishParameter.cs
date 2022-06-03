@@ -5,6 +5,9 @@ using System.Text;
 
 namespace VIZPub
 {
+    /// <summary>
+    /// Publish Parameter Class
+    /// </summary>
     public class PublishParameter
     {
         // ================================================
@@ -16,6 +19,9 @@ namespace VIZPub
         // ================================================
         // Construction
         // ================================================
+        /// <summary>
+        /// Construction
+        /// </summary>
         public PublishParameter()
         {
             Parameter = new Dictionary<PublishParameters, object>();
@@ -181,6 +187,12 @@ namespace VIZPub
         // ================================================
         // Method
         // ================================================
+        /// <summary>
+        /// Add Parameter
+        /// </summary>
+        /// <param name="key">Key</param>
+        /// <param name="value">Value</param>
+        /// <returns>Result</returns>
         public bool Add(PublishParameters key, object value)
         {
             if (Parameter.ContainsKey(key) == true) return false;
@@ -189,17 +201,32 @@ namespace VIZPub
             return true;
         }
 
+        /// <summary>
+        /// Exist Parameter
+        /// </summary>
+        /// <param name="key">Key</param>
+        /// <returns>Result</returns>
         public bool Exist(PublishParameters key)
         {
             return Parameter.ContainsKey(key);
         }
 
+        /// <summary>
+        /// Get Parameter Value
+        /// </summary>
+        /// <param name="key">Key</param>
+        /// <returns>Result</returns>
         public object GetValue(PublishParameters key)
         {
             if (Exist(key) == true) return Parameter[key];
             else return null;
         }
 
+        /// <summary>
+        /// Set Parameter Value
+        /// </summary>
+        /// <param name="key">Key</param>
+        /// <param name="value">Value</param>
         public void SetValue(PublishParameters key, object value)
         {
             if (Exist(key) == false)
@@ -208,6 +235,10 @@ namespace VIZPub
                 Parameter[key] = value;
         }
 
+        /// <summary>
+        /// Parameter To String
+        /// </summary>
+        /// <returns>Result</returns>
         public override string ToString()
         {
             string parameter = String.Empty;

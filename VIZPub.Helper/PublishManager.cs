@@ -5,6 +5,9 @@ using System.Text;
 
 namespace VIZPub
 {
+    /// <summary>
+    /// Publish Manager Class
+    /// </summary>
     public class PublishManager
     {
         // ================================================
@@ -43,6 +46,10 @@ namespace VIZPub
         // ================================================
         // Construction
         // ================================================
+        /// <summary>
+        /// Construction
+        /// </summary>
+        /// <param name="vizpub_path">VIZPub Program Path</param>
         public PublishManager(string vizpub_path)
         {
             VIZPub_Path = vizpub_path;
@@ -156,7 +163,7 @@ namespace VIZPub
         // ================================================
         // Method :: Publish
         // ================================================
-        internal bool Export(PublishParameter parameter)
+        internal bool IExport(PublishParameter parameter)
         {
             // Check Parameter (Necessary)  
             if (parameter.Exist(PublishParameters.INPUT) == false)
@@ -212,11 +219,15 @@ namespace VIZPub
             try
             {
                 if (System.IO.File.Exists(local_output) == true)
+                {
                     System.IO.File.Delete(original_output);
-
-                System.IO.File.Move(local_output, original_output);
-
-                return System.IO.File.Exists(original_output);
+                    System.IO.File.Move(local_output, original_output);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -225,35 +236,56 @@ namespace VIZPub
             }
         }
 
+        /// <summary>
+        /// Export VIZ
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ExportVIZ(PublishParameter parameter)
         {
             // Add Mode
             parameter.Add(PublishParameters.MODE, 0);
 
-            return Export(parameter);
+            return IExport(parameter);
         }
 
         
-
+        /// <summary>
+        /// Export VIZM (VIZWing)
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ExportVIZM(PublishParameter parameter)
         {
             // Add Mode
             parameter.Add(PublishParameters.MODE, 1);
+            parameter.Add(PublishParameters.OUTPUT_VIZM, GetLocalPath(LocalPaths.Output, (string)parameter.GetValue(PublishParameters.OUTPUT)));
 
-            return Export(parameter);
+            return IExport(parameter);
         }
 
+        /// <summary>
+        /// Export VIZW (VIZWeb)
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ExportVIZW(PublishParameter parameter)
         {
             // Add Mode
             parameter.Add(PublishParameters.MODE, 7);
+            parameter.Add(PublishParameters.OUTPUT_VIZW, GetLocalPath(LocalPaths.Output, (string)parameter.GetValue(PublishParameters.OUTPUT)));
 
-            return Export(parameter);
+            return IExport(parameter);
         }
 
         // ================================================
         // Method :: Merge VIZ
         // ================================================
+        /// <summary>
+        /// Merge VIZ File or Node
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool MergeVIZ(PublishParameter parameter)
         {
             // METADATA
@@ -267,6 +299,11 @@ namespace VIZPub
         // ================================================
         // Method :: Metadata
         // ================================================
+        /// <summary>
+        /// Export Metadata
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ExportMetadata(PublishParameter parameter)
         {
             return false;
@@ -276,16 +313,31 @@ namespace VIZPub
         // ================================================
         // Method :: Attribute
         // ================================================
+        /// <summary>
+        /// Import Attribute
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ImportAttribute(PublishParameter parameter)
         {
             return false;
         }
 
+        /// <summary>
+        /// Export Attribute
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ExportAttribute(PublishParameter parameter)
         {
             return false;
         }
 
+        /// <summary>
+        /// Clear Attribute
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ClearAttribute(PublishParameter parameter)
         {
             return false;
@@ -294,6 +346,11 @@ namespace VIZPub
         // ================================================
         // Method :: Image (Thumbnail)
         // ================================================
+        /// <summary>
+        /// Export Image
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ExportImage(PublishParameter parameter)
         {
             return false;
@@ -302,6 +359,11 @@ namespace VIZPub
         // ================================================
         // Method :: Color
         // ================================================
+        /// <summary>
+        /// Change Model Color
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool ChangeColor(PublishParameter parameter)
         {
             return false;
