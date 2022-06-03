@@ -13,11 +13,13 @@ namespace VIZPub.Test.Console
         {
             VIZPub_Path = "D:\\SH_GitHub\\VIZPub\\VIZPub\\VIZPub.exe";
 
-            ExportVIZ();
-            ExportVIZM();
-            ExportVIZW();
+            //ExportVIZ();
+            //ExportVIZM();
+            //ExportVIZW();
 
-            // (2) Extract Metadata
+            //ExportMetadata();
+            //LoadMetadata();
+
             // (3) Merge VIZ By Metadata
             // (4) Merge VIZM By Metadata
             // (5) Merge VIZW By Metadata
@@ -87,6 +89,39 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportVIZW(parameter);
+        }
+
+        public static void ExportMetadata()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.txt");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportMetadata(parameter);
+        }
+
+        public static void LoadMetadata()
+        {
+            VIZPub.MetadataLoader loader = new MetadataLoader();
+
+            List<VIZPub.Node> items = new List<VIZPub.Node>();
+
+            bool result = loader.Load("C:\\Temp\\Model.txt", out items);
+
+            if (result == false) return;
+
+            foreach (VIZPub.Node item in items)
+            {
+                if (item.Kind == Node.NodeKind.BODY) continue;
+
+                System.Console.WriteLine(string.Format("ID : {0} / PID : {1} / DEPTH : {2} / KIND : {3} / NAME : {4}", item.ID, item.PARENTID, item.Depth, item.Kind, item.Name));
+                System.Console.WriteLine(string.Format("{0} / {1} / {2}", item.BoundBoxMinX, item.BoundBoxMinY, item.BoundBoxMinZ));
+                System.Console.WriteLine(string.Format("{0} / {1} / {2}", item.BoundBoxMaxX, item.BoundBoxMaxY, item.BoundBoxMaxZ));
+            }
         }
     }
 }

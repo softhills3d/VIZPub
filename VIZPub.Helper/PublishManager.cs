@@ -306,7 +306,10 @@ namespace VIZPub
         /// <returns>Publish Result</returns>
         public bool ExportMetadata(PublishParameter parameter)
         {
-            return false;
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 2);
+
+            return IExport(parameter);
         }
 
 
