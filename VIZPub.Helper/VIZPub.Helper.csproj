@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CEnum.cs" />
+    <Compile Include="MergeItem.cs" />
+    <Compile Include="MergeItemManager.cs" />
     <Compile Include="MetadataLoader.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="ProcessHelper.cs" />

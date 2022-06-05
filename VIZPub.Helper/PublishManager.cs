@@ -288,11 +288,36 @@ namespace VIZPub
         /// <returns>Publish Result</returns>
         public bool MergeVIZ(PublishParameter parameter)
         {
-            // METADATA
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 3);
 
-            // MERGE RULE FILE (?)
+            return IExport(parameter);
+        }
 
-            return false;
+        /// <summary>
+        /// Merge VIZM File or Node
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool MergeVIZM(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 4);
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Merge VIZW File or Node
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool MergeVIZW(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 5);
+
+            return IExport(parameter);
         }
 
 
