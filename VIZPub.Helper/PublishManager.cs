@@ -163,7 +163,7 @@ namespace VIZPub
         // ================================================
         // Method :: Publish
         // ================================================
-        internal bool IExport(PublishParameter parameter)
+        internal bool IExport(PublishParameter parameter, bool output_dir = false)
         {
             // Check Parameter (Necessary)  
             if (parameter.Exist(PublishParameters.INPUT) == false)
@@ -176,6 +176,12 @@ namespace VIZPub
             string original_input = (string)parameter.GetValue(PublishParameters.INPUT);
             string original_output = (string)parameter.GetValue(PublishParameters.OUTPUT);
 
+            if(output_dir == true)
+            {
+                if (String.IsNullOrEmpty(original_output) == false && System.IO.Directory.Exists(original_output) == false)
+                    System.IO.Directory.CreateDirectory(original_output);
+            }
+
             if (String.IsNullOrEmpty(original_input) == true)
                 throw new NullReferenceException("Input Path is null.");
 
@@ -185,13 +191,24 @@ namespace VIZPub
             if (System.IO.File.Exists(original_input) == false)
                 throw new System.IO.FileNotFoundException(string.Format("Input File Not Found.\r\n\r\n{0}", original_input));
 
-            string local_input = GetLocalPath(LocalPaths.Input, original_input);
-            string local_output = GetLocalPath(LocalPaths.Output, original_output);
+            string local_input = String.Empty;
+            string local_output = String.Empty;
 
-            // Update Path
-            parameter.SetValue(PublishParameters.INPUT, local_input);
-            parameter.SetValue(PublishParameters.OUTPUT, local_output);
+            if (output_dir == false) // File
+            {
+                local_input = GetLocalPath(LocalPaths.Input, original_input);
+                local_output = GetLocalPath(LocalPaths.Output, original_output);
 
+                // Update Path
+                parameter.SetValue(PublishParameters.INPUT, local_input);
+                parameter.SetValue(PublishParameters.OUTPUT, local_output);
+            }
+            else
+            {
+                if (System.IO.Directory.Exists(original_output) == false)
+                    System.IO.Directory.CreateDirectory(original_output);
+            }
+            
             string argument = parameter.ToString();
 
             // Publish
@@ -207,32 +224,49 @@ namespace VIZPub
                     , false     /* Use Shell Execute */
                     );
 
-            System.IO.File.Delete(local_input);
-
-            if (result == false)
+            if (output_dir == false)
             {
-                System.IO.File.Delete(local_output);
+                System.IO.File.Delete(local_input);
 
-                return result;
-            }
-
-            try
-            {
-                if (System.IO.File.Exists(local_output) == true)
+                if (result == false)
                 {
-                    System.IO.File.Delete(original_output);
-                    System.IO.File.Move(local_output, original_output);
-                    return true;
+                    System.IO.File.Delete(local_output);
+
+                    return result;
                 }
-                else
+
+                try
                 {
+                    if (System.IO.File.Exists(local_output) == true)
+                    {
+                        System.IO.File.Delete(original_output);
+                        System.IO.File.Move(local_output, original_output);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
                     return false;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                try
+                {
+                    string[] files = System.IO.Directory.GetFiles(original_output, "*.*", System.IO.SearchOption.TopDirectoryOnly);
+                    if (files != null && files.Length > 0) return true;
+                    else return false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
             }
         }
 
@@ -348,7 +382,10 @@ namespace VIZPub
         /// <returns>Publish Result</returns>
         public bool ImportAttribute(PublishParameter parameter)
         {
-            return false;
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 9);
+
+            return IExport(parameter);
         }
 
         /// <summary>
@@ -358,7 +395,10 @@ namespace VIZPub
         /// <returns>Publish Result</returns>
         public bool ExportAttribute(PublishParameter parameter)
         {
-            return false;
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 8);
+
+            return IExport(parameter);
         }
 
         /// <summary>
@@ -368,7 +408,10 @@ namespace VIZPub
         /// <returns>Publish Result</returns>
         public bool ClearAttribute(PublishParameter parameter)
         {
-            return false;
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 10);
+
+            return IExport(parameter);
         }
 
         // ================================================
@@ -381,7 +424,18 @@ namespace VIZPub
         /// <returns>Publish Result</returns>
         public bool ExportImage(PublishParameter parameter)
         {
-            return false;
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 6);
+
+            NodeUnit unit = (NodeUnit)parameter.GetValue(PublishParameters.THUMBNAIL_IMAGE_NODE_UNIT);
+            if(unit == NodeUnit.NODE_UNIT)
+            {
+                return IExport(parameter, true);
+            }
+            else
+            {
+                return IExport(parameter, false);
+            }
         }
 
         // ================================================

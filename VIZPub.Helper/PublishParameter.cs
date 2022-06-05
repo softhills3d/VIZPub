@@ -106,6 +106,9 @@ namespace VIZPub
                 case PublishParameters.DGN_QUALITY:
                     parameter = string.Format("-dq {0}", value);
                     break;
+                case PublishParameters.NODE_MERGE_OPTIONS:
+                    parameter = string.Format("-wo {0}", (int)value);
+                    break;
                 case PublishParameters.THUMBNAIL_WIDTH:
                     parameter = string.Format("-w {0}", GetInteger(value));
                     break;
@@ -113,16 +116,16 @@ namespace VIZPub
                     parameter = string.Format("-h {0}", GetInteger(value));
                     break;
                 case PublishParameters.THUMBNAIL_VIEW_DIRECTION:
-                    parameter = string.Format("-vd {0}", value);
+                    parameter = string.Format("-vd {0}", (int)value);
                     break;
                 case PublishParameters.THUMBNAIL_IMAGE_FORMAT:
-                    parameter = string.Format("-if {0}", value);
+                    parameter = string.Format("-if {0}", (int)value);
                     break;
                 case PublishParameters.THUMBNAIL_IMAGE_NAME:
-                    parameter = string.Format("-nt {0}", value);
+                    parameter = string.Format("-nt {0}", (int)value);
                     break;
                 case PublishParameters.THUMBNAIL_IMAGE_NODE_UNIT:
-                    parameter = string.Format("-nu {0}", value);
+                    parameter = string.Format("-nu {0}", (int)value);
                     break;
                 case PublishParameters.THUMBNAIL_IMAGE_MATRIX:
                     parameter = string.Format("-matrix {0}", value);

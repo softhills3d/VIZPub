@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttributeItem.cs" />
+    <Compile Include="AttributeItemManager.cs" />
+    <Compile Include="AttributeLoader.cs" />
     <Compile Include="CEnum.cs" />
     <Compile Include="MergeItem.cs" />
     <Compile Include="MergeItemManager.cs" />

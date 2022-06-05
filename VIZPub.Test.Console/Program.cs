@@ -18,20 +18,24 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model2.rvm");
             //ExportVIZ("C:\\Temp\\Model3.rvm");
 
-            //ExportVIZM();
-            //ExportVIZW();
+            //ExportVIZM();         // VIZM - Android (VIZWing)
+            //ExportVIZW();         // VIZW - Web (VIZWeb3D)
 
-            //ExportMetadata();
+            //ExportMetadata();     // Structure, BoundBox, Kind
             //LoadMetadata();
 
-            //MergeVIZ();     // Merge VIZ By Metadata
-            //MergeVIZM();    // Merge VIZM By Metadata
-            //MergeVIZW();    // Merge VIZW By Metadata
+            //MergeVIZ();           // Merge VIZ By Metadata
+            //MergeVIZM();          // Merge VIZM By Metadata
+            //MergeVIZW();          // Merge VIZW By Metadata
 
-            // (6) Thumbnail
-            // (8) Export Attribute
-            // (9) Import Attribute
-            // (10) Remove Attribute
+            //ExportImage_Case1();    // Image - Whole Model
+            //ExportImage_Case2();    // Image - Node
+
+            //ExportAttribute();
+            //LoadAttribute();
+            //ImportAttribute();
+            //ClearAttribute();
+
             // (12) Leaf Assembly To Part
             // (13) Merge By Rule XML File
             // (14) Export Node
@@ -43,6 +47,7 @@ namespace VIZPub.Test.Console
             // (60) Change Color
             // (100) HMF to VIZ, VIZW
             // (200) VIZ to FBX
+            // Export Grid
         }
 
         private static void ExportVIZ()
@@ -52,15 +57,17 @@ namespace VIZPub.Test.Console
             parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.rvm");
             parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.viz");
 
-            parameter.Add(PublishParameters.GENERATE_EDGE, true);                   // [Optional] True or False. Default(True)
-            parameter.Add(PublishParameters.GENERATE_THUMBNAIL, true);              // [Optional] True or False. Default(True)
+            parameter.Add(PublishParameters.GENERATE_EDGE, true);                           // [Optional] True or False. Default(True)
+            parameter.Add(PublishParameters.GENERATE_THUMBNAIL, true);                      // [Optional] True or False. Default(True)
 
-            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_NORMAL, 12);        // [Optional] 6 ~ 36. Default(12)
-            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_SMALL, 6);          // [Optional] 6 ~ 36. Default(6)
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_NORMAL, 12);                // [Optional] 6 ~ 36. Default(12)
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_SMALL, 6);                  // [Optional] 6 ~ 36. Default(6)
 
-            parameter.Add(PublishParameters.REMOVE_NODENAME_SLASH, false);          // [Optional] True or False. Default(False)
+            parameter.Add(PublishParameters.REMOVE_NODENAME_SLASH, false);                  // [Optional] True or False. Default(False)
 
-            parameter.Add(PublishParameters.VERSION, 303);                          // [Optional] 303 or 304. Default(303)
+            parameter.Add(PublishParameters.VERSION, 303);                                  // [Optional] 303 or 304. Default(303)
+
+            parameter.Add(PublishParameters.NODE_MERGE_OPTIONS, NodeMergeOptions.AS_IS);    // [Optional] As-Is. Default(As-Is) 
 
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
@@ -138,7 +145,7 @@ namespace VIZPub.Test.Console
 
             List<VIZPub.Node> items = new List<VIZPub.Node>();
 
-            bool result = loader.Load("C:\\Temp\\Model.txt", out items);
+            bool result = loader.Load("C:\\Temp\\Model_Attribute.txt", out items);
 
             if (result == false) return;
 
@@ -210,6 +217,127 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.MergeVIZW(parameter);
+        }
+
+        public static void ExportImage_Case1()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.THUMBNAIL_WIDTH, 400);
+            parameter.Add(PublishParameters.THUMBNAIL_HEIGHT, 300);
+            parameter.Add(PublishParameters.THUMBNAIL_VIEW_DIRECTION, ViewDirection.ISO_PLUS);
+            parameter.Add(PublishParameters.THUMBNAIL_IMAGE_FORMAT, ImageFormat.PNG);
+            parameter.Add(PublishParameters.THUMBNAIL_IMAGE_NODE_UNIT, NodeUnit.ALL_MODEL);
+            parameter.Add(PublishParameters.THUMBNAIL_IMAGE_NAME, NameKind.NONE);
+            //parameter.Add(PublishParameters.THUMBNAIL_IMAGE_MATRIX, "");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.png");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportImage(parameter);
+        }
+
+        public static void ExportImage_Case2()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.THUMBNAIL_WIDTH, 400);
+            parameter.Add(PublishParameters.THUMBNAIL_HEIGHT, 300);
+            parameter.Add(PublishParameters.THUMBNAIL_VIEW_DIRECTION, ViewDirection.ISO_PLUS);
+            parameter.Add(PublishParameters.THUMBNAIL_IMAGE_FORMAT, ImageFormat.PNG);
+            parameter.Add(PublishParameters.THUMBNAIL_IMAGE_NODE_UNIT, NodeUnit.NODE_UNIT);
+            parameter.Add(PublishParameters.THUMBNAIL_IMAGE_NAME, NameKind.NODE_ID);
+            //parameter.Add(PublishParameters.THUMBNAIL_IMAGE_MATRIX, "");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Image");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportImage(parameter);
+        }
+
+        public static void ExportAttribute()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model_Attribute.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Attribute.txt");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportAttribute(parameter);
+        }
+
+        public static void LoadAttribute()
+        {
+            VIZPub.AttributeLoader loader = new AttributeLoader();
+
+            Dictionary<int, List<AttributeItem>> items = new Dictionary<int, List<AttributeItem>>();
+
+            bool result = loader.Load("C:\\Temp\\Model_Attribute.txt", out items);
+
+            if (result == false) return;
+
+            foreach (KeyValuePair<int, List<AttributeItem>> item in items)
+            {
+                int nodeId = item.Key;
+                List<AttributeItem> values = item.Value;
+
+                foreach (AttributeItem value in values)
+                {
+                    System.Console.WriteLine(string.Format("{0} : {1} - {2}", value.NodeID, value.Key, value.Value));
+                }
+            }
+        }
+
+        public static void ImportAttribute()
+        {
+            VIZPub.MetadataLoader loader = new MetadataLoader();
+            List<VIZPub.Node> items = new List<VIZPub.Node>();
+            bool result_metadata = loader.Load("C:\\Temp\\Model.txt", out items);
+            if (result_metadata == false) return;
+
+            List<AttributeItem> attribute = new List<AttributeItem>();
+            foreach (VIZPub.Node item in items)
+            {
+                if (item.Kind == Node.NodeKind.BODY) continue;
+                if (item.Kind == Node.NodeKind.ASSEMBLY) continue;
+
+                attribute.Add(new AttributeItem(item.ID, "NAME", item.Name));
+                attribute.Add(new AttributeItem(item.ID, "KIND", "PART"));
+            }
+
+            AttributeItemManager attributeItemManager = new AttributeItemManager();
+            attributeItemManager.Export("C:\\Temp\\Model_Attribute_Import.txt", attribute);
+
+
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model_Attribute_Clear.viz");
+            parameter.Add(PublishParameters.ATTRIBUTE_FILE, "C:\\Temp\\Model_Attribute_Import.txt");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Attribute_Import.viz");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ImportAttribute(parameter);
+        }
+
+        public static void ClearAttribute()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model_Attribute.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Attribute_Clear.viz");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ClearAttribute(parameter);
         }
     }
 }

@@ -59,6 +59,110 @@ namespace VIZPub
     }
 
     /// <summary>
+    /// View Direction
+    /// </summary>
+    public enum ViewDirection
+    {
+        /// <summary>
+        /// ISO +
+        /// </summary>
+        ISO_PLUS = 0,
+
+        /// <summary>
+        /// ISO -
+        /// </summary>
+        ISO_MINUS = 1,
+
+        /// <summary>
+        /// FRONT
+        /// </summary>
+        FRONT = 2,
+
+        /// <summary>
+        /// BACK
+        /// </summary>
+        BACK = 3,
+
+        /// <summary>
+        /// LEFT
+        /// </summary>
+        LEFT = 4,
+
+        /// <summary>
+        /// RIGHT
+        /// </summary>
+        RIGHT = 5,
+
+        /// <summary>
+        /// TOP
+        /// </summary>
+        TOP = 6,
+
+        /// <summary>
+        /// BOTTOM
+        /// </summary>
+        BOTTOM = 7
+    }
+
+    /// <summary>
+    /// Image Format
+    /// </summary>
+    public enum ImageFormat
+    {
+        /// <summary>
+        /// JPG
+        /// </summary>
+        JPG = 0,
+
+        /// <summary>
+        /// PNG
+        /// </summary>
+        PNG = 1
+    }
+
+    /// <summary>
+    /// EXPORT NAME KIND
+    /// </summary>
+    public enum NameKind
+    {
+        /// <summary>
+        /// 노드이름
+        /// </summary>
+        NODE_NAME = 0,
+
+        /// <summary>
+        /// 노드아이디
+        /// </summary>
+        NODE_ID = 1,
+
+        /// <summary>
+        /// 노드아이디 + "." + 노드이름
+        /// </summary>
+        NODE_ID_AND_NODE_NAME = 2,
+
+        /// <summary>
+        /// 미지정
+        /// </summary>
+        NONE = 3
+    }
+
+    /// <summary>
+    /// Node Unit
+    /// </summary>
+    public enum NodeUnit
+    {
+        /// <summary>
+        /// 전체 모델
+        /// </summary>
+        ALL_MODEL = 0,
+
+        /// <summary>
+        /// 노드 단위
+        /// </summary>
+        NODE_UNIT = 1
+    }
+
+    /// <summary>
     /// Publish Parameters
     /// </summary>
     public enum PublishParameters
@@ -70,157 +174,162 @@ namespace VIZPub
         /// <summary>
         /// INPUT FILE
         /// </summary>
-        INPUT = 1,
+        INPUT,
         /// <summary>
         /// OUTPUT FILE
         /// </summary>
-        OUTPUT = 2,
+        OUTPUT,
         /// <summary>
         /// OUTPUT VIZM FILE
         /// </summary>
-        OUTPUT_VIZM = 3,
+        OUTPUT_VIZM,
         /// <summary>
         /// OUTPUT VIZW FILE
         /// </summary>
-        OUTPUT_VIZW = 4,
+        OUTPUT_VIZW,
 
         /// <summary>
         /// VIZ FILE VERSION
         /// </summary>
-        VERSION = 10,
+        VERSION,
         /// <summary>
         /// EXPORT MERGED NODE
         /// </summary>
-        EXPORT_MERGE_NODE = 11,
+        EXPORT_MERGE_NODE,
 
         /// <summary>
         /// MERGE RULE FILE
         /// </summary>
-        MERGE_RULE_FILE = 20,
+        MERGE_RULE_FILE,
         /// <summary>
         /// ATTRIBUTE FILE
         /// </summary>
-        ATTRIBUTE_FILE = 21,
+        ATTRIBUTE_FILE,
 
 
         /// <summary>
         /// GENERATE EDGE DATA
         /// </summary>
-        GENERATE_EDGE = 30,
+        GENERATE_EDGE,
 
         /// <summary>
         /// GENERATE THUMBNAIL
         /// </summary>
-        GENERATE_THUMBNAIL = 31,
+        GENERATE_THUMBNAIL,
         /// <summary>
         /// CYLINDER SIDE COUNT (12 ~ 36)
         /// </summary>
-        CYLINDER_SIDE_COUNT_NORMAL = 32,
+        CYLINDER_SIDE_COUNT_NORMAL,
         /// <summary>
         /// CYLINDER SIDE COUNT (6~36)
         /// </summary>
-        CYLINDER_SIDE_COUNT_SMALL = 33,
+        CYLINDER_SIDE_COUNT_SMALL,
         /// <summary>
         /// REMOVE NODENAME SLASH
         /// </summary>
-        REMOVE_NODENAME_SLASH = 34,
+        REMOVE_NODENAME_SLASH,
         /// <summary>
         /// DGN QUALITY
         /// </summary>
-        DGN_QUALITY = 35,
+        DGN_QUALITY,
+
+        /// <summary>
+        /// NODE MERGE OPTIONS (NOT SIMPLIFY)
+        /// </summary>
+        NODE_MERGE_OPTIONS,
 
         /// <summary>
         /// THUMBNAIL WIDTH
         /// </summary>
-        THUMBNAIL_WIDTH = 50,
+        THUMBNAIL_WIDTH,
         /// <summary>
         /// THUMBNAIL HEIGHT
         /// </summary>
-        THUMBNAIL_HEIGHT = 51,
+        THUMBNAIL_HEIGHT,
         /// <summary>
         /// THUMBNAIL VIEW DIRECTION
         /// </summary>
-        THUMBNAIL_VIEW_DIRECTION = 52,
+        THUMBNAIL_VIEW_DIRECTION,
         /// <summary>
         /// THUMBNAIL IMAGE FORMAT
         /// </summary>
-        THUMBNAIL_IMAGE_FORMAT = 53,
+        THUMBNAIL_IMAGE_FORMAT,
         /// <summary>
         /// THUMBNAIL IMAGE FILE NAME
         /// </summary>
-        THUMBNAIL_IMAGE_NAME = 54,
+        THUMBNAIL_IMAGE_NAME,
         /// <summary>
         /// THUMBNAIL IMAGE NODE UNIT
         /// </summary>
-        THUMBNAIL_IMAGE_NODE_UNIT = 55,
+        THUMBNAIL_IMAGE_NODE_UNIT,
         /// <summary>
         /// THUMBNAIL IMAGE MATRIX
         /// </summary>
-        THUMBNAIL_IMAGE_MATRIX = 56,
+        THUMBNAIL_IMAGE_MATRIX,
 
         /// <summary>
         /// COLOR - ALPHA
         /// </summary>
-        COLOR_A = 60,
+        COLOR_A,
         /// <summary>
         /// COLOR - RED
         /// </summary>
-        COLOR_R = 61,
+        COLOR_R,
         /// <summary>
         /// COLOR - GREEN
         /// </summary>
-        COLOR_G = 62,
+        COLOR_G,
         /// <summary>
         /// COLOR - BLUE
         /// </summary>
-        COLOR_B = 63,
+        COLOR_B,
 
         /// <summary>
         /// BOUNDING BOX INSPECTION
         /// </summary>
-        BOUNDBOX_INSPECTIOIN = 70,
+        BOUNDBOX_INSPECTIOIN,
         /// <summary>
         /// BOUNDING BOX - MIN. X
         /// </summary>
-        BOUNDBOX_MIN_X = 71,
+        BOUNDBOX_MIN_X,
         /// <summary>
         /// BOUNDING BOX MIN. Y
         /// </summary>
-        BOUNDBOX_MIN_Y = 72,
+        BOUNDBOX_MIN_Y,
         /// <summary>
         /// BOUNDING BOX MIN. Z
         /// </summary>
-        BOUNDBOX_MIN_Z = 73,
+        BOUNDBOX_MIN_Z,
         /// <summary>
         /// BOUNDING BOX MAX. X
         /// </summary>
-        BOUNDBOX_MAX_X = 74,
+        BOUNDBOX_MAX_X,
         /// <summary>
         /// BOUNDING BOX MAX. Y
         /// </summary>
-        BOUNDBOX_MAX_Y = 75,
+        BOUNDBOX_MAX_Y,
         /// <summary>
         /// BOUNDING BOX MAX. Z
         /// </summary>
-        BOUNDBOX_MAX_Z = 76,
+        BOUNDBOX_MAX_Z,
 
         /// <summary>
         /// LIMIT TRIANGLE
         /// </summary>
-        LIMIT_TRIANGLE = 77,
+        LIMIT_TRIANGLE,
         /// <summary>
         /// LIMIT TRIANGLE COUNT
         /// </summary>
-        LIMIT_TRIANGEL_COUNT = 78,
+        LIMIT_TRIANGEL_COUNT,
 
         /// <summary>
         /// DEBUG
         /// </summary>
-        DEBUG = 90,
+        DEBUG,
         /// <summary>
         /// LOG
         /// </summary>
-        LOG = 99
+        LOG
     }
 
     /// <summary>
@@ -247,9 +356,9 @@ namespace VIZPub
     }
 
     /// <summary>
-    /// VIZ WRITE OPTIONS
+    /// Node Merge Options (Not Simplify)
     /// </summary>
-    public enum WriteOptions
+    public enum NodeMergeOptions
     {
         /// <summary>
         /// AS IS
