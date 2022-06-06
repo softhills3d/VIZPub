@@ -130,17 +130,8 @@ namespace VIZPub
                 case PublishParameters.THUMBNAIL_IMAGE_MATRIX:
                     parameter = string.Format("-matrix {0}", value);
                     break;
-                case PublishParameters.COLOR_A:
-                    parameter = string.Format("-ca {0}", value);
-                    break;
-                case PublishParameters.COLOR_R:
-                    parameter = string.Format("-cr {0}", value);
-                    break;
-                case PublishParameters.COLOR_G:
-                    parameter = string.Format("-cg {0}", value);
-                    break;
-                case PublishParameters.COLOR_B:
-                    parameter = string.Format("-cb {0}", value);
+                case PublishParameters.COLOR:
+                    parameter = string.Format("-ca {0} -cr {1} -cg {2} -cb {3}", ((System.Drawing.Color)value).A, ((System.Drawing.Color)value).R, ((System.Drawing.Color)value).G, ((System.Drawing.Color)value).B);
                     break;
                 case PublishParameters.BOUNDBOX_INSPECTIOIN:
                     parameter = string.Format("-eb {0}", GetBoolean(value) == true ? 1 : 0);

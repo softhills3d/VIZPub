@@ -47,8 +47,8 @@ namespace VIZPub.Test.Console
 
             //ExportVIZWide3D();            // Export VIZWide3D
 
+            //ChangeColor();                // Change Color
 
-            // (60) Change Color
             // (19) NWD to HMF
             // (100) HMF to VIZ, VIZW
 
@@ -505,6 +505,20 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportVIZWide3D(parameter);
+        }
+
+        public static void ChangeColor()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Color.viz");
+            parameter.Add(PublishParameters.COLOR, System.Drawing.Color.Blue);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ChangeColor(parameter);
         }
     }
 }

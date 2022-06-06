@@ -289,21 +289,9 @@ namespace VIZPub
         THUMBNAIL_IMAGE_MATRIX,
 
         /// <summary>
-        /// COLOR - ALPHA
+        /// COLOR
         /// </summary>
-        COLOR_A,
-        /// <summary>
-        /// COLOR - RED
-        /// </summary>
-        COLOR_R,
-        /// <summary>
-        /// COLOR - GREEN
-        /// </summary>
-        COLOR_G,
-        /// <summary>
-        /// COLOR - BLUE
-        /// </summary>
-        COLOR_B,
+        COLOR,
 
         /// <summary>
         /// BOUNDING BOX INSPECTION
