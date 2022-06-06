@@ -78,5 +78,18 @@ namespace VIZPub
         {
             return String.Format("{0}<<,>>{1}<<,>>{2}", NodeID, Key, Value);
         }
+
+        /// <summary>
+        /// Has Value
+        /// </summary>
+        /// <returns>Result</returns>
+        public bool HasValue()
+        {
+            if (NodeID < 0) return false;
+            if (String.IsNullOrEmpty(Key) == true) return false;
+            if (String.IsNullOrEmpty(Value) == true) return false;
+
+            return true;
+        }
     }
 }

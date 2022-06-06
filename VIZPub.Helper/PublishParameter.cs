@@ -175,6 +175,15 @@ namespace VIZPub
                 case PublishParameters.LOG:
                     parameter = string.Format("-log {0}", value);
                     break;
+                case PublishParameters.OUTPUT_FILE_FORMAT:
+                    parameter = string.Format("-ft {0}", (int)value);
+                    break;
+                case PublishParameters.OUTPUT_NAME_KIND:
+                    parameter = string.Format("-nt {0}", (int)value);
+                    break;
+                case PublishParameters.OUTPUT_TARGET_NODE:
+                    parameter = string.Format("-tn {0}", (int)value);
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;

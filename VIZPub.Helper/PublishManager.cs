@@ -354,6 +354,32 @@ namespace VIZPub
             return IExport(parameter);
         }
 
+        /// <summary>
+        /// Merge Leaf Assembly To Part
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool MergeLeafAssemblyToPart(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 12);
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Merge By Rule XML File
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool MergeByRuleXMLFile(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 13);
+
+            return IExport(parameter);
+        }
+
 
         // ================================================
         // Method :: Metadata
@@ -412,6 +438,22 @@ namespace VIZPub
             parameter.Add(PublishParameters.MODE, 10);
 
             return IExport(parameter);
+        }
+
+        // ================================================
+        // Method :: Node
+        // ================================================
+        /// <summary>
+        /// Export Node
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportNode(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 14);
+
+            return IExport(parameter, true);
         }
 
         // ================================================

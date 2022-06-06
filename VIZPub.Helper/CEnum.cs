@@ -32,12 +32,12 @@ namespace VIZPub
         VIZ = 0,
 
         /// <summary>
-        /// SOFTHILLS VIZM FILE FORMAT. Mobile (Android)
+        /// SOFTHILLS VIZM FILE FORMAT. Mobile (Android) / VIZWing
         /// </summary>
         VIZM = 1,
 
         /// <summary>
-        /// SOFTHILLS VIZW FILE FORMAT. Web
+        /// SOFTHILLS VIZW FILE FORMAT. Web (HTML5) / VIZWeb3D / VIZWide3D
         /// </summary>
         VIZW = 2
     }
@@ -160,6 +160,22 @@ namespace VIZPub
         /// 노드 단위
         /// </summary>
         NODE_UNIT = 1
+    }
+
+    /// <summary>
+    /// TARGET NODE KIND
+    /// </summary>
+    public enum TargetNodeKind
+    {
+        /// <summary>
+        /// 전체 노드 : ASSEMBLY, PART
+        /// </summary>
+        ALL = 0,
+
+        /// <summary>
+        /// 파트 노드 : ONLY PART
+        /// </summary>
+        PART = 1
     }
 
     /// <summary>
@@ -321,6 +337,19 @@ namespace VIZPub
         /// LIMIT TRIANGLE COUNT
         /// </summary>
         LIMIT_TRIANGEL_COUNT,
+
+        /// <summary>
+        /// OUTPUT FILE FORMAT
+        /// </summary>
+        OUTPUT_FILE_FORMAT,
+        /// <summary>
+        /// OUTPUT FILE NAME KIND
+        /// </summary>
+        OUTPUT_NAME_KIND,
+        /// <summary>
+        /// OUTPUT TARGET NODE
+        /// </summary>
+        OUTPUT_TARGET_NODE,
 
         /// <summary>
         /// DEBUG

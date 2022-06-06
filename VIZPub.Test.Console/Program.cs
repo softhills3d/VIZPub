@@ -18,36 +18,42 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model2.rvm");
             //ExportVIZ("C:\\Temp\\Model3.rvm");
 
-            //ExportVIZM();         // VIZM - Android (VIZWing)
-            //ExportVIZW();         // VIZW - Web (VIZWeb3D)
+            //ExportVIZM();                 // VIZM - Android (VIZWing)
+            //ExportVIZW();                 // VIZW - Web (VIZWeb3D)
 
-            //ExportMetadata();     // Structure, BoundBox, Kind
+            //ExportMetadata();             // Structure, BoundBox, Kind
             //LoadMetadata();
 
-            //MergeVIZ();           // Merge VIZ By Metadata
-            //MergeVIZM();          // Merge VIZM By Metadata
-            //MergeVIZW();          // Merge VIZW By Metadata
+            //MergeVIZ();                   // Merge VIZ By Metadata
+            //MergeVIZM();                  // Merge VIZM By Metadata
+            //MergeVIZW();                  // Merge VIZW By Metadata
 
-            //ExportImage_Case1();    // Image - Whole Model
-            //ExportImage_Case2();    // Image - Node
+            //MergeLeafAssemblyToPart();    // Leaf Assembly To Part
 
-            //ExportAttribute();
-            //LoadAttribute();
-            //ImportAttribute();
-            //ClearAttribute();
+            //ExportImage_Case1();          // Image - Whole Model
+            //ExportImage_Case2();          // Image - Node
 
-            // (12) Leaf Assembly To Part
-            // (13) Merge By Rule XML File
-            // (14) Export Node
-            // (15) Export Neutral File
-            // (16) Create VTD
+            //ExportAttribute();            // Export Attribute
+            //LoadAttribute();              // Load Attribute
+            //ImportAttribute();            // Import Attribute
+            //ClearAttribute();             // Clear Attribute
+
+            //MergeByRuleXMLFile();         // Merge By Rule XML File
+
+            //ExportNode();                 // Export Node
+
+
             // (17) Simplify
             // (18) Export VIZWide3D
             // (19) NWD to HMF
             // (60) Change Color
             // (100) HMF to VIZ, VIZW
             // (200) VIZ to FBX
+
             // Export Grid
+
+            // (15) Export Neutral File
+            // (16) Create VTD
         }
 
         private static void ExportVIZ()
@@ -145,7 +151,7 @@ namespace VIZPub.Test.Console
 
             List<VIZPub.Node> items = new List<VIZPub.Node>();
 
-            bool result = loader.Load("C:\\Temp\\Model_Attribute.txt", out items);
+            bool result = loader.Load("C:\\Temp\\Model.txt", out items);
 
             if (result == false) return;
 
@@ -294,12 +300,53 @@ namespace VIZPub.Test.Console
             }
         }
 
+        public static void ExportMetadata_Attribute()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model_Attribute.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Attribute_Metadata.txt");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportMetadata(parameter);
+        }
+
         public static void ImportAttribute()
         {
+            ExportMetadata_Attribute();
+
             VIZPub.MetadataLoader loader = new MetadataLoader();
             List<VIZPub.Node> items = new List<VIZPub.Node>();
-            bool result_metadata = loader.Load("C:\\Temp\\Model.txt", out items);
+            bool result_metadata = loader.Load("C:\\Temp\\Model_Attribute_Metadata.txt", out items);
             if (result_metadata == false) return;
+
+            /*
+            int count_assembly = 0;
+            int count_part = 0;
+            int count_body = 0;
+
+            foreach (VIZPub.Node item in items)
+            {
+                switch (item.Kind)
+                {
+                    case Node.NodeKind.ASSEMBLY:
+                        count_assembly++;
+                        break;
+                    case Node.NodeKind.PART:
+                        count_part++;
+                        break;
+                    case Node.NodeKind.BODY:
+                        count_body++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            System.Console.WriteLine(string.Format("CA : {0:#,0} / CP : {1:#,0} / CB : {2:#,0}", count_assembly, count_part, count_body));
+            */
 
             List<AttributeItem> attribute = new List<AttributeItem>();
             foreach (VIZPub.Node item in items)
@@ -338,6 +385,54 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ClearAttribute(parameter);
+        }
+
+        public static void MergeLeafAssemblyToPart()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_LEAF_ASSY_TO_PART.viz");
+
+            parameter.Add(PublishParameters.GENERATE_EDGE, true);   // [Optional] True or False. Default(True)
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.MergeLeafAssemblyToPart(parameter);
+        }
+
+        public static void MergeByRuleXMLFile()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.rvm");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_RuleXmlFile.viz");
+            parameter.Add(PublishParameters.MERGE_RULE_FILE, "C:\\Temp\\MergeRules.xml");
+
+            parameter.Add(PublishParameters.GENERATE_EDGE, true);                           // [Optional] True or False. Default(True)
+            parameter.Add(PublishParameters.REMOVE_NODENAME_SLASH, false);                  // [Optional] True or False. Default(False)
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.MergeByRuleXMLFile(parameter);
+        }
+
+        public static void ExportNode()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Node");
+            parameter.Add(PublishParameters.OUTPUT_FILE_FORMAT, OutputFileFormat.VIZ);
+            parameter.Add(PublishParameters.OUTPUT_NAME_KIND, NameKind.NODE_ID);
+            parameter.Add(PublishParameters.OUTPUT_TARGET_NODE, TargetNodeKind.PART);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportNode(parameter);
         }
     }
 }

@@ -54,6 +54,7 @@ namespace VIZPub
                     if (String.IsNullOrEmpty(item) == true) continue;
 
                     AttributeItem attributeItem = new AttributeItem(item);
+                    if (attributeItem.HasValue() == false) continue;
 
                     if (attribute.ContainsKey(attributeItem.NodeID) == false)
                     {
