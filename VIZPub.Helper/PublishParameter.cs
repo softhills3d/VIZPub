@@ -169,11 +169,14 @@ namespace VIZPub
                 case PublishParameters.LIMIT_TRIANGEL_COUNT:
                     parameter = string.Format("-tc {0}", value);
                     break;
+                case PublishParameters.KEEP_STRUCTURE:
+                    parameter = string.Format("-ras {0}", GetBoolean(value) == true ? 1 : 0);
+                    break;
                 case PublishParameters.DEBUG:
                     parameter = string.Format("-debug {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.LOG:
-                    parameter = string.Format("-log {0}", value);
+                    parameter = string.Format("-log {0}", (int)value);
                     break;
                 case PublishParameters.OUTPUT_FILE_FORMAT:
                     parameter = string.Format("-ft {0}", (int)value);

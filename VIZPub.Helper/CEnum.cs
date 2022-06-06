@@ -37,9 +37,14 @@ namespace VIZPub
         VIZM = 1,
 
         /// <summary>
-        /// SOFTHILLS VIZW FILE FORMAT. Web (HTML5) / VIZWeb3D / VIZWide3D
+        /// SOFTHILLS VIZW FILE FORMAT. Web (HTML5) / VIZWeb3D
         /// </summary>
-        VIZW = 2
+        VIZW = 2,
+
+        /// <summary>
+        /// SOFTHILLS VIZW FILE FORMAT. Web (HTML5) / VIZWide3D
+        /// </summary>
+        VIZW_LOD = 3
     }
 
     /// <summary>
@@ -337,6 +342,11 @@ namespace VIZPub
         /// LIMIT TRIANGLE COUNT
         /// </summary>
         LIMIT_TRIANGEL_COUNT,
+
+        /// <summary>
+        /// KEEP STRUCTURE
+        /// </summary>
+        KEEP_STRUCTURE,
 
         /// <summary>
         /// OUTPUT FILE FORMAT

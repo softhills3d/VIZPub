@@ -42,12 +42,16 @@ namespace VIZPub.Test.Console
 
             //ExportNode();                 // Export Node
 
+            //Simplify_Case1();             // Simplify
+            //Simplify_Case2();             // Simplify
 
-            // (17) Simplify
-            // (18) Export VIZWide3D
-            // (19) NWD to HMF
+            //ExportVIZWide3D();            // Export VIZWide3D
+
+
             // (60) Change Color
+            // (19) NWD to HMF
             // (100) HMF to VIZ, VIZW
+
             // (200) VIZ to FBX
 
             // Export Grid
@@ -74,6 +78,8 @@ namespace VIZPub.Test.Console
             parameter.Add(PublishParameters.VERSION, 303);                                  // [Optional] 303 or 304. Default(303)
 
             parameter.Add(PublishParameters.NODE_MERGE_OPTIONS, NodeMergeOptions.AS_IS);    // [Optional] As-Is. Default(As-Is) 
+
+            parameter.Add(PublishParameters.LOG, LogKind.INFORMATION);                      // [Optional] Default(None)
 
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
@@ -433,6 +439,72 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportNode(parameter);
+        }
+
+        public static void Simplify_Case1()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Simplified.viz");
+            
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.Simplify(parameter);
+        }
+
+        public static void Simplify_Case2()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Simplified.viz");
+
+            parameter.Add(PublishParameters.BOUNDBOX_INSPECTIOIN, true);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_X, 0.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Y, 0.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Z, 0.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_X, 100.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Y, 100.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Z, 100.0f);
+
+            parameter.Add(PublishParameters.LIMIT_TRIANGLE, true);
+            parameter.Add(PublishParameters.LIMIT_TRIANGEL_COUNT, 1000);
+
+            parameter.Add(PublishParameters.KEEP_STRUCTURE, false);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.Simplify(parameter);
+        }
+
+        public static void ExportVIZWide3D()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\VIZWide3D");
+
+            parameter.Add(PublishParameters.GENERATE_EDGE, true);                           // [Optional] True or False. Default(True)
+            parameter.Add(PublishParameters.GENERATE_THUMBNAIL, true);                      // [Optional] True or False. Default(True)
+
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_NORMAL, 12);                // [Optional] 6 ~ 36. Default(12)
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_SMALL, 6);                  // [Optional] 6 ~ 36. Default(6)
+
+            parameter.Add(PublishParameters.REMOVE_NODENAME_SLASH, false);                  // [Optional] True or False. Default(False)
+
+            parameter.Add(PublishParameters.VERSION, 303);                                  // [Optional] 303 or 304. Default(303)
+
+            parameter.Add(PublishParameters.NODE_MERGE_OPTIONS, NodeMergeOptions.AS_IS);    // [Optional] As-Is. Default(As-Is) 
+
+            parameter.Add(PublishParameters.LOG, LogKind.INFORMATION);                      // [Optional] Default(None)
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportVIZWide3D(parameter);
         }
     }
 }

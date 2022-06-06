@@ -481,6 +481,50 @@ namespace VIZPub
         }
 
         // ================================================
+        // Method :: Simplify
+        // ================================================
+        /// <summary>
+        /// Simplify Model
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool Simplify(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 17);
+
+            return IExport(parameter, true);
+        }
+
+        // ================================================
+        // Method :: VIZWide3D
+        // ================================================
+        /// <summary>
+        /// Export VIZWide3D
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportVIZWide3D(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 18);
+
+            string input = (string)parameter.GetValue(PublishParameters.INPUT);
+            string name = System.IO.Path.GetFileNameWithoutExtension(input);
+
+            string output_dir = (string)parameter.GetValue(PublishParameters.OUTPUT);
+            string output_viz = string.Format("{0}\\{1}.viz", output_dir, name);
+            string output_vizw = string.Format("{0}\\{1}.vizw", output_dir, name);
+
+            parameter.Add(PublishParameters.OUTPUT_VIZW, output_vizw);
+            parameter.Add(PublishParameters.OUTPUT_FILE_FORMAT, OutputFileFormat.VIZW_LOD);
+
+            parameter.SetValue(PublishParameters.OUTPUT, output_viz);
+
+            return IExport(parameter);
+        }
+
+        // ================================================
         // Method :: Color
         // ================================================
         /// <summary>
