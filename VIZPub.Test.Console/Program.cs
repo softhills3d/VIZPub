@@ -49,18 +49,13 @@ namespace VIZPub.Test.Console
 
             //ChangeColor();                // Change Color
 
+            //ExportFBX();                  // VIZ to FBX
 
 
             // (19) NWD to HMF
             // (100) HMF to VIZ, VIZW
 
-            // (200) VIZ to FBX
-            ExportFBX();
-
             // Export Grid
-
-            // (15) Export Neutral File
-            // (16) Create VTD
         }
 
         private static void ExportVIZ()
