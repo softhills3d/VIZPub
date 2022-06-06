@@ -350,6 +350,11 @@ namespace VIZPub
         OUTPUT_TARGET_NODE,
 
         /// <summary>
+        /// FBX FILE ASCII
+        /// </summary>
+        FBX_FILE_ASCII,
+
+        /// <summary>
         /// DEBUG
         /// </summary>
         DEBUG,

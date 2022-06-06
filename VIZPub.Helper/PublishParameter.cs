@@ -178,6 +178,9 @@ namespace VIZPub
                 case PublishParameters.OUTPUT_TARGET_NODE:
                     parameter = string.Format("-tn {0}", (int)value);
                     break;
+                case PublishParameters.FBX_FILE_ASCII:
+                    parameter = string.Format("-ascii {0}", GetBoolean(value) == true ? 1 : 0);
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;

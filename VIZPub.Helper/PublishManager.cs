@@ -312,6 +312,19 @@ namespace VIZPub
             return IExport(parameter);
         }
 
+        /// <summary>
+        /// Export FBX
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportFBX(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 200);
+
+            return IExport(parameter);
+        }
+
         // ================================================
         // Method :: Merge VIZ
         // ================================================

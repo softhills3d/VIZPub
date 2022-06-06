@@ -49,10 +49,13 @@ namespace VIZPub.Test.Console
 
             //ChangeColor();                // Change Color
 
+
+
             // (19) NWD to HMF
             // (100) HMF to VIZ, VIZW
 
             // (200) VIZ to FBX
+            ExportFBX();
 
             // Export Grid
 
@@ -519,6 +522,20 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ChangeColor(parameter);
+        }
+
+        public static void ExportFBX()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.fbx");
+            parameter.Add(PublishParameters.FBX_FILE_ASCII, true);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportFBX(parameter);
         }
     }
 }
