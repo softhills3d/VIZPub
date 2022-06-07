@@ -412,4 +412,24 @@ namespace VIZPub
         Intermediate = 1,
         Output = 2
     }
+
+    /// <summary>
+    /// Translate Parameters
+    /// </summary>
+    public enum TranslateParameters
+    {
+        /// <summary>
+        /// MODE
+        /// </summary>
+        MODE = 0,
+
+        /// <summary>
+        /// INPUT FILE
+        /// </summary>
+        INPUT = 1,
+        /// <summary>
+        /// OUTPUT FILE
+        /// </summary>
+        OUTPUT = 2
+    }
 }

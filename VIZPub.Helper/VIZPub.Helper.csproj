@@ -55,6 +55,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishManager.cs" />
     <Compile Include="PublishParameter.cs" />
+    <Compile Include="TranslateManager.cs" />
+    <Compile Include="TranslateParameter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
