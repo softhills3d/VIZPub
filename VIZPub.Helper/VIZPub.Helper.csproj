@@ -43,20 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttributeItem.cs" />
-    <Compile Include="AttributeItemManager.cs" />
-    <Compile Include="AttributeLoader.cs" />
+    <Compile Include="Attribute\AttributeItem.cs" />
+    <Compile Include="Attribute\AttributeItemManager.cs" />
+    <Compile Include="Attribute\AttributeLoader.cs" />
     <Compile Include="CEnum.cs" />
-    <Compile Include="MergeItem.cs" />
-    <Compile Include="MergeItemManager.cs" />
-    <Compile Include="MetadataLoader.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="ProcessHelper.cs" />
+    <Compile Include="Merge\MergeItem.cs" />
+    <Compile Include="Merge\MergeItemManager.cs" />
+    <Compile Include="Metadata\MetadataLoader.cs" />
+    <Compile Include="Metadata\Node.cs" />
+    <Compile Include="Process\ProcessHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishManager.cs" />
-    <Compile Include="PublishParameter.cs" />
+    <Compile Include="Parameter\PublishParameter.cs" />
     <Compile Include="TranslateManager.cs" />
-    <Compile Include="TranslateParameter.cs" />
+    <Compile Include="Parameter\TranslateParameter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
