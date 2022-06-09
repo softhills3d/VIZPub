@@ -57,6 +57,13 @@ namespace VIZPub.Test.Console
 
             // Export Grid
             // Import FBX
+
+
+
+            // VIZXML
+            //CreateVIZXML_Case1();
+            //CreateVIZXML_Case2();
+            CreateVIZXML_Case3();
         }
 
         private static void ExportVIZ()
@@ -532,6 +539,42 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportFBX(parameter);
+        }
+
+        public static void CreateVIZXML_Case1()
+        {
+            VIZPub.VIZXMLManager vizxml = new VIZXMLManager("Root");
+
+            vizxml.Add(new VIZXMLNode("NODE A"));
+            vizxml.Add(new VIZXMLNode("NODE B"));
+            vizxml.Add(new VIZXMLNode("NODE C"));
+
+            vizxml.Export("C:\\Temp\\VIZXML_Case1.vizxml");
+        }
+
+        public static void CreateVIZXML_Case2()
+        {
+            VIZPub.VIZXMLManager vizxml = new VIZXMLManager("Root");
+
+            VIZXMLNode aNode = new VIZXMLNode("NODE A");
+            aNode.Nodes.Add(new VIZXMLNode("NODE A-1"));
+            aNode.Nodes.Add(new VIZXMLNode("NODE A-2"));
+            aNode.Nodes.Add(new VIZXMLNode("NODE A-3"));
+
+            vizxml.Add(aNode);
+            vizxml.Add(new VIZXMLNode("NODE B"));
+            vizxml.Add(new VIZXMLNode("NODE C"));
+
+            vizxml.Export("C:\\Temp\\VIZXML_Case2.vizxml");
+        }
+
+        public static void CreateVIZXML_Case3()
+        {
+            VIZPub.VIZXMLManager vizxml = new VIZXMLManager("Root");
+
+            
+
+            vizxml.Export("C:\\Temp\\VIZXML_Case2.vizxml");
         }
     }
 }

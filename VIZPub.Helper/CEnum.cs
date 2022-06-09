@@ -432,4 +432,41 @@ namespace VIZPub
         /// </summary>
         OUTPUT = 2
     }
+
+    /// <summary>
+    /// VIZXML Node Kind
+    /// </summary>
+    public enum VIZXMLNodeKind
+    {
+        /// <summary>
+        /// Node
+        /// </summary>
+        Node = 0,
+
+        /// <summary>
+        /// External Link File
+        /// </summary>
+        LinkFile = 1,
+
+        /// <summary>
+        /// External Link Node
+        /// </summary>
+        LinkNode = 2
+    }
+
+    /// <summary>
+    /// VIZXML Node Object Type
+    /// </summary>
+    public enum VIZXMLNodeType
+    {
+        /// <summary>
+        /// Assembly Node
+        /// </summary>
+        Assembly = 0,
+
+        /// <summary>
+        /// Part Node
+        /// </summary>
+        Part = 1
+    }
 }
