@@ -360,6 +360,11 @@ namespace VIZPub
         LOAD_HIDDEN_ENTITY,
 
         /// <summary>
+        /// INCLUDE BODY ATTRIBUTE
+        /// </summary>
+        INCLUDE_BODY_ATTRIBUTE,
+
+        /// <summary>
         /// DEBUG
         /// </summary>
         DEBUG,

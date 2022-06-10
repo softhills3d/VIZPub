@@ -11,7 +11,7 @@ namespace VIZPub.Test.Console
 
         public VIZCoreTransTest()
         {
-
+            VIZCoreTrans_Path = "D:\\SH_GitHub\\VIZPub\\VIZCoreTrans\\VIZCoreTrans.exe";
         }
 
         public void Test()

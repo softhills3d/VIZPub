@@ -36,7 +36,7 @@ namespace VIZPub.Test.Console
             //ExportImage_Case1();          // Image - Whole Model
             //ExportImage_Case2();          // Image - Node
 
-            //ExportAttribute();            // Export Attribute
+            ExportAttribute();            // Export Attribute
             //LoadAttribute();              // Load Attribute
             //ImportAttribute();            // Import Attribute
             //ClearAttribute();             // Clear Attribute
@@ -277,6 +277,8 @@ namespace VIZPub.Test.Console
 
             parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model_Attribute.viz");
             parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Attribute.txt");
+
+            parameter.Add(PublishParameters.INCLUDE_BODY_ATTRIBUTE, true);                  // [Optional] True or False. Default(False)
 
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe

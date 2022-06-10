@@ -184,6 +184,9 @@ namespace VIZPub
                 case PublishParameters.FBX_FILE_ASCII:
                     parameter = string.Format("-ascii {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
+                case PublishParameters.INCLUDE_BODY_ATTRIBUTE:
+                    parameter = string.Format("-batt {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;
