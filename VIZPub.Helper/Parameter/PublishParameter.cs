@@ -91,6 +91,9 @@ namespace VIZPub
                 case PublishParameters.GENERATE_EDGE:
                     parameter = string.Format("-e {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
+                case PublishParameters.LOAD_HIDDEN_ENTITY:
+                    parameter = string.Format("-hidden {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
                 case PublishParameters.GENERATE_THUMBNAIL:
                     parameter = string.Format("-t {0}", GetBoolean(value) == true ? 1 : 0);
                     break;

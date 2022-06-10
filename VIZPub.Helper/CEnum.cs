@@ -355,6 +355,11 @@ namespace VIZPub
         FBX_FILE_ASCII,
 
         /// <summary>
+        /// LOAD HIDDEN ENTITY
+        /// </summary>
+        LOAD_HIDDEN_ENTITY,
+
+        /// <summary>
         /// DEBUG
         /// </summary>
         DEBUG,

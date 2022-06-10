@@ -55,9 +55,8 @@ namespace VIZPub.Test.Console
             //ExportFBX();                  // VIZ to FBX
 
 
-            // (19) NWD to HMF
-            // (100) HMF to VIZ, VIZW
-
+            //ExportHMF();                    // NWD to HMF
+            
             // Export Grid
             // Import FBX
         }
@@ -535,6 +534,50 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportFBX(parameter);
+        }
+
+        public void ExportHMF()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.nwd");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.hmf");
+            parameter.Add(PublishParameters.LOAD_HIDDEN_ENTITY, true);          // [Optional] True or False. Default(False)
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportFBX(parameter);
+        }
+
+        public void NWDtoVIZ()
+        {
+            {
+                VIZPub.PublishParameter parameter = new PublishParameter();
+
+                parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.nwd");
+                parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.hmf");
+                parameter.Add(PublishParameters.LOAD_HIDDEN_ENTITY, true);          // [Optional] True or False. Default(False)
+
+                // VIZPub
+                // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+                VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+                bool result = publish.ExportHMF(parameter);
+
+                if (result == false) return;
+            }
+
+            {
+                VIZPub.PublishParameter parameter = new PublishParameter();
+
+                parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.hmf");
+                parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.viz");
+
+                // VIZPub
+                // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+                VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+                bool result = publish.ExportVIZ(parameter);
+            }
         }
     }
 }

@@ -552,5 +552,22 @@ namespace VIZPub
 
             return IExport(parameter);
         }
+
+
+        // ================================================
+        // Method :: NWD / HMF
+        // ================================================
+        /// <summary>
+        /// Export HMF
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportHMF(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 19);
+
+            return IExport(parameter);
+        }
     }
 }
