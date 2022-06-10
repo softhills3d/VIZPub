@@ -58,7 +58,6 @@ namespace VIZPub.Test.Console
             //ExportHMF();                    // NWD to HMF
             
             // Export Grid
-            // Import FBX
         }
 
         private void ExportVIZ()
@@ -552,6 +551,7 @@ namespace VIZPub.Test.Console
 
         public void NWDtoVIZ()
         {
+            // NWD to HMF
             {
                 VIZPub.PublishParameter parameter = new PublishParameter();
 
@@ -567,6 +567,7 @@ namespace VIZPub.Test.Console
                 if (result == false) return;
             }
 
+            // HMF to VIZ
             {
                 VIZPub.PublishParameter parameter = new PublishParameter();
 
