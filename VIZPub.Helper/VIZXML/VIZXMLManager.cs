@@ -71,10 +71,13 @@ namespace VIZPub
 
                     for (int i = 0; i < Nodes.Count; i++)
                     {
-                        sw.WriteLine(Nodes[i].ToString());
+                        string tag = Nodes[i].ToString();
+                        if (String.IsNullOrEmpty(tag) == true) continue;
+                        
+                        sw.Write(tag);
                     }
 
-                    sw.Write("</Model>");
+                    sw.WriteLine("</Model>");
                     sw.WriteLine("</VIZXML>");
 
                     sw.Close();
