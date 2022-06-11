@@ -436,11 +436,172 @@ namespace VIZPub
         /// <summary>
         /// INPUT FILE
         /// </summary>
-        INPUT = 1,
+        INPUT,
         /// <summary>
         /// OUTPUT FILE
         /// </summary>
-        OUTPUT = 2
+        OUTPUT,
+
+        /// <summary>
+        /// MASS PROPERTY
+        /// </summary>
+        MASS_PROPERTY,
+
+        /// <summary>
+        /// TESSELATION QUALITY
+        /// </summary>
+        TESSELATION_QUALITY,
+
+        /// <summary>
+        /// PSKERNEL
+        /// </summary>
+        PSKERNEL,
+
+        /// <summary>
+        /// HEALING
+        /// </summary>
+        HEALING,
+
+        /// <summary>
+        /// FREE POINT
+        /// </summary>
+        FREE_POINT,
+
+        /// <summary>
+        /// FREE CURVE
+        /// </summary>
+        FREE_CURVE,
+
+        /// <summary>
+        /// HIDDEN ENTITY
+        /// </summary>
+        HIDDEN_ENTITY,
+
+        /// <summary>
+        /// SUPRESSED ENTITY
+        /// </summary>
+        SUPRESSED_ENTITY,
+
+        /// <summary>
+        /// LOG
+        /// </summary>
+        LOG,
+
+        /// <summary>
+        /// STEP VERSION
+        /// </summary>
+        STEP_VERSION,
+
+        /// <summary>
+        /// EXPORT FULL STRUCTURE
+        /// </summary>
+        EXPORT_FULL_STRUCTURE,
+
+        /// <summary>
+        /// EXPORT PART ATTRIBUTE
+        /// </summary>
+        EXPORT_PART_ATTRIBUTE,
+
+        /// <summary>
+        /// EXPORT CAD INFORMATION
+        /// </summary>
+        EXPORT_CAD_INFORMATION,
+
+        /// <summary>
+        /// REFERENCE CAD FILE PATH
+        /// </summary>
+        REFERENCE_FILE_PATH,
+
+        /// <summary>
+        /// THUMBNAIL IMAGE WIDTH
+        /// </summary>
+        THUMBNAIL_IMAGE_WIDTH,
+
+        /// <summary>
+        /// THUMBNAIL IMAGE HEIGHT
+        /// </summary>
+        THUMBNAIL_IMAGE_HEIGHT,
+
+        /// <summary>
+        /// THUMBNAIL TARGET
+        /// </summary>
+        THUMBNAIL_TARGET,
+    }
+
+    /// <summary>
+    /// Thumbnail Image Target
+    /// </summary>
+    public enum ThumbnailImageTarget
+    {
+        /// <summary>
+        /// MODEL
+        /// </summary>
+        MODEL = 0,
+
+        /// <summary>
+        /// ALL ASSEMBLY, PART...
+        /// </summary>
+        ALL_NODE = 1
+    }
+
+    /// <summary>
+    /// Tesselation Quality
+    /// </summary>
+    public enum TesselationQuality
+    {
+        /// <summary>
+        /// Coarse
+        /// </summary>
+        Coarse = 0,
+        /// <summary>
+        /// Normal
+        /// </summary>
+        Normal = 1,
+        /// <summary>
+        /// Better
+        /// </summary>
+        Better = 2,
+        /// <summary>
+        /// Best
+        /// </summary>
+        Best = 3
+    }
+
+    /// <summary>
+    /// Translate Log
+    /// </summary>
+    public enum TranslateLog
+    {
+        /// <summary>
+        /// NONE
+        /// </summary>
+        NONE = 0,
+
+        /// <summary>
+        /// OUTPUT IF ERROR OCCURS
+        /// </summary>
+        OUTPUT_IF_ERROR = 1,
+
+        /// <summary>
+        /// ALWAYS OUTPUT
+        /// </summary>
+        OUTPUT_ALWAYS = 2
+    }
+
+    /// <summary>
+    /// Step Version
+    /// </summary>
+    public enum StepVersion
+    {
+        /// <summary>
+        /// 203 VERSION
+        /// </summary>
+        V203 = 203,
+
+        /// <summary>
+        /// 214 VERSION
+        /// </summary>
+        V214 = 214
     }
 
     /// <summary>

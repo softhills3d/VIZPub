@@ -78,6 +78,9 @@ namespace VIZPub
         /// <returns>Translate Result</returns>
         public bool ExportVIZ(TranslateParameter parameter)
         {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "viz");
+
             return false;
         }
 
@@ -88,6 +91,9 @@ namespace VIZPub
         /// <returns>Translate Result</returns>
         public bool ExportStep(TranslateParameter parameter)
         {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "s");
+
             return false;
         }
 
@@ -98,6 +104,9 @@ namespace VIZPub
         /// <returns>Translate Result</returns>
         public bool ExportIges(TranslateParameter parameter)
         {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "g");
+
             return false;
         }
 
@@ -108,6 +117,9 @@ namespace VIZPub
         /// <returns>Translate Result</returns>
         public bool Export3DXML(TranslateParameter parameter)
         {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "3dxml");
+
             return false;
         }
 
@@ -118,6 +130,7 @@ namespace VIZPub
         /// <returns>Translate Result</returns>
         public bool ExportEbomXml(TranslateParameter parameter)
         {
+            
             return false;
         }
 
@@ -128,6 +141,9 @@ namespace VIZPub
         /// <returns>Translate Result</returns>
         public bool ExportThumbnail(TranslateParameter parameter)
         {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "i");
+
             return false;
         }
     }
