@@ -36,9 +36,9 @@ namespace VIZPub.Test.Console
             //ExportImage_Case1();          // Image - Whole Model
             //ExportImage_Case2();          // Image - Node
 
-            ExportAttribute();            // Export Attribute
+            //ExportAttribute();            // Export Attribute
             //LoadAttribute();              // Load Attribute
-            //ImportAttribute();            // Import Attribute
+            ImportAttribute();            // Import Attribute
             //ClearAttribute();             // Clear Attribute
 
             //MergeByRuleXMLFile();         // Merge By Rule XML File
@@ -359,11 +359,14 @@ namespace VIZPub.Test.Console
             List<AttributeItem> attribute = new List<AttributeItem>();
             foreach (VIZPub.Node item in items)
             {
-                if (item.Kind == Node.NodeKind.BODY) continue;
                 if (item.Kind == Node.NodeKind.ASSEMBLY) continue;
 
                 attribute.Add(new AttributeItem(item.ID, "NAME", item.Name));
-                attribute.Add(new AttributeItem(item.ID, "KIND", "PART"));
+
+                if(item.Kind == Node.NodeKind.BODY)
+                    attribute.Add(new AttributeItem(item.ID, "KIND", "BODY"));
+                else if(item.Kind == Node.NodeKind.PART)
+                    attribute.Add(new AttributeItem(item.ID, "KIND", "PART"));
             }
 
             AttributeItemManager attributeItemManager = new AttributeItemManager();
