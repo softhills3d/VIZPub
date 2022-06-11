@@ -71,6 +71,26 @@ namespace VIZPub
         // ================================================
         // Method :: Publish
         // ================================================
+        internal bool IExport(TranslateParameter parameter)
+        {
+            string argument = parameter.ToString();
+
+            // Publish
+            ProcessHelper process = new ProcessHelper(VIZCoreTrans_Path);
+            process.DataReceived += Process_DataReceived;
+            process.ErrorReceived += Process_ErrorReceived;
+
+            bool result = process.Execute(
+                    argument    /* Argument */
+                    , true      /* Redirect Standard Output */
+                    , true      /* Redirect Standard Error */
+                    , true      /* Create No Window */
+                    , false     /* Use Shell Execute */
+                    );
+
+            return result;
+        }
+
         /// <summary>
         /// Export VIZ
         /// </summary>
@@ -81,7 +101,7 @@ namespace VIZPub
             // Add Mode
             parameter.Add(TranslateParameters.MODE, "viz");
 
-            return false;
+            return IExport(parameter);
         }
 
         /// <summary>
@@ -94,7 +114,7 @@ namespace VIZPub
             // Add Mode
             parameter.Add(TranslateParameters.MODE, "s");
 
-            return false;
+            return IExport(parameter);
         }
 
         /// <summary>
@@ -107,7 +127,7 @@ namespace VIZPub
             // Add Mode
             parameter.Add(TranslateParameters.MODE, "g");
 
-            return false;
+            return IExport(parameter);
         }
 
         /// <summary>
@@ -120,7 +140,7 @@ namespace VIZPub
             // Add Mode
             parameter.Add(TranslateParameters.MODE, "3dxml");
 
-            return false;
+            return IExport(parameter);
         }
 
         /// <summary>
@@ -130,8 +150,7 @@ namespace VIZPub
         /// <returns>Translate Result</returns>
         public bool ExportEbomXml(TranslateParameter parameter)
         {
-            
-            return false;
+            return IExport(parameter);
         }
 
         /// <summary>
@@ -144,7 +163,7 @@ namespace VIZPub
             // Add Mode
             parameter.Add(TranslateParameters.MODE, "i");
 
-            return false;
+            return IExport(parameter);
         }
     }
 }
