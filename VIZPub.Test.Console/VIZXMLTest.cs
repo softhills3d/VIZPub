@@ -14,11 +14,11 @@ namespace VIZPub.Test.Console
 
         public void Test()
         {
-            CreateVIZXML_Case1();
-            CreateVIZXML_Case2();
-            CreateVIZXML_Case3();
-            CreateVIZXML_Case4();
-            CreateVIZXML_Case5();
+            //CreateVIZXML_Case1();
+            //CreateVIZXML_Case2();
+            //CreateVIZXML_Case3();
+            //CreateVIZXML_Case4();
+            //CreateVIZXML_Case5();
         }
 
         public void CreateVIZXML_Case1()

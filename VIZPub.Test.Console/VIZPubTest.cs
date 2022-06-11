@@ -38,7 +38,7 @@ namespace VIZPub.Test.Console
 
             //ExportAttribute();            // Export Attribute
             //LoadAttribute();              // Load Attribute
-            ImportAttribute();            // Import Attribute
+            //ImportAttribute();            // Import Attribute
             //ClearAttribute();             // Clear Attribute
 
             //MergeByRuleXMLFile();         // Merge By Rule XML File
@@ -55,7 +55,7 @@ namespace VIZPub.Test.Console
             //ExportFBX();                  // VIZ to FBX
 
 
-            //ExportHMF();                    // NWD to HMF
+            //ExportHMF();                  // NWD to HMF
             
             // Export Grid
         }
