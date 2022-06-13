@@ -16,7 +16,7 @@ VIZPub Helper Class Library, Examples and so on.
 | VIZPub | MergeByRuleXMLFile | 병합조건(XML) 기준 CAD 모델을 병합 | |
 | VIZPub | ExportNode | 노드별 VIZ 파일 내보내기 | |
 | VIZPub | Simplify | 간소화 VIZ 파일 변환 | |
-| VIZPub | ExportVIZWide3D | VIZWide3D용 파일 변환 | |
+| VIZPub | ExportVIZWide3D | VIZWide3D용 파일 변환 | VIZWide3D |
 | VIZPub | ChangeColor | VIZ 파일의 모델 색상을 변경 | |
 | VIZPub | ExportFBX | VIZ 을 FBX 파일 형식으로 내보내기 | |
 | VIZPub | ExportHMF | NWD 을 HMF 파일 형식으로 내보내기 | |
