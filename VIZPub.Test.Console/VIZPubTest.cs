@@ -551,7 +551,7 @@ namespace VIZPub.Test.Console
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
-            bool result = publish.ExportFBX(parameter);
+            bool result = publish.ExportHMF(parameter);
         }
 
         public void NWDtoVIZ()
