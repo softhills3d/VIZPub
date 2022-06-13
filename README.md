@@ -19,4 +19,10 @@ VIZPub Helper Class Library, Examples and so on.
 | VIZPub | ExportVIZWide3D | VIZWide3D용 파일 변환 | |
 | VIZPub | ChangeColor | VIZ 파일의 모델 색상을 변경 | |
 | VIZPub | ExportFBX | VIZ 을 FBX 파일 형식으로 내보내기 | |
-| VIZPub | ExportHMF | VIZ 을 HMF 파일 형식으로 내보내기 | |
+| VIZPub | ExportHMF | NWD 을 HMF 파일 형식으로 내보내기 | |
+| VIZCoreTrans | ExportVIZ | CAD 모델을 VIZ 파일로 변환(경량화) | |
+| VIZCoreTrans | ExportStep | CAD 모델을 STEP 파일로 변환 | |
+| VIZCoreTrans | ExportIges | CAD 모델을 IGES 파일로 변환 | |
+| VIZCoreTrans | Export3DXML | CAD 모델을 3DXML 파일로 변환 | |
+| VIZCoreTrans | ExportEbomXml | CAD 모델의 EBOM XML 내보내기 | |
+| VIZCoreTrans | ExportThumbnail | CAD/VIZ 파일의 Thumbnail Image 내보내기 | |
