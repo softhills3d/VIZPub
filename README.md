@@ -26,3 +26,14 @@ VIZPub Helper Class Library, Examples and so on.
 | VIZCoreTrans | Export3DXML | CAD 모델을 3DXML 파일로 변환 | |
 | VIZCoreTrans | ExportEbomXml | CAD 모델의 EBOM XML 내보내기 | |
 | VIZCoreTrans | ExportThumbnail | CAD/VIZ 파일의 Thumbnail Image 내보내기 | |
+***
+
+## 문의
+### 기술지원 : tech@softhills.net
+### 구매문의 : sales@softhills.net
+***
+
+## Resources
+
++ **Website:** [www.softhills.net](https://www.softhills.net)
++ **Documentation:** [VIZPub Documentation](https://www.softhills.net/SHDC)
