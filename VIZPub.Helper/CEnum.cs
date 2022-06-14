@@ -355,6 +355,11 @@ namespace VIZPub
         FBX_FILE_ASCII,
 
         /// <summary>
+        /// USING FBX SDK
+        /// </summary>
+        FBX_SDK,
+
+        /// <summary>
         /// LOAD HIDDEN ENTITY
         /// </summary>
         LOAD_HIDDEN_ENTITY,
@@ -363,7 +368,7 @@ namespace VIZPub
         /// INCLUDE BODY ATTRIBUTE
         /// </summary>
         INCLUDE_BODY_ATTRIBUTE,
-
+        
         /// <summary>
         /// DEBUG
         /// </summary>
