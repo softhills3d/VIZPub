@@ -626,12 +626,12 @@ namespace VIZPub.Test.Console
 
             parameter.Add(PublishParameters.BOUNDBOX_SEARCH_OPTION, BoundBoxSearchOption.IncludingPart);
 
-            parameter.Add(PublishParameters.BOUNDBOX_MIN_X, 0.0f);
-            parameter.Add(PublishParameters.BOUNDBOX_MIN_Y, 0.0f);
-            parameter.Add(PublishParameters.BOUNDBOX_MIN_Z, 0.0f);
-            parameter.Add(PublishParameters.BOUNDBOX_MAX_X, 100.0f);
-            parameter.Add(PublishParameters.BOUNDBOX_MAX_Y, 100.0f);
-            parameter.Add(PublishParameters.BOUNDBOX_MAX_Z, 100.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_X, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Y, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Z, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_X, 100);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Y, 100);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Z, 100);
 
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe

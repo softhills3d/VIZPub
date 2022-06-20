@@ -190,6 +190,9 @@ namespace VIZPub
                 case PublishParameters.FBX_SDK:
                     parameter = string.Format("-useFbx {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
+                case PublishParameters.BOUNDBOX_SEARCH_OPTION:
+                    parameter = string.Format("-bso {0}", (int)value);
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;
