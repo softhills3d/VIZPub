@@ -58,6 +58,8 @@ namespace VIZPub.Test.Console
 
             //ExportHMF();                  // NWD to HMF
 
+            ExportZone();                   // Export Model In Bounding Box
+
             // Export Grid
         }
 
@@ -613,6 +615,28 @@ namespace VIZPub.Test.Console
                 VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
                 bool result = publish.ExportVIZ(parameter);
             }
+        }
+
+        public void ExportZone()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Space.viz");
+
+            parameter.Add(PublishParameters.BOUNDBOX_SEARCH_OPTION, BoundBoxSearchOption.IncludingPart);
+
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_X, 0.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Y, 0.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Z, 0.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_X, 100.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Y, 100.0f);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Z, 100.0f);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportZone(parameter);
         }
     }
 }

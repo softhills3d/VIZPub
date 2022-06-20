@@ -368,7 +368,12 @@ namespace VIZPub
         /// INCLUDE BODY ATTRIBUTE
         /// </summary>
         INCLUDE_BODY_ATTRIBUTE,
-        
+
+        /// <summary>
+        /// BOUNDING BOX SEARCH OPTION
+        /// </summary>
+        BOUNDBOX_SEARCH_OPTION,
+
         /// <summary>
         /// DEBUG
         /// </summary>
@@ -570,6 +575,21 @@ namespace VIZPub
         /// Best
         /// </summary>
         Best = 3
+    }
+
+    /// <summary>
+    /// BoundBox Search Option
+    /// </summary>
+    public enum BoundBoxSearchOption
+    {
+        /// <summary>
+        /// Full Contained
+        /// </summary>
+        FullyContained = 0,
+        /// <summary>
+        /// Including Part
+        /// </summary>
+        IncludingPart = 1
     }
 
     /// <summary>

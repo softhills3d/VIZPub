@@ -569,5 +569,22 @@ namespace VIZPub
 
             return IExport(parameter);
         }
+
+
+        // ================================================
+        // Method :: SPACE
+        // ================================================
+        /// <summary>
+        /// Export Model In Bounding Box
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportZone(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 20);
+
+            return IExport(parameter);
+        }
     }
 }
