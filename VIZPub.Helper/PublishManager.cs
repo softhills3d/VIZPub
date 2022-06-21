@@ -410,6 +410,19 @@ namespace VIZPub
             return IExport(parameter);
         }
 
+        /// <summary>
+        /// Export Model BoundBox
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportModelBoundBox(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 21);
+
+            return IExport(parameter);
+        }
+
 
         // ================================================
         // Method :: Attribute
