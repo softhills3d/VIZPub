@@ -60,7 +60,7 @@ namespace VIZPub.Test.Console
 
             //ExportZone();                   // Export Model In Bounding Box
 
-            ExportModelBoundBox();          // Export Model BoundBox
+            //ExportModelBoundBox();          // Export Model BoundBox
 
             // Export Grid
         }
