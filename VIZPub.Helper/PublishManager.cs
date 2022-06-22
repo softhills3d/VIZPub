@@ -338,7 +338,15 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 3);
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if(result == true)
+            {
+                string path = (string)parameter.GetValue(PublishParameters.INPUT);
+                System.IO.File.Delete(path);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -351,7 +359,15 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 4);
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if (result == true)
+            {
+                string path = (string)parameter.GetValue(PublishParameters.INPUT);
+                System.IO.File.Delete(path);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -364,7 +380,15 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 5);
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if (result == true)
+            {
+                string path = (string)parameter.GetValue(PublishParameters.INPUT);
+                System.IO.File.Delete(path);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -437,7 +461,15 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 9);
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if(result == true)
+            {
+                string path = (string)parameter.GetValue(PublishParameters.ATTRIBUTE_FILE);
+                System.IO.File.Delete(path);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -519,7 +551,7 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 17);
 
-            return IExport(parameter, true);
+            return IExport(parameter, false);
         }
 
         // ================================================
