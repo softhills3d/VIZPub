@@ -58,11 +58,11 @@ namespace VIZPub.Test.Console
 
             //ExportHMF();                  // NWD to HMF
 
-            //ExportZone();                   // Export Model In Bounding Box
+            //ExportZone();                 // Export Model In Bounding Box
 
-            //ExportModelBoundBox();          // Export Model BoundBox
+            //ExportModelBoundBox();        // Export Model BoundBox
 
-            // Export Grid
+            ExportGrid();                   // Export Grid
         }
 
         private void ExportVIZ()
@@ -652,6 +652,28 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportModelBoundBox(parameter);
+        }
+
+        public void ExportGrid()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Grid.viz");
+
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_X, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Y, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Z, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_X, 100);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Y, 100);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Z, 100);
+
+            parameter.Add(PublishParameters.KEEP_STRUCTURE, true);      // True : Keep Structure, False : Merge Single Node
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportGrid(parameter);
         }
     }
 }

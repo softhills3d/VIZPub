@@ -631,5 +631,18 @@ namespace VIZPub
 
             return IExport(parameter);
         }
+
+        /// <summary>
+        /// Export 3D-Grid
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportGrid(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 22);
+
+            return IExport(parameter);
+        }
     }
 }
