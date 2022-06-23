@@ -62,7 +62,8 @@ namespace VIZPub.Test.Console
 
             //ExportModelBoundBox();        // Export Model BoundBox
 
-            ExportGrid();                   // Export Grid
+            //ExportGrid();                   // Export Grid
+            ExportGrid_XML();               // Export Grid From XML
         }
 
         private void ExportVIZ()
@@ -674,6 +675,21 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportGrid(parameter);
+        }
+
+        public void ExportGrid_XML()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp");            // DUMMY
+
+            parameter.Add(PublishParameters.BOUNDBOX_XML, "");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportGridFromXml(parameter);
         }
     }
 }

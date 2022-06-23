@@ -294,6 +294,11 @@ namespace VIZPub
         COLOR,
 
         /// <summary>
+        /// BOUND BOX XML
+        /// </summary>
+        BOUNDBOX_XML,
+
+        /// <summary>
         /// BOUNDING BOX INSPECTION
         /// </summary>
         BOUNDBOX_INSPECTIOIN,
@@ -647,7 +652,12 @@ namespace VIZPub
         /// <summary>
         /// External Link Node
         /// </summary>
-        LinkNode = 2
+        LinkNode = 2,
+
+        /// <summary>
+        /// External Link Id
+        /// </summary>
+        LinkId = 3
     }
 
     /// <summary>
@@ -663,6 +673,11 @@ namespace VIZPub
         /// <summary>
         /// Part Node
         /// </summary>
-        Part = 1
+        Part = 1,
+
+        /// <summary>
+        /// Body Node
+        /// </summary>
+        Body = 2
     }
 }

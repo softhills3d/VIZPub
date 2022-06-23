@@ -193,6 +193,9 @@ namespace VIZPub
                 case PublishParameters.BOUNDBOX_SEARCH_OPTION:
                     parameter = string.Format("-bso {0}", (int)value);
                     break;
+                case PublishParameters.BOUNDBOX_XML:
+                    parameter = string.Format("-bbxml {0}", value);
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;
