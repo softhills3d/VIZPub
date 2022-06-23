@@ -20,6 +20,7 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model1.rvm");
             //ExportVIZ("C:\\Temp\\Model2.rvm");
             //ExportVIZ("C:\\Temp\\Model3.rvm");
+            //ExportVIZ_FBX();
 
             //ExportVIZM();                 // VIZM - Android (VIZWing)
             //ExportVIZW();                 // VIZW - Web (VIZWeb3D)
@@ -56,8 +57,13 @@ namespace VIZPub.Test.Console
 
 
             //ExportHMF();                  // NWD to HMF
-            
-            // Export Grid
+
+            //ExportZone();                 // Export Model In Bounding Box
+
+            //ExportModelBoundBox();        // Export Model BoundBox
+
+            //ExportGrid();                   // Export Grid
+            ExportGrid_XML();               // Export Grid From XML
         }
 
         private void ExportVIZ()
@@ -103,6 +109,34 @@ namespace VIZPub.Test.Console
             parameter.Add(PublishParameters.REMOVE_NODENAME_SLASH, false);          // [Optional] True or False. Default(False)
 
             parameter.Add(PublishParameters.VERSION, 303);                          // [Optional] 303 or 304. Default(303)
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportVIZ(parameter);
+        }
+
+        private void ExportVIZ_FBX()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.fbx");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.FBX_SDK, true);
+
+            parameter.Add(PublishParameters.GENERATE_EDGE, true);                           // [Optional] True or False. Default(True)
+            parameter.Add(PublishParameters.GENERATE_THUMBNAIL, true);                      // [Optional] True or False. Default(True)
+
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_NORMAL, 12);                // [Optional] 6 ~ 36. Default(12)
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_SMALL, 6);                  // [Optional] 6 ~ 36. Default(6)
+
+            parameter.Add(PublishParameters.REMOVE_NODENAME_SLASH, false);                  // [Optional] True or False. Default(False)
+
+            parameter.Add(PublishParameters.VERSION, 303);                                  // [Optional] 303 or 304. Default(303)
+
+            parameter.Add(PublishParameters.NODE_MERGE_OPTIONS, NodeMergeOptions.AS_IS);    // [Optional] As-Is. Default(As-Is) 
+
+            parameter.Add(PublishParameters.LOG, LogKind.INFORMATION);                      // [Optional] Default(None)
 
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
@@ -551,7 +585,7 @@ namespace VIZPub.Test.Console
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
-            bool result = publish.ExportFBX(parameter);
+            bool result = publish.ExportHMF(parameter);
         }
 
         public void NWDtoVIZ()
@@ -584,6 +618,78 @@ namespace VIZPub.Test.Console
                 VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
                 bool result = publish.ExportVIZ(parameter);
             }
+        }
+
+        public void ExportZone()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Space.viz");
+
+            parameter.Add(PublishParameters.BOUNDBOX_SEARCH_OPTION, BoundBoxSearchOption.IncludingPart);
+
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_X, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Y, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Z, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_X, 100);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Y, 100);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Z, 100);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportZone(parameter);
+        }
+
+        public void ExportModelBoundBox()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_BoundBox.txt");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportModelBoundBox(parameter);
+        }
+
+        public void ExportGrid()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Grid.viz");
+
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_X, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Y, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MIN_Z, 0);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_X, 100);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Y, 100);
+            parameter.Add(PublishParameters.BOUNDBOX_MAX_Z, 100);
+
+            parameter.Add(PublishParameters.KEEP_STRUCTURE, true);      // True : Keep Structure, False : Merge Single Node
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportGrid(parameter);
+        }
+
+        public void ExportGrid_XML()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp");            // DUMMY
+
+            parameter.Add(PublishParameters.BOUNDBOX_XML, "");
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportGridFromXml(parameter);
         }
     }
 }

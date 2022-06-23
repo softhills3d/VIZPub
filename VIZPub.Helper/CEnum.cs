@@ -293,6 +293,11 @@ namespace VIZPub
         COLOR,
 
         /// <summary>
+        /// BOUND BOX XML
+        /// </summary>
+        BOUNDBOX_XML,
+
+        /// <summary>
         /// BOUNDING BOX INSPECTION
         /// </summary>
         BOUNDBOX_INSPECTIOIN,
@@ -354,6 +359,11 @@ namespace VIZPub
         FBX_FILE_ASCII,
 
         /// <summary>
+        /// USING FBX SDK
+        /// </summary>
+        FBX_SDK,
+
+        /// <summary>
         /// LOAD HIDDEN ENTITY
         /// </summary>
         LOAD_HIDDEN_ENTITY,
@@ -362,6 +372,11 @@ namespace VIZPub
         /// INCLUDE BODY ATTRIBUTE
         /// </summary>
         INCLUDE_BODY_ATTRIBUTE,
+
+        /// <summary>
+        /// BOUNDING BOX SEARCH OPTION
+        /// </summary>
+        BOUNDBOX_SEARCH_OPTION,
 
         /// <summary>
         /// DEBUG
@@ -718,6 +733,21 @@ namespace VIZPub
     }
 
     /// <summary>
+    /// BoundBox Search Option
+    /// </summary>
+    public enum BoundBoxSearchOption
+    {
+        /// <summary>
+        /// Full Contained
+        /// </summary>
+        FullyContained = 0,
+        /// <summary>
+        /// Including Part
+        /// </summary>
+        IncludingPart = 1
+    }
+
+    /// <summary>
     /// Translate Log
     /// </summary>
     public enum TranslateLog
@@ -777,7 +807,12 @@ namespace VIZPub
         /// <summary>
         /// External Link Node
         /// </summary>
-        LinkNode = 2
+        LinkNode = 2,
+
+        /// <summary>
+        /// External Link Id
+        /// </summary>
+        LinkId = 3
     }
 
     /// <summary>
@@ -793,7 +828,12 @@ namespace VIZPub
         /// <summary>
         /// Part Node
         /// </summary>
-        Part = 1
+        Part = 1,
+
+        /// <summary>
+        /// Body Node
+        /// </summary>
+        Body = 2
     }
 
     /// <summary>

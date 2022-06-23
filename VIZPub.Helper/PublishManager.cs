@@ -338,7 +338,15 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 3);
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if(result == true)
+            {
+                string path = (string)parameter.GetValue(PublishParameters.INPUT);
+                System.IO.File.Delete(path);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -351,7 +359,15 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 4);
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if (result == true)
+            {
+                string path = (string)parameter.GetValue(PublishParameters.INPUT);
+                System.IO.File.Delete(path);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -364,7 +380,15 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 5);
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if (result == true)
+            {
+                string path = (string)parameter.GetValue(PublishParameters.INPUT);
+                System.IO.File.Delete(path);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -410,6 +434,19 @@ namespace VIZPub
             return IExport(parameter);
         }
 
+        /// <summary>
+        /// Export Model BoundBox
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportModelBoundBox(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 21);
+
+            return IExport(parameter);
+        }
+
 
         // ================================================
         // Method :: Attribute
@@ -424,7 +461,15 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 9);
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if(result == true)
+            {
+                string path = (string)parameter.GetValue(PublishParameters.ATTRIBUTE_FILE);
+                System.IO.File.Delete(path);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -506,7 +551,7 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 17);
 
-            return IExport(parameter, true);
+            return IExport(parameter, false);
         }
 
         // ================================================
@@ -566,6 +611,49 @@ namespace VIZPub
         {
             // Add Mode
             parameter.Add(PublishParameters.MODE, 19);
+
+            return IExport(parameter);
+        }
+
+
+        // ================================================
+        // Method :: SPACE
+        // ================================================
+        /// <summary>
+        /// Export Model In Bounding Box
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportZone(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 20);
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export 3D-Grid
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportGrid(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 22);
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export 3D-Grid (XML)
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportGridFromXml(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 23);
 
             return IExport(parameter);
         }

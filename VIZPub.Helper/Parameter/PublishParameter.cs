@@ -187,6 +187,15 @@ namespace VIZPub
                 case PublishParameters.INCLUDE_BODY_ATTRIBUTE:
                     parameter = string.Format("-batt {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
+                case PublishParameters.FBX_SDK:
+                    parameter = string.Format("-useFbx {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case PublishParameters.BOUNDBOX_SEARCH_OPTION:
+                    parameter = string.Format("-bso {0}", (int)value);
+                    break;
+                case PublishParameters.BOUNDBOX_XML:
+                    parameter = string.Format("-bbxml {0}", value);
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;

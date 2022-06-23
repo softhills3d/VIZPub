@@ -34,6 +34,11 @@ namespace VIZPub
         public string NodePath { get; set; }
 
         /// <summary>
+        /// VIZ Node ID
+        /// </summary>
+        public string NodeId { get; set; }
+
+        /// <summary>
         /// Node Type - Assembly / Part
         /// </summary>
         public VIZXMLNodeType TypeNode { get; set; }
@@ -131,6 +136,25 @@ namespace VIZPub
             Nodes = new List<VIZXMLNode>();
         }
 
+        /// <summary>
+        /// Construction
+        /// </summary>
+        /// <param name="name">Node Name</param>
+        /// <param name="path">VIZ File Path</param>
+        /// <param name="id">Node Id</param>
+        /// <param name="type">Type Node</param>
+        public VIZXMLNode(string name, string path, int id, VIZXMLNodeType type)
+        {
+            Name = name;
+            Path = path;
+            NodeId = id.ToString();
+
+            Kind = VIZXMLNodeKind.LinkId;
+            TypeNode = type;
+
+            Nodes = new List<VIZXMLNode>();
+        }
+
         // ================================================
         // Function
         // ================================================
@@ -160,31 +184,44 @@ namespace VIZPub
 
             string depthString = GetDepthString(depth);
 
-            if(Kind == VIZXMLNodeKind.Node)
+            switch (Kind)
             {
-                if (Nodes.Count == 0)
-                {
-                    sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" />", depthString, Name));
-                }
-                else
-                {
-                    sb.AppendLine(string.Format("{0}<Node Name=\"{1}\">", depthString, Name));
-
-                    for (int i = 0; i < Nodes.Count; i++)
+                case VIZXMLNodeKind.Node:
                     {
-                        sb.Append(Nodes[i].ToString(++depth));
-                    }
+                        if (Nodes.Count == 0)
+                        {
+                            sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" />", depthString, Name));
+                        }
+                        else
+                        {
+                            sb.AppendLine(string.Format("{0}<Node Name=\"{1}\">", depthString, Name));
 
-                    sb.AppendLine(string.Format("{0}</Node>", depthString));
-                }
-            }
-            else if(Kind == VIZXMLNodeKind.LinkFile)
-            {
-                sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkFile=\"{2}\" HideAndLock=\"False\" Type=\"{3}\" />", depthString, Name, Path, TypeNode == VIZXMLNodeType.Assembly ? "Assembly" : "Part"));
-            }
-            else if(Kind == VIZXMLNodeKind.LinkNode)
-            {
-                sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkNode=\"{2}:{3}\" HideAndLock=\"False\" Type=\"{4}\" />", depthString, Name, Path, NodePath, TypeNode == VIZXMLNodeType.Assembly ? "Assembly" : "Part"));
+                            for (int i = 0; i < Nodes.Count; i++)
+                            {
+                                sb.Append(Nodes[i].ToString(++depth));
+                            }
+
+                            sb.AppendLine(string.Format("{0}</Node>", depthString));
+                        }
+                    }
+                    break;
+                case VIZXMLNodeKind.LinkFile:
+                    {
+                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkFile=\"{2}\" HideAndLock=\"False\" Type=\"{3}\" />", depthString, Name, Path, TypeNode.ToString()));
+                    }
+                    break;
+                case VIZXMLNodeKind.LinkNode:
+                    {
+                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkNode=\"{2}:{3}\" HideAndLock=\"False\" Type=\"{4}\" />", depthString, Name, Path, NodePath, TypeNode.ToString()));
+                    }
+                    break;
+                case VIZXMLNodeKind.LinkId:
+                    {
+                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkId=\"{2}:{3}\" HideAndLock=\"False\" Type=\"{4}\" />", depthString, Name, Path, NodeId, TypeNode.ToString()));
+                    }
+                    break;
+                default:
+                    break;
             }
 
             return sb.ToString();

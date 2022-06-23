@@ -50,6 +50,8 @@ namespace VIZPub
                     sw.WriteLine(item.ToString());
                 }
 
+                sw.WriteLine("[END]");
+
                 sw.Close();
 
                 return true;

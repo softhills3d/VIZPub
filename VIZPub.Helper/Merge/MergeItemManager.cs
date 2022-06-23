@@ -62,6 +62,10 @@ namespace VIZPub
             if (String.IsNullOrEmpty(path) == true) return false;
             if (Items.Count == 0) return false;
 
+            string dir = System.IO.Path.GetDirectoryName(path);
+            if (System.IO.Directory.Exists(dir) == false)
+                System.IO.Directory.CreateDirectory(dir);
+
             System.IO.StreamWriter sw = new System.IO.StreamWriter(path, false, Encoding.Default);
 
             sw.WriteLine(Items.Count);  // Total Count
