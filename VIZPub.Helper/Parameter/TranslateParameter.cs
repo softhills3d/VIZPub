@@ -81,7 +81,7 @@ namespace VIZPub
                 case TranslateParameters.MASS_PROPERTY:
                     parameter = string.Format("-mprop {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.TESSELATION_QUALITY:
+                case TranslateParameters.TESSELLATION_QUALITY:
                     parameter = string.Format("-tq {0}", (int)((TesselationQuality)value));
                     break;
                 case TranslateParameters.PSKERNEL:
@@ -93,6 +93,9 @@ namespace VIZPub
                 case TranslateParameters.FREE_POINT:
                     parameter = string.Format("-freep {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
+                case TranslateParameters.FREE_SURFACE:
+                    parameter = string.Format("-frees {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
                 case TranslateParameters.FREE_CURVE:
                     parameter = string.Format("-freec {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
@@ -103,19 +106,52 @@ namespace VIZPub
                     parameter = string.Format("-supressed {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.LOG:
-                    parameter = string.Format("-tq {0}", (int)((TranslateLog)value));
+                    parameter = string.Format("-log {0}", (int)((TranslateLog)value));
+                    break;
+                case TranslateParameters.VIZ_VERSION:
+                    parameter = string.Format("-ver {0}", (int)((VIZVersion)value));
+                    break;
+                case TranslateParameters.WITH_PMI:
+                    parameter = string.Format("-pmi {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.REFERENCE_NAME:
+                    parameter = string.Format("-refName {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.OUTPUT_THUMBNAIL:
+                    parameter = string.Format("-thumbnail {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.OUTPUT_VIZM:
+                    parameter = string.Format("-vizm {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.ASSEMBLY_ONLY:
+                    parameter = string.Format("-assemblycon {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.BODY_TO_PART:
+                    parameter = string.Format("-BodyToPart {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.VISIBLE_LAYER_ONLY:
+                    parameter = string.Format("-vlayer {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.NURBS:
+                    parameter = string.Format("-nurbs {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.OUTPUT_VIZW_PATH:
+                    parameter = string.Format("-ovizw {0}", value);
+                    break;
+                case TranslateParameters.OUTPUT_THUMBNAIL_PATH:
+                    parameter = string.Format("-othumb {0}", value);
                     break;
                 case TranslateParameters.EXPORT_FULL_STRUCTURE:
                     parameter = string.Format("-fs {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.EXPORT_PART_ATTRIBUTE:
-                    parameter = string.Format("-fs {0}", GetBoolean(value) == true ? "t" : "f");
+                    parameter = string.Format("-att {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.EXPORT_CAD_INFORMATION:
                     parameter = string.Format("-info {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.REFERENCE_FILE_PATH:
-                    parameter = string.Format("-info {0}", GetReferenceFilePath(value));
+                    parameter = string.Format("-reffp {0}", GetReferenceFilePath(value));
                     break;
                 case TranslateParameters.THUMBNAIL_IMAGE_WIDTH:
                     parameter = string.Format("-iw {0}", GetInteger(value));
@@ -125,6 +161,9 @@ namespace VIZPub
                     break;
                 case TranslateParameters.THUMBNAIL_TARGET:
                     parameter = string.Format("-subimg {0}", (int)((ThumbnailImageTarget)value));
+                    break;
+                case TranslateParameters.CAD2CAD:
+                    parameter = string.Format("-c2c {0}", value);
                     break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
