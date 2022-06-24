@@ -655,6 +655,9 @@ namespace VIZPub
             // Add Mode
             parameter.Add(PublishParameters.MODE, 23);
 
+            string input = (string)parameter.GetValue(PublishParameters.INPUT);
+            parameter.Add(PublishParameters.OUTPUT, System.IO.Path.GetDirectoryName(input)); // DUMMY
+
             return IExport(parameter);
         }
     }

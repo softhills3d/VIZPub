@@ -679,12 +679,21 @@ namespace VIZPub.Test.Console
 
         public void ExportGrid_XML()
         {
+            // Define Space
+            List<BoundBoxItem> items = new List<BoundBoxItem>();
+            items.Add(new BoundBoxItem("C:\\Temp\\Model_Box1.viz", false, new List<int>() { 0, 0, 0, 100, 100, 100 }));
+            items.Add(new BoundBoxItem("C:\\Temp\\Model_Box2.viz", true, new List<int>() { 100, 0, 0, 200, 100, 100 }));
+
+            string path_box = "C:\\Temp\\Model_Box.xml";
+            BoundBoxManager manager = new BoundBoxManager();
+            manager.Export(path_box, items);
+            
+            // Publish
             VIZPub.PublishParameter parameter = new PublishParameter();
 
             parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
-            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp");            // DUMMY
 
-            parameter.Add(PublishParameters.BOUNDBOX_XML, "");
+            parameter.Add(PublishParameters.BOUNDBOX_XML, path_box);
 
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
