@@ -227,7 +227,6 @@ namespace VIZPub
         /// </summary>
         ATTRIBUTE_FILE,
 
-
         /// <summary>
         /// GENERATE EDGE DATA
         /// </summary>
@@ -452,10 +451,26 @@ namespace VIZPub
         /// INPUT FILE
         /// </summary>
         INPUT,
+
         /// <summary>
         /// OUTPUT FILE
         /// </summary>
         OUTPUT,
+
+        /// <summary>
+        /// OUTPUT VIZM FILE
+        /// </summary>
+        OUTPUT_VIZM,
+
+        /// <summary>
+        /// OUTPUT VIZW FILE
+        /// </summary>
+        OUTPUT_VIZW,
+
+        /// <summary>
+        /// OUTPUT VIZW FILE PATH
+        /// </summary>
+        OUTPUT_VIZW_PATH,
 
         /// <summary>
         /// MASS PROPERTY
@@ -463,9 +478,9 @@ namespace VIZPub
         MASS_PROPERTY,
 
         /// <summary>
-        /// TESSELATION QUALITY
+        /// TESSELLATION QUALITY
         /// </summary>
-        TESSELATION_QUALITY,
+        TESSELLATION_QUALITY,
 
         /// <summary>
         /// PSKERNEL
@@ -476,6 +491,11 @@ namespace VIZPub
         /// HEALING
         /// </summary>
         HEALING,
+
+        /// <summary>
+        ///  FREE_SURFACE
+        /// </summary>
+        FREE_SURFACE,
 
         /// <summary>
         /// FREE POINT
@@ -506,6 +526,131 @@ namespace VIZPub
         /// STEP VERSION
         /// </summary>
         STEP_VERSION,
+
+        /// <summary>
+        /// VIZ VERSION
+        /// </summary>
+        VIZ_VERSION,
+
+        /// <summary>
+        /// JT VERSION
+        /// </summary>
+        JT_VERSION,
+
+        /// <summary>
+        /// U3D VERSION
+        /// </summary>
+        U3D_VERSION,
+
+        /// <summary>
+        /// WRITE PMI
+        /// </summary>
+        WRITE_PMI,
+
+        /// <summary>
+        /// WITH PMI
+        /// </summary>
+        WITH_PMI,
+
+        /// <summary>
+        /// IMPORT UDA
+        /// </summary>
+        UDA,
+
+        /// <summary>
+        /// REFERENCE NAME
+        /// </summary>
+        REFERENCE_NAME,
+
+        /// <summary>
+        /// OUTPUT THUMBNAIL
+        /// </summary>
+        OUTPUT_THUMBNAIL,
+
+        /// <summary>
+        /// OUTPUT THUMBNAIL PATH
+        /// </summary>
+        OUTPUT_THUMBNAIL_PATH,
+
+        /// <summary>
+        /// EXPORT ASSEMBLY ONLY
+        /// </summary>
+        ASSEMBLY_ONLY,
+
+        /// <summary>
+        /// BODY TO PART
+        /// </summary>
+        BODY_TO_PART,
+
+        /// <summary>
+        /// VISIBLE LAYER ONLY
+        /// </summary>
+        VISIBLE_LAYER_ONLY,
+
+        /// <summary>
+        /// NURBS
+        /// </summary>
+        NURBS,
+
+        /// <summary>
+        /// FACET TO WIREFRAME
+        /// </summary>
+        FACET_TO_WIREFRAME,
+
+        /// <summary>
+        /// USE SHORT NAME
+        /// </summary>
+        USE_SHORT_NAME,
+
+        /// <summary>
+        /// WRITE TESSELATION
+        /// </summary>
+        WRITE_TESSELATION,
+
+        /// <summary>
+        /// ACTIVE OBJ
+        /// </summary>
+        ACTIVE_OBJ,
+
+        /// <summary>
+        /// SAVE AS BINARY
+        /// </summary>
+        SAVE_AS_BINARY,
+
+        /// <summary>
+        /// KEEP TESSELLATION
+        /// </summary>
+        KEEP_TESSELLATION,
+
+        /// <summary>
+        /// SAVE AS MILLIMETER
+        /// </summary>
+        SAVE_AS_MILLIMETER,
+
+        /// <summary>
+        /// MESH QUALITY
+        /// </summary>
+        MESH_QUALITY,
+
+        /// <summary>
+        /// ACCURATE TESSELLATION
+        /// </summary>
+        ACCURATE_TESSELLATION,
+
+        /// <summary>
+        /// HIDDEN OBJECT
+        /// </summary>
+        HIDDEN_OBJECT,
+
+        /// <summary>
+        /// SOLID AS FACE
+        /// </summary>
+        SOLID_AS_FACE,
+
+        /// <summary>
+        /// WRITING MODE
+        /// </summary>
+        WRITE_MODE,
 
         /// <summary>
         /// EXPORT FULL STRUCTURE
@@ -541,6 +686,11 @@ namespace VIZPub
         /// THUMBNAIL TARGET
         /// </summary>
         THUMBNAIL_TARGET,
+
+        /// <summary>
+        /// CAD TO CAD
+        /// </summary>
+        CAD2CAD
     }
 
     /// <summary>
@@ -631,7 +781,12 @@ namespace VIZPub
         /// <summary>
         /// 214 VERSION
         /// </summary>
-        V214 = 214
+        V214 = 214,
+
+        /// <summary>
+        /// 242 VERSION
+        /// </summary>
+        V242 = 242
     }
 
     /// <summary>
@@ -679,5 +834,119 @@ namespace VIZPub
         /// Body Node
         /// </summary>
         Body = 2
+    }
+
+    /// <summary>
+    /// VIZ Version
+    /// </summary>
+    public enum VIZVersion
+    {
+        /// <summary>
+        /// 202 VERSION
+        /// </summary>
+        V202 = 202,
+
+        /// <summary>
+        /// 203 VERSION
+        /// </summary>
+        V203 = 203,
+
+        /// <summary>
+        /// 204 VERSION
+        /// </summary>
+        V204 = 204,
+
+        /// <summary>
+        /// 205 VERSION
+        /// </summary>
+        V205 = 205,
+
+        /// <summary>
+        /// 206 VERSION
+        /// </summary>
+        V206 = 206,
+
+        /// <summary>
+        /// 207 VERSION
+        /// </summary>
+        V207 = 207,
+
+        /// <summary>
+        /// 208 VERSION
+        /// </summary>
+        V208 = 208,
+
+        /// <summary>
+        /// 301 VERSION
+        /// </summary>
+        V301 = 301,
+
+        /// <summary>
+        /// 302 VERSION
+        /// </summary>
+        V302 = 302,
+
+        /// <summary>
+        /// 303 VERSION
+        /// </summary>
+        V303 = 303,
+
+        /// <summary>
+        /// 304 VERSION
+        /// </summary>
+        V304 = 304
+    }
+
+    /// <summary>
+    /// JT Version
+    /// </summary>
+    public enum JtVersion
+    {
+        /// <summary>
+        /// JT-8.1 VERSION
+        /// </summary>
+        JT_801 = 0,
+
+        /// <summary>
+        /// JT-9.5 VERSION
+        /// </summary>
+        JT_905 = 1
+    }
+
+    /// <summary>
+    /// U3D Version
+    /// </summary>
+    public enum U3DVersion
+    {
+        /// <summary>
+        /// U3D-CMA1 VERSION
+        /// </summary>
+        U3D_CMA1 = 0,
+
+        /// <summary>
+        /// U3D-CMA3 VERSION
+        /// </summary>
+        U3D_CMA3 = 1
+    }
+
+    /// <summary>
+    /// Tessellation Writing Mode
+    /// </summary>
+    public enum WritingMode
+    {
+        /// <summary>
+        /// Geometry
+        /// </summary>
+        Geometry = 0,
+
+        /// <summary>
+        /// Geometry_Tessellation
+        /// </summary>
+        Geometry_Tessellation = 1,
+
+        /// <summary>
+        /// Tessellation
+        /// </summary>
+        Tessellation = 2
     }
 }

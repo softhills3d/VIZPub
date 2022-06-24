@@ -165,5 +165,188 @@ namespace VIZPub
 
             return IExport(parameter);
         }
+
+        /// <summary>
+        /// Export Parasolid
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportPS(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "ps");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export PDF
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportPDF(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "pdf");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export JT
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportJT(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "jt");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export Universal3D
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportU3D(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "u3d");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export VRML
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportVRML(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "vrml");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export STL
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportSTL(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "stl");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export ACIS
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportACIS(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "acis");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export CGR
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportCGR(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "cgr");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export 3MF
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool Export3MF(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "3mf");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export FBX
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportFBX(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "fbx");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export GLTF
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportGLTF(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "gltf");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export OBJ
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportOBJ(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "obj");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export VIZM
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportVIZM(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "vizm");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export VIZW
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportVIZW(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "vizw");
+
+            return IExport(parameter);
+        }
+
     }
 }
