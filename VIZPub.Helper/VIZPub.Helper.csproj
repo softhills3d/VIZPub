@@ -49,6 +49,8 @@
     <Compile Include="BoundBox\BoundBoxManager.cs" />
     <Compile Include="BoundBox\BoundBoxItem.cs" />
     <Compile Include="CEnum.cs" />
+    <Compile Include="Colors\ColorItem.cs" />
+    <Compile Include="Colors\ColorManager.cs" />
     <Compile Include="Merge\MergeItem.cs" />
     <Compile Include="Merge\MergeItemManager.cs" />
     <Compile Include="Metadata\MetadataLoader.cs" />

@@ -52,6 +52,7 @@ namespace VIZPub.Test.Console
             //ExportVIZWide3D();            // Export VIZWide3D
 
             //ChangeColor();                // Change Color
+            ChangeColor_XML();             // Change Color (XML)
 
             //ExportFBX();                  // VIZ to FBX
 
@@ -560,6 +561,29 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ChangeColor(parameter);
+        }
+
+        public void ChangeColor_XML()
+        {
+            List<ColorItem> colors = new List<ColorItem>();
+            colors.Add(new ColorItem(1, System.Drawing.Color.Blue));
+            colors.Add(new ColorItem(2, System.Drawing.Color.FromArgb(255, 0, 0)));
+            colors.Add(new ColorItem(3, System.Drawing.Color.FromArgb(150, System.Drawing.Color.Green)));
+
+            string colorXml = "C:\\Temp\\Model_Color_Xml.xml";
+            ColorManager manager = new ColorManager();
+            manager.Export(colorXml, colors);
+
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Color_Xml.viz");
+            parameter.Add(PublishParameters.COLOR_XML, colorXml);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ChangeColors(parameter);
         }
 
         public void ExportFBX()

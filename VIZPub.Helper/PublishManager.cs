@@ -598,6 +598,19 @@ namespace VIZPub
             return IExport(parameter);
         }
 
+        /// <summary>
+        /// Change Model Color (XML)
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ChangeColors(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 61);
+
+            return IExport(parameter);
+        }
+
 
         // ================================================
         // Method :: NWD / HMF

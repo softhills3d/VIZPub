@@ -293,6 +293,11 @@ namespace VIZPub
         COLOR,
 
         /// <summary>
+        /// COLOR XML
+        /// </summary>
+        COLOR_XML,
+
+        /// <summary>
         /// BOUND BOX XML
         /// </summary>
         BOUNDBOX_XML,
