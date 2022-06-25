@@ -20,6 +20,8 @@ VIZPub Helper Class Library, Examples and so on.
 | VIZPub | ChangeColor | VIZ 파일의 모델 색상을 변경 | |
 | VIZPub | ExportFBX | VIZ 을 FBX 파일 형식으로 내보내기 | |
 | VIZPub | ExportHMF | NWD 을 HMF 파일 형식으로 내보내기 | |
+| VIZPub | ExportZone | 영역(Bounding Box) 내 포함/걸친 모델 내보내기 | |
+| VIZPub | ExportGrid | 영역(Bounding Box) 내 모델 내보내기 (걸친 모델 Split) | |
 | VIZCoreTrans | ExportVIZ | CAD 모델을 VIZ 파일로 변환(경량화) | |
 | VIZCoreTrans | ExportStep | CAD 모델을 STEP 파일로 변환 | |
 | VIZCoreTrans | ExportIges | CAD 모델을 IGES 파일로 변환 | |
