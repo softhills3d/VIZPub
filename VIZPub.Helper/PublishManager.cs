@@ -652,11 +652,37 @@ namespace VIZPub
         /// <returns>Publish Result</returns>
         public bool ExportGridFromXml(PublishParameter parameter)
         {
+            /*
+            <?xml version="1.0" encoding="UTF-8"?>
+            <Spaces>
+	            <Box KeepStructure="0" Path="C:\Temp\Model_Box1.viz">
+		            <Minimum X="0" Y="0" Z="0" />
+		            <Maximum X="100" Y="100" Z="100" />
+	            </Box>
+	            <Box KeepStructure="1" Path="C:\Temp\Model_Box2.viz">
+		            <Minimum X="100" Y="0" Z="0" />
+		            <Maximum X="200" Y="100" Z="100" />
+	            </Box>
+            </Spaces>
+            */
             // Add Mode
             parameter.Add(PublishParameters.MODE, 23);
 
             string input = (string)parameter.GetValue(PublishParameters.INPUT);
             parameter.Add(PublishParameters.OUTPUT, System.IO.Path.GetDirectoryName(input)); // DUMMY
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
+        /// Export Outside
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool ExportOutside(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 24);
 
             return IExport(parameter);
         }

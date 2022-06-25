@@ -679,6 +679,20 @@ namespace VIZPub.Test.Console
 
         public void ExportGrid_XML()
         {
+            /*
+            <?xml version="1.0" encoding="UTF-8"?>
+            <Spaces>
+	            <Box KeepStructure="0" Path="C:\Temp\Model_Box1.viz">
+		            <Minimum X="0" Y="0" Z="0" />
+		            <Maximum X="100" Y="100" Z="100" />
+	            </Box>
+	            <Box KeepStructure="1" Path="C:\Temp\Model_Box2.viz">
+		            <Minimum X="100" Y="0" Z="0" />
+		            <Maximum X="200" Y="100" Z="100" />
+	            </Box>
+            </Spaces>
+            */
+
             // Define Space
             List<BoundBoxItem> items = new List<BoundBoxItem>();
             items.Add(new BoundBoxItem("C:\\Temp\\Model_Box1.viz", false, new List<int>() { 0, 0, 0, 100, 100, 100 }));
@@ -694,6 +708,20 @@ namespace VIZPub.Test.Console
             parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
 
             parameter.Add(PublishParameters.BOUNDBOX_XML, path_box);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportGridFromXml(parameter);
+        }
+
+        public void ExportOutside()
+        {
+            // Publish
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Outside.viz");
 
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
