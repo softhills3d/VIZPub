@@ -46,7 +46,7 @@
     <Compile Include="Attribute\AttributeItem.cs" />
     <Compile Include="Attribute\AttributeItemManager.cs" />
     <Compile Include="Attribute\AttributeLoader.cs" />
-    <Compile Include="BoundBoxManager.cs" />
+    <Compile Include="BoundBox\BoundBoxManager.cs" />
     <Compile Include="BoundBox\BoundBoxItem.cs" />
     <Compile Include="CEnum.cs" />
     <Compile Include="Merge\MergeItem.cs" />
