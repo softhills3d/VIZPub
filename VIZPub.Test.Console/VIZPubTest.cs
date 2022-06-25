@@ -63,7 +63,9 @@ namespace VIZPub.Test.Console
             //ExportModelBoundBox();        // Export Model BoundBox
 
             //ExportGrid();                   // Export Grid
-            ExportGrid_XML();               // Export Grid From XML
+            //ExportGrid_XML();               // Export Grid From XML
+
+            //ExportOutside();                // Export Outside
         }
 
         private void ExportVIZ()
