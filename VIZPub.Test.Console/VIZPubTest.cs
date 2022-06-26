@@ -52,7 +52,7 @@ namespace VIZPub.Test.Console
             //ExportVIZWide3D();            // Export VIZWide3D
 
             //ChangeColor();                // Change Color
-            ChangeColor_XML();             // Change Color (XML)
+            //ChangeColor_XML();             // Change Color (XML)
 
             //ExportFBX();                  // VIZ to FBX
 
