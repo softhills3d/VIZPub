@@ -565,10 +565,19 @@ namespace VIZPub.Test.Console
 
         public void ChangeColor_XML()
         {
+            /*
+            <?xml version="1.0" encoding="UTF-8"?>
+            <Colors>
+                <Color NodeId="32" R="0" G="0" B="255" A="255" />
+                <Color NodeId="39" R="255" G="0" B="0" A="255" />
+                <Color NodeId="59" R="0" G="128" B="0" A="150" />
+            </Colors>
+            */
+
             List<ColorItem> colors = new List<ColorItem>();
-            colors.Add(new ColorItem(1, System.Drawing.Color.Blue));
-            colors.Add(new ColorItem(2, System.Drawing.Color.FromArgb(255, 0, 0)));
-            colors.Add(new ColorItem(3, System.Drawing.Color.FromArgb(150, System.Drawing.Color.Green)));
+            colors.Add(new ColorItem(32, System.Drawing.Color.Blue));
+            colors.Add(new ColorItem(39, System.Drawing.Color.FromArgb(255, 0, 0)));
+            colors.Add(new ColorItem(59, System.Drawing.Color.FromArgb(150, System.Drawing.Color.Green)));
 
             string colorXml = "C:\\Temp\\Model_Color_Xml.xml";
             ColorManager manager = new ColorManager();
