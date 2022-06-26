@@ -19,6 +19,7 @@ namespace VIZPub.Test.Console
             CreateVIZXML_Case3();
             CreateVIZXML_Case4();
             CreateVIZXML_Case5();
+            CreateVIZXML_Case6();
         }
 
         public void CreateVIZXML_Case1()
@@ -117,7 +118,37 @@ namespace VIZPub.Test.Console
             vizxml.Add(cNode);
             vizxml.Add(dNode);
 
-            vizxml.Export("C:\\Temp\\VIZXML_Case4.vizxml");
+            vizxml.Export("C:\\Temp\\VIZXML_Case5.vizxml");
+        }
+
+        public void CreateVIZXML_Case6()
+        {
+            VIZPub.VIZXMLManager vizxml = new VIZXMLManager("Root");
+
+            VIZXMLNode assyA = new VIZXMLNode("NODE A");
+            VIZXMLNode partA = new VIZXMLNode("NODE A-1", VIZXMLNodeType.Part);
+            VIZXMLNode bodyA = new VIZXMLNode("NODE A-1-1", "C:\\Temp\\Model.viz", 2, VIZXMLNodeType.Body);
+            assyA.Nodes.Add(partA);
+            partA.Nodes.Add(bodyA);
+
+            VIZXMLNode assyB = new VIZXMLNode("NODE B");
+            VIZXMLNode partB = new VIZXMLNode("NODE B-1", VIZXMLNodeType.Part);
+            VIZXMLNode bodyB = new VIZXMLNode("NODE B-1-1", "C:\\Temp\\Model.viz", 12, VIZXMLNodeType.Body);
+            assyB.Nodes.Add(partB);
+            partB.Nodes.Add(bodyB);
+
+            VIZXMLNode assyC = new VIZXMLNode("NODE C");
+            VIZXMLNode partC = new VIZXMLNode("NODE C-1", VIZXMLNodeType.Part);
+            VIZXMLNode bodyC = new VIZXMLNode("NODE C-1-1", "C:\\Temp\\Model.viz", 20, VIZXMLNodeType.Body);
+            assyC.Nodes.Add(partC);
+            partC.Nodes.Add(bodyC);
+
+
+            vizxml.Add(assyA);
+            vizxml.Add(assyB);
+            vizxml.Add(assyC);
+
+            vizxml.Export("C:\\Temp\\VIZXML_Case6.vizxml");
         }
     }
 }

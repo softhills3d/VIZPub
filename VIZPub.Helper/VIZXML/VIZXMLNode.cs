@@ -70,6 +70,21 @@ namespace VIZPub
         /// Construction
         /// </summary>
         /// <param name="name">Node Name</param>
+        /// <param name="type">Type Node</param>
+        public VIZXMLNode(string name, VIZXMLNodeType type)
+        {
+            Name = name;
+
+            Kind = VIZXMLNodeKind.Node;
+            TypeNode = type;
+
+            Nodes = new List<VIZXMLNode>();
+        }
+
+        /// <summary>
+        /// Construction
+        /// </summary>
+        /// <param name="name">Node Name</param>
         /// <param name="path">VIZ File Path</param>
         public VIZXMLNode(string name, string path)
         {
@@ -194,7 +209,7 @@ namespace VIZPub
                         }
                         else
                         {
-                            sb.AppendLine(string.Format("{0}<Node Name=\"{1}\">", depthString, Name));
+                            sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" Type=\"{2}\" >", depthString, Name, TypeNode.ToString()));
 
                             for (int i = 0; i < Nodes.Count; i++)
                             {
