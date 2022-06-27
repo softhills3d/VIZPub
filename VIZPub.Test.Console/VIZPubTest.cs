@@ -761,7 +761,7 @@ namespace VIZPub.Test.Console
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
-            bool result = publish.ExportGridFromXml(parameter);
+            bool result = publish.ExportOutside(parameter);
         }
     }
 }
