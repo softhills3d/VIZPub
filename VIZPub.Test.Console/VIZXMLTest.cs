@@ -166,7 +166,7 @@ namespace VIZPub.Test.Console
             cNode.Nodes.Add(new VIZXMLNode("NODE C-1", "C:\\Temp\\Model_C.viz", new float[] { 1, 0, 0, 0, 0.707106781186548f, -0.707106781186548f, 0, 0.707106781186548f, 0.707106781186548f, 0, 0, 0 }));
 
             VIZXMLNode dNode = new VIZXMLNode("NODE D");
-            dNode.Nodes.Add(new VIZXMLNode("NODE D-1", "C:\\Temp\\Model_D.viz", new float[] { 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 }));
+            dNode.Nodes.Add(new VIZXMLNode("NODE D-1", "C:\\Temp\\Model_D.viz"));
 
             vizxml.Add(aNode);
             vizxml.Add(bNode);
