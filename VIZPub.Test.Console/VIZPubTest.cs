@@ -20,6 +20,7 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model1.rvm");
             //ExportVIZ("C:\\Temp\\Model2.rvm");
             //ExportVIZ("C:\\Temp\\Model3.rvm");
+            ExportVIZ_VIZXML();
             //ExportVIZ_FBX();
 
             //ExportVIZM();                 // VIZM - Android (VIZWing)
@@ -75,6 +76,33 @@ namespace VIZPub.Test.Console
 
             parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.rvm");
             parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model.viz");
+
+            parameter.Add(PublishParameters.GENERATE_EDGE, true);                           // [Optional] True or False. Default(True)
+            parameter.Add(PublishParameters.GENERATE_THUMBNAIL, true);                      // [Optional] True or False. Default(True)
+
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_NORMAL, 12);                // [Optional] 6 ~ 36. Default(12)
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_SMALL, 6);                  // [Optional] 6 ~ 36. Default(6)
+
+            parameter.Add(PublishParameters.REMOVE_NODENAME_SLASH, false);                  // [Optional] True or False. Default(False)
+
+            parameter.Add(PublishParameters.VERSION, 303);                                  // [Optional] 303 or 304. Default(303)
+
+            parameter.Add(PublishParameters.NODE_MERGE_OPTIONS, NodeMergeOptions.AS_IS);    // [Optional] As-Is. Default(As-Is) 
+
+            parameter.Add(PublishParameters.LOG, LogKind.INFORMATION);                      // [Optional] Default(None)
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ExportVIZ(parameter);
+        }
+
+        private void ExportVIZ_VIZXML()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\VIZXML_Case6.vizxml");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_VIZXML.viz");
 
             parameter.Add(PublishParameters.GENERATE_EDGE, true);                           // [Optional] True or False. Default(True)
             parameter.Add(PublishParameters.GENERATE_THUMBNAIL, true);                      // [Optional] True or False. Default(True)
