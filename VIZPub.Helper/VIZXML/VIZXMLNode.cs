@@ -48,6 +48,11 @@ namespace VIZPub
         /// </summary>
         public List<VIZXMLNode> Nodes { get; set; }
 
+        /// <summary>
+        /// Matrix
+        /// </summary>
+        public float[] Matrix { get; set; }
+
 
         // ================================================
         // Construction
@@ -102,6 +107,25 @@ namespace VIZPub
         /// </summary>
         /// <param name="name">Node Name</param>
         /// <param name="path">VIZ File Path</param>
+        /// <param name="matrix">Matrix</param>
+        public VIZXMLNode(string name, string path, float[] matrix)
+        {
+            Name = name;
+            Path = path;
+
+            Kind = VIZXMLNodeKind.LinkFile;
+            TypeNode = VIZXMLNodeType.Assembly;
+
+            Nodes = new List<VIZXMLNode>();
+
+            Matrix = matrix;
+        }
+
+        /// <summary>
+        /// Construction
+        /// </summary>
+        /// <param name="name">Node Name</param>
+        /// <param name="path">VIZ File Path</param>
         /// <param name="type">Type Node</param>
         public VIZXMLNode(string name, string path, VIZXMLNodeType type)
         {
@@ -112,6 +136,26 @@ namespace VIZPub
             TypeNode = type;
 
             Nodes = new List<VIZXMLNode>();
+        }
+
+        /// <summary>
+        /// Construction
+        /// </summary>
+        /// <param name="name">Node Name</param>
+        /// <param name="path">VIZ File Path</param>
+        /// <param name="type">Type Node</param>
+        /// <param name="matrix">Matrix</param>
+        public VIZXMLNode(string name, string path, VIZXMLNodeType type, float[] matrix)
+        {
+            Name = name;
+            Path = path;
+
+            Kind = VIZXMLNodeKind.LinkFile;
+            TypeNode = type;
+
+            Nodes = new List<VIZXMLNode>();
+
+            Matrix = matrix;
         }
 
         /// <summary>
@@ -138,6 +182,27 @@ namespace VIZPub
         /// <param name="name">Node Name</param>
         /// <param name="path">VIZ File Path</param>
         /// <param name="node">Node Path</param>
+        /// <param name="matrix">Matrix</param>
+        public VIZXMLNode(string name, string path, string node, float[] matrix)
+        {
+            Name = name;
+            Path = path;
+            NodePath = node;
+
+            Kind = VIZXMLNodeKind.LinkNode;
+            TypeNode = VIZXMLNodeType.Assembly;
+
+            Nodes = new List<VIZXMLNode>();
+
+            Matrix = matrix;
+        }
+
+        /// <summary>
+        /// Construction
+        /// </summary>
+        /// <param name="name">Node Name</param>
+        /// <param name="path">VIZ File Path</param>
+        /// <param name="node">Node Path</param>
         /// <param name="type">Type Node</param>
         public VIZXMLNode(string name, string path, string node, VIZXMLNodeType type)
         {
@@ -149,6 +214,28 @@ namespace VIZPub
             TypeNode = type;
 
             Nodes = new List<VIZXMLNode>();
+        }
+
+        /// <summary>
+        /// Construction
+        /// </summary>
+        /// <param name="name">Node Name</param>
+        /// <param name="path">VIZ File Path</param>
+        /// <param name="node">Node Path</param>
+        /// <param name="type">Type Node</param>
+        /// <param name="matrix">Matrix</param>
+        public VIZXMLNode(string name, string path, string node, VIZXMLNodeType type, float[] matrix)
+        {
+            Name = name;
+            Path = path;
+            NodePath = node;
+
+            Kind = VIZXMLNodeKind.LinkNode;
+            TypeNode = type;
+
+            Nodes = new List<VIZXMLNode>();
+
+            Matrix = matrix;
         }
 
         /// <summary>
@@ -170,6 +257,28 @@ namespace VIZPub
             Nodes = new List<VIZXMLNode>();
         }
 
+        /// <summary>
+        /// Construction
+        /// </summary>
+        /// <param name="name">Node Name</param>
+        /// <param name="path">VIZ File Path</param>
+        /// <param name="id">Node Id</param>
+        /// <param name="type">Type Node</param>
+        /// <param name="matrix">Matrix</param>
+        public VIZXMLNode(string name, string path, int id, VIZXMLNodeType type, float[] matrix)
+        {
+            Name = name;
+            Path = path;
+            NodeId = id.ToString();
+
+            Kind = VIZXMLNodeKind.LinkId;
+            TypeNode = type;
+
+            Nodes = new List<VIZXMLNode>();
+
+            Matrix = matrix;
+        }
+
         // ================================================
         // Function
         // ================================================
@@ -182,6 +291,26 @@ namespace VIZPub
             }
 
             return sb.ToString();
+        }
+
+        internal string GetMatrixString()
+        {
+            if (Matrix == null || Matrix.Length == 0) return String.Empty;
+
+            return string.Format("V1=\"{0}\" V2=\"{1}\" V3=\"{2}\" V4=\"{3}\" V5=\"{4}\" V6=\"{5}\" V7=\"{6}\" V8=\"{7}\" V9=\"{8}\" T1=\"{9}\" T2=\"{10}\" T3=\"{11}\""
+                , Matrix[0]
+                , Matrix[1]
+                , Matrix[2]
+                , Matrix[3]
+                , Matrix[4]
+                , Matrix[5]
+                , Matrix[6]
+                , Matrix[7]
+                , Matrix[8]
+                , Matrix[9]     /* TRANSLATION X */
+                , Matrix[10]    /* TRANSLATION Y */
+                , Matrix[11]    /* TRANSLATION Z */
+                );
         }
 
 
@@ -198,6 +327,7 @@ namespace VIZPub
             StringBuilder sb = new StringBuilder();
 
             string depthString = GetDepthString(depth);
+            string matrixString = GetMatrixString();
 
             switch (Kind)
             {
@@ -222,17 +352,17 @@ namespace VIZPub
                     break;
                 case VIZXMLNodeKind.LinkFile:
                     {
-                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkFile=\"{2}\" HideAndLock=\"False\" Type=\"{3}\" />", depthString, Name, Path, TypeNode.ToString()));
+                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkFile=\"{2}\" HideAndLock=\"False\" Type=\"{3}\" {4} />", depthString, Name, Path, TypeNode.ToString(), matrixString)); // Assembly or Part
                     }
                     break;
                 case VIZXMLNodeKind.LinkNode:
                     {
-                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkNode=\"{2}:{3}\" HideAndLock=\"False\" Type=\"{4}\" />", depthString, Name, Path, NodePath, TypeNode.ToString()));
+                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkNode=\"{2}:{3}\" HideAndLock=\"False\" Type=\"{4}\" {5} />", depthString, Name, Path, NodePath, TypeNode.ToString(), matrixString));
                     }
                     break;
                 case VIZXMLNodeKind.LinkId:
                     {
-                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkId=\"{2}:{3}\" HideAndLock=\"False\" Type=\"{4}\" />", depthString, Name, Path, NodeId, TypeNode.ToString()));
+                        sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" ExtLinkId=\"{2}:{3}\" HideAndLock=\"False\" Type=\"{4}\" {5} />", depthString, Name, Path, NodeId, TypeNode.ToString(), matrixString));
                     }
                     break;
                 default:
