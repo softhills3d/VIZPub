@@ -25,7 +25,7 @@ namespace VIZPub.Test.Console
             // VIZXML
             // ================================================
             VIZXMLTest test_VIZXML = new VIZXMLTest();
-            test_VIZXML.Test();
+            //test_VIZXML.Test();
         }
     }
 }

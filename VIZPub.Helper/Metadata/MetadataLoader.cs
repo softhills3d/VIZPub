@@ -44,6 +44,8 @@ namespace VIZPub
             if (String.IsNullOrEmpty(Path) == true) return false;
             if (System.IO.File.Exists(Path) == false) return false;
 
+            Dictionary<int, Node> nodeCache = new Dictionary<int, Node>();
+
             try
             {
                 System.IO.StreamReader sr = new System.IO.StreamReader(Path, Encoding.UTF8);
@@ -53,7 +55,7 @@ namespace VIZPub
                     string item = sr.ReadLine();
                     if (String.IsNullOrEmpty(item) == true) continue;
 
-                    Node node = new Node(item);
+                    Node node = new Node(item, nodeCache);
                     items.Add(node);
                 }
 

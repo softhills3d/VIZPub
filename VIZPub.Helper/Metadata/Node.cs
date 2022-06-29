@@ -89,6 +89,25 @@ namespace VIZPub
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Node Cache : ID -> Node Object
+        /// </summary>
+        public Dictionary<int, Node> NodeCache { get; set; }
+
+        /// <summary>
+        /// Node Path
+        /// </summary>
+        public string NodePath
+        {
+            get
+            {
+                if (NodeCache.ContainsKey(PARENTID) == false) return String.Empty;
+
+                Node parent = NodeCache[PARENTID];
+                return string.Format("{0}\\{1}", parent.NodePath, Name);
+            }
+        }
+
         // ================================================
         // Construction
         // ================================================
@@ -100,14 +119,19 @@ namespace VIZPub
 
         }
 
-        internal Node(string raw)
+        internal Node(string raw, Dictionary<int, Node> cache)
         {
+            NodeCache = cache;
+
             string[] separatingChars = { "<<,>>" };
             string[] items = raw.Split(separatingChars, StringSplitOptions.None);
 
             ID = Convert.ToInt32(items[0]);
             PARENTID = Convert.ToInt32(items[1]);
             Kind = (NodeKind)Convert.ToInt32(items[2]);
+
+            if (NodeCache.ContainsKey(ID) == false)
+                NodeCache.Add(ID, this);
 
             BoundBoxMinX = Convert.ToSingle(items[3]);
             BoundBoxMinY = Convert.ToSingle(items[4]);

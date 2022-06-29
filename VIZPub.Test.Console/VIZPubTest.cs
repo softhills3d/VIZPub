@@ -20,7 +20,7 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model1.rvm");
             //ExportVIZ("C:\\Temp\\Model2.rvm");
             //ExportVIZ("C:\\Temp\\Model3.rvm");
-            ExportVIZ_VIZXML();
+            //ExportVIZ_VIZXML();
             //ExportVIZ_FBX();
 
             //ExportVIZM();                 // VIZM - Android (VIZWing)
@@ -233,6 +233,9 @@ namespace VIZPub.Test.Console
                 System.Console.WriteLine(string.Format("ID : {0} / PID : {1} / DEPTH : {2} / KIND : {3} / NAME : {4}", item.ID, item.PARENTID, item.Depth, item.Kind, item.Name));
                 System.Console.WriteLine(string.Format("{0} / {1} / {2}", item.BoundBoxMinX, item.BoundBoxMinY, item.BoundBoxMinZ));
                 System.Console.WriteLine(string.Format("{0} / {1} / {2}", item.BoundBoxMaxX, item.BoundBoxMaxY, item.BoundBoxMaxZ));
+
+                // ID, Name, NodePath
+                System.Console.WriteLine(string.Format("[{0}] {1} : {2}", item.ID, item.Name, item.NodePath));
             }
         }
 
