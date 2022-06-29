@@ -34,13 +34,12 @@ namespace VIZPub.Test.Console
         public void ExportVIZ()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "viz");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.viz");
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False)
             parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);      // [Optional] Default(Normal)
@@ -72,12 +71,11 @@ namespace VIZPub.Test.Console
         public void ExportStep()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "s");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.stp");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\STEP");
 
             parameter.Add(TranslateParameters.STEP_VERSION, StepVersion.V203);  // [Optional] Default(V.203)
 
@@ -95,12 +93,11 @@ namespace VIZPub.Test.Console
         public void ExportIges()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "g");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.igs");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\IGES");
 
             parameter.Add(TranslateParameters.NURBS, false);                    // [Optional] Default(False)
             parameter.Add(TranslateParameters.FACET_TO_WIREFRAME, false);       // [Optional] Default(False)
@@ -117,12 +114,11 @@ namespace VIZPub.Test.Console
         public void Export3DXML()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "3dxml");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.3dxml");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             parameter.Add(TranslateParameters.PSKERNEL, false);                 // [Optional] Default(False)
             parameter.Add(TranslateParameters.HEALING, false);                  // [Optional] Default(False)
@@ -143,7 +139,6 @@ namespace VIZPub.Test.Console
         public void ExportEbomXml_Single_Top_Level_Assembly()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "xml");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.xml");
@@ -176,7 +171,6 @@ namespace VIZPub.Test.Console
         public void ExportEbomXml_Multiple_Top_Level_Assemblies()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "rootxml");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.xml");
@@ -270,12 +264,11 @@ namespace VIZPub.Test.Console
         public void ExportPS()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "ps");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.x_t");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\Parasolid");
 
             parameter.Add(TranslateParameters.WRITE_TESSELATION, false);        // [Optional] Default(False)
 
@@ -286,12 +279,11 @@ namespace VIZPub.Test.Console
         public void ExportPDF()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "pdf");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.pdf");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             parameter.Add(TranslateParameters.PSKERNEL, false);                 // [Optional] Default(False)
 
@@ -302,12 +294,11 @@ namespace VIZPub.Test.Console
         public void ExportSTL()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "stl");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.stl");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\STL");
 
             parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);             // [Optional] Default(False)
             parameter.Add(TranslateParameters.KEEP_TESSELLATION, false);          // [Optional] Default(False)
@@ -321,12 +312,11 @@ namespace VIZPub.Test.Console
         public void ExportACIS()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "acis");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.sat");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\ACIS");
 
             parameter.Add(TranslateParameters.SAVE_AS_MILLIMETER, false);           // [Optional] Default(False)
             parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);               // [Optional] Default(False)
@@ -338,12 +328,11 @@ namespace VIZPub.Test.Console
         public void ExportJT()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "jt");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.jt");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\JT");
 
             parameter.Add(TranslateParameters.PSKERNEL, false);                 // [Optional] Default(False)
 
@@ -359,12 +348,11 @@ namespace VIZPub.Test.Console
         public void ExportU3D()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "u3d");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.u3d");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\U3D");
 
             parameter.Add(TranslateParameters.MESH_QUALITY, false);                         // [Optional] Default(False)
             parameter.Add(TranslateParameters.U3D_VERSION, U3DVersion.U3D_CMA1);            // [Optional] Default(U3D-CMA1)
@@ -376,9 +364,8 @@ namespace VIZPub.Test.Console
         public void ExportVRML()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "vrml");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.vrml");
@@ -390,13 +377,12 @@ namespace VIZPub.Test.Console
         public void ExportVIZM()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "vizm");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.vizm");
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             parameter.Add(TranslateParameters.PSKERNEL, false);                 // [Optional] Default(False)
             parameter.Add(TranslateParameters.HEALING, false);                  // [Optional] Default(False)
@@ -420,12 +406,11 @@ namespace VIZPub.Test.Console
         public void ExportVIZW()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "vizw");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.vizw");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False)
             parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);      // [Optional] Default(Normal)
@@ -456,12 +441,11 @@ namespace VIZPub.Test.Console
         public void Export3MF()
         {
             TranslateParameter parameter = new TranslateParameter();
-            parameter.Add(TranslateParameters.MODE, "3mf");
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.3mf");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\3MF");
 
             parameter.Add(TranslateParameters.KEEP_TESSELLATION, false);         // [Optional] Default(False)
             parameter.Add(TranslateParameters.ACCURATE_TESSELLATION, false);     // [Optional] Default(False)
@@ -478,7 +462,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.fbx");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportFBX(parameter);
@@ -491,7 +475,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.gltf");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportGLTF(parameter);
@@ -504,7 +488,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.obj");
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\CAD2CAD_Hoops.xml");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportOBJ(parameter);

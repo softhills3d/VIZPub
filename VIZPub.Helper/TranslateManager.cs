@@ -150,6 +150,9 @@ namespace VIZPub
         /// <returns>Translate Result</returns>
         public bool ExportEbomXml(TranslateParameter parameter)
         {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "rootxml");
+
             return IExport(parameter);
         }
 
