@@ -199,6 +199,15 @@ namespace VIZPub
                 case PublishParameters.BOUNDBOX_XML:
                     parameter = string.Format("-bbxml {0}", value);
                     break;
+                case PublishParameters.ROTATE_X:
+                    parameter = string.Format("-rx {0}", value);
+                    break;
+                case PublishParameters.ROTATE_Y:
+                    parameter = string.Format("-ry {0}", value);
+                    break;
+                case PublishParameters.ROTATE_Z:
+                    parameter = string.Format("-rz {0}", value);
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;

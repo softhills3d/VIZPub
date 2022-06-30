@@ -68,6 +68,8 @@ namespace VIZPub.Test.Console
             //ExportGrid_XML();               // Export Grid From XML
 
             //ExportOutside();                // Export Outside
+
+            RotateModel();
         }
 
         private void ExportVIZ()
@@ -793,6 +795,24 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportOutside(parameter);
+        }
+
+        public void RotateModel()
+        {
+            // Publish
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Rotate_180_0_0.viz");
+
+            parameter.Add(PublishParameters.ROTATE_X, 180); // X Axis. - 180 Degree
+            parameter.Add(PublishParameters.ROTATE_Y, 0);   // Y Axis. -   0 Degree
+            parameter.Add(PublishParameters.ROTATE_Z, 0);   // Z Axis. -   0 Degree
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.RotateModel(parameter);
         }
     }
 }

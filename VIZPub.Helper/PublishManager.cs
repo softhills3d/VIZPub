@@ -611,6 +611,21 @@ namespace VIZPub
             return IExport(parameter);
         }
 
+        // ================================================
+        // Method :: ROTATE
+        // ================================================
+        /// <summary>
+        /// Rotate Model
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
+        public bool RotateModel(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 62);
+
+            return IExport(parameter);
+        }
 
         // ================================================
         // Method :: NWD / HMF

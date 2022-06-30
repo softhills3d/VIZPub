@@ -384,6 +384,19 @@ namespace VIZPub
         BOUNDBOX_SEARCH_OPTION,
 
         /// <summary>
+        /// ROTATE :: X
+        /// </summary>
+        ROTATE_X,
+        /// <summary>
+        /// ROTATE :: Y
+        /// </summary>
+        ROTATE_Y,
+        /// <summary>
+        /// ROTATE :: Z
+        /// </summary>
+        ROTATE_Z,
+
+        /// <summary>
         /// DEBUG
         /// </summary>
         DEBUG,
