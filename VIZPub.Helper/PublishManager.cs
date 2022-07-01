@@ -226,7 +226,8 @@ namespace VIZPub
 
             if (output_dir == false)
             {
-                System.IO.File.Delete(local_input);
+                if(local_input != local_output)
+                    System.IO.File.Delete(local_input);
 
                 if (result == false)
                 {

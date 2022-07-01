@@ -20,6 +20,7 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model1.rvm");
             //ExportVIZ("C:\\Temp\\Model2.rvm");
             //ExportVIZ("C:\\Temp\\Model3.rvm");
+
             //ExportVIZ_VIZXML();
             //ExportVIZ_FBX();
 
@@ -54,6 +55,7 @@ namespace VIZPub.Test.Console
 
             //ChangeColor();                // Change Color
             //ChangeColor_XML();             // Change Color (XML)
+            //ChangeColor_SameFile();
 
             //ExportFBX();                  // VIZ to FBX
 
@@ -69,7 +71,7 @@ namespace VIZPub.Test.Console
 
             //ExportOutside();                // Export Outside
 
-            RotateModel();
+            //RotateModel();
         }
 
         private void ExportVIZ()
@@ -626,6 +628,20 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ChangeColors(parameter);
+        }
+
+        public void ChangeColor_SameFile()
+        {
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model_Color.viz");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Color.viz");
+            parameter.Add(PublishParameters.COLOR, System.Drawing.Color.Yellow);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.ChangeColor(parameter);
         }
 
         public void ExportFBX()
