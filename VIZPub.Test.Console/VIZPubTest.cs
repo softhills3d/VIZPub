@@ -71,7 +71,7 @@ namespace VIZPub.Test.Console
 
             //ExportOutside();                // Export Outside
 
-            //RotateModel();
+            RotateModel();                  // Rotate Model
         }
 
         private void ExportVIZ()
