@@ -19,6 +19,7 @@ VIZPub Helper Class Library, Examples and so on.
 | VIZPub | ExportVIZWide3D | VIZWide3D용 파일 변환 | VIZWide3D |
 | VIZPub | ChangeColor | VIZ 파일의 모델 색상을 변경 | |
 | VIZPub | ChangeColors | VIZ 파일의 개별 노드의 색상을 변경 | |
+| VIZPub | RotateModel | VIZ 파일을 회전 | |
 | VIZPub | ExportFBX | VIZ 을 FBX 파일 형식으로 내보내기 | |
 | VIZPub | ExportHMF | NWD 을 HMF 파일 형식으로 내보내기 | |
 | VIZPub | ExportZone | 영역(Bounding Box) 내 포함/걸친 모델 내보내기 | |
