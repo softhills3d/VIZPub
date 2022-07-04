@@ -78,7 +78,7 @@ namespace VIZPub
                     }
 
                     sw.WriteLine("</Model>");
-                    sw.WriteLine("</VIZXML>");
+                    sw.Write("</VIZXML>");
 
                     sw.Close();
                 }
