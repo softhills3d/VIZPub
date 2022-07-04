@@ -34,6 +34,8 @@ namespace VIZPub.Test.Console
             //MergeVIZM();                  // Merge VIZM By Metadata
             //MergeVIZW();                  // Merge VIZW By Metadata
 
+            //MergeVIZ_Rotate();            // Merge VIZ By Metadata And Rotate Model
+
             //MergeLeafAssemblyToPart();    // Leaf Assembly To Part
 
             //ExportImage_Case1();          // Image - Whole Model
@@ -71,7 +73,7 @@ namespace VIZPub.Test.Console
 
             //ExportOutside();                // Export Outside
 
-            RotateModel();                  // Rotate Model
+            //RotateModel();                  // Rotate Model
         }
 
         private void ExportVIZ()
@@ -301,6 +303,30 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.MergeVIZW(parameter);
+        }
+
+        public void MergeVIZ_Rotate()
+        {
+            MergeItemManager manager = new MergeItemManager();
+            manager.Add(new MergeItem("C:\\Temp\\Model1.viz"));
+            manager.Add(new MergeItem("C:\\Temp\\Model2.viz"));
+            manager.Add(new MergeItem("C:\\Temp\\Model3.viz"));
+            manager.Export("C:\\Temp\\MergeItem.txt");
+
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\MergeItem.txt");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_MergeItem_Rotate.viz");
+            parameter.Add(PublishParameters.VERSION, 303);      // [Optional] 303 or 304. Default(303)
+
+            parameter.Add(PublishParameters.ROTATE_X, 180);     // Rotate X
+            parameter.Add(PublishParameters.ROTATE_Y, 0);       // Rotate Y
+            parameter.Add(PublishParameters.ROTATE_Z, 0);       // Rotate Z
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.MergeVIZ(parameter);
         }
 
         public void ExportImage_Case1()
