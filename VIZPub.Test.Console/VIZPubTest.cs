@@ -22,7 +22,7 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model3.rvm");
 
             //ExportVIZ_VIZXML();
-            //ExportVIZ_FBX();
+            ExportVIZ_FBX();
 
             //ExportVIZM();                 // VIZM - Android (VIZWing)
             //ExportVIZW();                 // VIZW - Web (VIZWeb3D)
