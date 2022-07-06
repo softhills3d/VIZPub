@@ -22,7 +22,9 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model3.rvm");
 
             //ExportVIZ_VIZXML();
-            ExportVIZ_FBX();
+            //ExportVIZ_FBX();
+
+            ExportVIZ_Dir();
 
             //ExportVIZM();                 // VIZM - Android (VIZWing)
             //ExportVIZW();                 // VIZW - Web (VIZWeb3D)
@@ -151,6 +153,17 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.ExportVIZ(parameter);
+        }
+
+        private void ExportVIZ_Dir()
+        {
+            string path = "C:\\Models";
+            string[] items = System.IO.Directory.GetFiles(path, "*.*", System.IO.SearchOption.TopDirectoryOnly);
+
+            foreach (string item in items)
+            {
+                ExportVIZ(item);
+            }
         }
 
         private void ExportVIZ_FBX()
