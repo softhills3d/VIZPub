@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StructureUI));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtPath = new System.Windows.Forms.TextBox();
-            this.btnOpen = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.txtPath = new System.Windows.Forms.TextBox();
+            this.tvStructure = new System.Windows.Forms.TreeView();
+            this.imgTree = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +58,19 @@
             this.splitContainer1.SplitterDistance = 309;
             this.splitContainer1.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.tvStructure);
+            this.groupBox2.Location = new System.Drawing.Point(3, 65);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(301, 426);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tree";
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -66,13 +84,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Metadata";
             // 
-            // txtPath
-            // 
-            this.txtPath.Location = new System.Drawing.Point(15, 20);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(199, 21);
-            this.txtPath.TabIndex = 0;
-            // 
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -84,17 +95,34 @@
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
-            // groupBox2
+            // txtPath
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 65);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 426);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tree";
+            this.txtPath.Location = new System.Drawing.Point(15, 20);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(199, 21);
+            this.txtPath.TabIndex = 0;
+            // 
+            // tvStructure
+            // 
+            this.tvStructure.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvStructure.ImageIndex = 0;
+            this.tvStructure.ImageList = this.imgTree;
+            this.tvStructure.Location = new System.Drawing.Point(3, 17);
+            this.tvStructure.Name = "tvStructure";
+            this.tvStructure.SelectedImageIndex = 0;
+            this.tvStructure.Size = new System.Drawing.Size(295, 406);
+            this.tvStructure.TabIndex = 0;
+            // 
+            // imgTree
+            // 
+            this.imgTree.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgTree.ImageStream")));
+            this.imgTree.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgTree.Images.SetKeyName(0, "MODEL.png");
+            this.imgTree.Images.SetKeyName(1, "ASSEMBLY.png");
+            this.imgTree.Images.SetKeyName(2, "PART.png");
+            this.imgTree.Images.SetKeyName(3, "BODY.png");
             // 
             // StructureUI
             // 
@@ -106,6 +134,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -119,5 +148,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.TextBox txtPath;
+        private System.Windows.Forms.TreeView tvStructure;
+        private System.Windows.Forms.ImageList imgTree;
     }
 }

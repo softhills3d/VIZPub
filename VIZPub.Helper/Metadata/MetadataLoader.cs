@@ -45,6 +45,7 @@ namespace VIZPub
             if (System.IO.File.Exists(Path) == false) return false;
 
             Dictionary<int, Node> nodeCache = new Dictionary<int, Node>();
+            Dictionary<int, List<Node>> nodeRelation = new Dictionary<int, List<Node>>();
 
             try
             {
@@ -55,7 +56,7 @@ namespace VIZPub
                     string item = sr.ReadLine();
                     if (String.IsNullOrEmpty(item) == true) continue;
 
-                    Node node = new Node(item, nodeCache);
+                    Node node = new Node(item, nodeCache, nodeRelation);
                     items.Add(node);
                 }
 

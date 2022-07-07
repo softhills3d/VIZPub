@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +88,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resource\ASSEMBLY.png" />
+    <Content Include="Resource\BODY.png" />
+    <Content Include="Resource\MODEL.png" />
+    <Content Include="Resource\PART.png" />
     <Content Include="VIZPub.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VIZPub.Helper\VIZPub.Helper.csproj">
+      <Project>{56ef37b8-2a78-47c7-b040-1973f7ef9a45}</Project>
+      <Name>VIZPub.Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
