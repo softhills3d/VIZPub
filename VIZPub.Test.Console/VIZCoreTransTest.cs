@@ -139,7 +139,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                       //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.igs");                      //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\IGES");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\IGES");    //CadToCad XML경로
 
             parameter.Add(TranslateParameters.NURBS, false);                                        // [Optional] Default(False), NURBS 저장 여부
             parameter.Add(TranslateParameters.FACET_TO_WIREFRAME, false);                           // [Optional] Default(False), Facet을 Wireframe으로 변환할 것인지 여부
@@ -160,7 +160,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");           //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.3dxml");        //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                     //CadToCad XML경로
 
             parameter.Add(TranslateParameters.HEALING, false);                          // [Optional] Default(False), Healing 여부
             parameter.Add(TranslateParameters.FREE_POINT, false);                       // [Optional] Default(False), Free Point 변환 여부
@@ -323,7 +323,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");             //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.x_t");            //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\Parasolid");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\Parasolid");//CadToCad XML경로
 
             parameter.Add(TranslateParameters.WRITE_TESSELATION, false);                // [Optional] Default(False), Tessellation 변환 여부
 
@@ -351,7 +351,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                   //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.stl");                  //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\STL");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\STL"); //CadToCad XML경로
 
             parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);             // [Optional] Default(False), Binary 사용 여부
             parameter.Add(TranslateParameters.KEEP_TESSELLATION, false);          // [Optional] Default(False), 현재 Tessellation 유지 여부
@@ -369,7 +369,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");               //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.sat");              //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\ACIS");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\ACIS");//CadToCad XML경로
 
             parameter.Add(TranslateParameters.SAVE_AS_MILLIMETER, false);           // [Optional] Default(False), 현재 모델 단위 대신 mm로 저장할 것인지 여부
             parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);               // [Optional] Default(False), Binary File로 저장할 것인지 여부
@@ -385,7 +385,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");               //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.jt");               //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\JT");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\JT");//CadToCad XML경로
 
             parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);                         // [Optional] Default(False), Hidden Object 변환 여부
             parameter.Add(TranslateParameters.WRITE_PMI, false);                             // [Optional] Default(False), PMI Data 변환 여부
@@ -403,7 +403,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");               //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.u3d");              //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\U3D");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\U3D");//CadToCad XML경로
 
             parameter.Add(TranslateParameters.MESH_QUALITY, false);                         // [Optional] Default(False), Mesh 품질 Tessellation 압축 여부
             parameter.Add(TranslateParameters.U3D_VERSION, U3DVersion.U3D_CMA1);            // [Optional] Default(U3D-CMA1), U3D FILE 버전 선택
@@ -419,7 +419,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");               //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.vrml");             //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                         //CadToCad XML경로
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportVRML(parameter);
@@ -433,7 +433,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.vizm");                     //OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                     //결과 XML생성 여부
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                 //CadToCad XML경로
 
             parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False), Mass Property 사용 여부
             parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL, false);                             // [Optional] Default(False), 썸네일 EXPORT 여부
@@ -463,7 +463,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.vizw");                     //OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                     //결과 XML생성 여부
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                 //CadToCad XML경로
 
             parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False), Mass Property 사용 여부
             parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);     // [Optional] Default(Normal), Tessellation 품질
@@ -499,7 +499,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                       //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.3mf");                      //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\3MF");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\3MF");     //CadToCad XML경로
 
             parameter.Add(TranslateParameters.KEEP_TESSELLATION, false);         // [Optional] Default(False), 현재 Tessellation 유지 여부
             parameter.Add(TranslateParameters.ACCURATE_TESSELLATION, false);     // [Optional] Default(False), 적합한 Tessellation 설정 여부
@@ -516,7 +516,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                       //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.fbx");                      //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                 //CadToCad XML경로
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportFBX(parameter);
@@ -529,7 +529,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                           //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.gltf");                         //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                     //CadToCad XML경로
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportGLTF(parameter);
@@ -542,7 +542,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                       //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.obj");                      //OUTPUT FILE 경로(절대경로)
 
-            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");
+            parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                 //CadToCad XML경로
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportOBJ(parameter);
