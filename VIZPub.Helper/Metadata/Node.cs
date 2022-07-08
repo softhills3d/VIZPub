@@ -95,6 +95,11 @@ namespace VIZPub
         public Dictionary<int, Node> NodeCache { get; set; }
 
         /// <summary>
+        /// Node Relation : PID -> Children Object
+        /// </summary>
+        public Dictionary<int, List<Node>> Relation { get; set; }
+
+        /// <summary>
         /// Node Path
         /// </summary>
         public string NodePath
@@ -119,9 +124,10 @@ namespace VIZPub
 
         }
 
-        internal Node(string raw, Dictionary<int, Node> cache)
+        internal Node(string raw, Dictionary<int, Node> cache, Dictionary<int, List<Node>> relation)
         {
             NodeCache = cache;
+            Relation = relation;
 
             string[] separatingChars = { "<<,>>" };
             string[] items = raw.Split(separatingChars, StringSplitOptions.None);
@@ -132,6 +138,15 @@ namespace VIZPub
 
             if (NodeCache.ContainsKey(ID) == false)
                 NodeCache.Add(ID, this);
+
+            if (Relation.ContainsKey(PARENTID) == false)
+            {
+                Relation.Add(PARENTID, new List<Node>(){ this });
+            }
+            else
+            {
+                Relation[PARENTID].Add(this);
+            }
 
             BoundBoxMinX = Convert.ToSingle(items[3]);
             BoundBoxMinY = Convert.ToSingle(items[4]);
