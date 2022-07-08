@@ -751,16 +751,6 @@ namespace VIZPub
         READ_DGFC,
 
         /// <summary>
-        /// SERVER IP
-        /// </summary>
-        SERVER_IP,
-
-        /// <summary>
-        /// SERVER PORT
-        /// </summary>
-        SERVER_PORT,
-
-        /// <summary>
         /// CAD TO CAD
         /// </summary>
         CAD2CAD

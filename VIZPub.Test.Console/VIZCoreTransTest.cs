@@ -41,9 +41,6 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.xml");          //OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);         //결과 XML생성 여부
 
-            parameter.Add(TranslateParameters.SERVER_IP, "");                           // [Optional] Server IP 지정
-            parameter.Add(TranslateParameters.SERVER_PORT, "");                         // [Optional] Server PORT 지정
-
             parameter.Add(TranslateParameters.EXPORT_FULL_STRUCTURE, false);            // [Optional] Default(False), Full Structure 추출 여부
             parameter.Add(TranslateParameters.EXPORT_PART_ATTRIBUTE, false);            // [Optional] Default(False), Part Attribute 추출 여부
             parameter.Add(TranslateParameters.EXPORT_CAD_INFORMATION, false);           // [Optional] Default(False), CAD 정보 추출 여부
@@ -185,9 +182,6 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.xml");          //OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);         //결과 XML생성 여부
 
-            parameter.Add(TranslateParameters.SERVER_IP, "");                           // [Optional] Server IP 지정
-            parameter.Add(TranslateParameters.SERVER_PORT, "");                         // [Optional] Server PORT 지정
-
             parameter.Add(TranslateParameters.EXPORT_FULL_STRUCTURE, false);            // [Optional] Default(False), Full Structure 추출 여부
             parameter.Add(TranslateParameters.EXPORT_PART_ATTRIBUTE, false);            // [Optional] Default(False), Part Attribute 추출 여부
             parameter.Add(TranslateParameters.EXPORT_CAD_INFORMATION, false);           // [Optional] Default(False), CAD 정보 추출 여부
@@ -219,9 +213,6 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample");              //OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);         //결과 XML생성 여부
 
-            parameter.Add(TranslateParameters.SERVER_IP, "");                           // [Optional] Server IP 지정
-            parameter.Add(TranslateParameters.SERVER_PORT, "");                         // [Optional] Server PORT 지정
-
             parameter.Add(TranslateParameters.EXPORT_PART_ATTRIBUTE, false);            // [Optional] Default(False), Part Attribute 추출 여부
             parameter.Add(TranslateParameters.SUPRESSED_ENTITY, false);                 // [Optional] Default(False), Supressed Entity 변환 여부
             parameter.Add(TranslateParameters.REFERENCE_NAME, false);                   // [Optional] Default(False), Hoops Reference Name 사용 여부
@@ -250,9 +241,6 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                  //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.jpg");                 //OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                //결과 XML생성 여부
-
-            parameter.Add(TranslateParameters.SERVER_IP, "");                                  // [Optional] Server IP 지정
-            parameter.Add(TranslateParameters.SERVER_PORT, "");                                // [Optional] Server PORT 지정
 
             parameter.Add(TranslateParameters.THUMBNAIL_IMAGE_WIDTH, 400);                     // [Optional] Default(400), Thumbnail Image 너비값
             parameter.Add(TranslateParameters.THUMBNAIL_IMAGE_HEIGHT, 300);                    // [Optional] Default(300), Thumbnail Image 높이값
@@ -288,9 +276,6 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                           //INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\Image");                               //OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                         //결과 XML생성 여부
-
-            parameter.Add(TranslateParameters.SERVER_IP, "");                                           // [Optional] Server IP 지정
-            parameter.Add(TranslateParameters.SERVER_PORT, "");                                         // [Optional] Server PORT 지정
 
             parameter.Add(TranslateParameters.THUMBNAIL_IMAGE_WIDTH, 400);                              // [Optional] Default(400), Thumbnail Image 너비값
             parameter.Add(TranslateParameters.THUMBNAIL_IMAGE_HEIGHT, 300);                             // [Optional] Default(300), Thumbnail Image 높이값

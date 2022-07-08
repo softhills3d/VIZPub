@@ -192,12 +192,6 @@ namespace VIZPub
                 case TranslateParameters.READ_DGFC:
                     parameter = string.Format("-dgfc {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.SERVER_IP:
-                    parameter = string.Format("-si \"{0}\"", value);
-                    break;
-                case TranslateParameters.SERVER_PORT:
-                    parameter = string.Format("-sp \"{0}\"", value);
-                    break;
                 case TranslateParameters.CAD2CAD:
                     parameter = string.Format("-c2c {0}", value);
                     break;
