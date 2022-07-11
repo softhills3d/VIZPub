@@ -238,11 +238,21 @@ namespace VIZPub
 
                 try
                 {
-                    if (System.IO.File.Exists(local_output) == true)
+                    if (System.IO.File.Exists(local_output) == true && Convert.ToInt32(parameter.GetValue(PublishParameters.MODE)) != 18)
                     {
                         System.IO.File.Delete(original_output);
                         System.IO.File.Move(local_output, original_output);
                         return true;
+                    }
+                    // VIZWide3D
+                    else if (Convert.ToInt32(parameter.GetValue(PublishParameters.MODE)) == 18)
+                    {
+                        string fullPath = (string)parameter.GetValue(PublishParameters.OUTPUT_VIZW);
+                        string dir = System.IO.Path.GetDirectoryName(fullPath);
+
+                        string[] files = System.IO.Directory.GetFiles(dir, "*.*", System.IO.SearchOption.TopDirectoryOnly);
+                        if (files != null && files.Length > 0) return true;
+                        else return false;
                     }
                     else
                     {

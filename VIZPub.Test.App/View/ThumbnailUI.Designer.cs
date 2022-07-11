@@ -1,6 +1,6 @@
 ﻿namespace VIZPub.Test.App.View
 {
-    partial class StructureUI
+    partial class ThumbnailUI
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StructureUI));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tvStructure = new System.Windows.Forms.TreeView();
-            this.imgTree = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
+            this.pbThumbnail = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -53,44 +50,14 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(834, 494);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.pbThumbnail);
+            this.splitContainer1.Size = new System.Drawing.Size(856, 553);
             this.splitContainer1.SplitterDistance = 309;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.tvStructure);
-            this.groupBox2.Location = new System.Drawing.Point(3, 65);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 426);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tree";
-            // 
-            // tvStructure
-            // 
-            this.tvStructure.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvStructure.ImageIndex = 0;
-            this.tvStructure.ImageList = this.imgTree;
-            this.tvStructure.Location = new System.Drawing.Point(3, 17);
-            this.tvStructure.Name = "tvStructure";
-            this.tvStructure.SelectedImageIndex = 0;
-            this.tvStructure.Size = new System.Drawing.Size(295, 406);
-            this.tvStructure.TabIndex = 0;
-            // 
-            // imgTree
-            // 
-            this.imgTree.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgTree.ImageStream")));
-            this.imgTree.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgTree.Images.SetKeyName(0, "MODEL.png");
-            this.imgTree.Images.SetKeyName(1, "ASSEMBLY.png");
-            this.imgTree.Images.SetKeyName(2, "PART.png");
-            this.imgTree.Images.SetKeyName(3, "BODY.png");
             // 
             // groupBox1
             // 
@@ -98,10 +65,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnOpen);
             this.groupBox1.Controls.Add(this.txtPath);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(301, 56);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Model (VIZ)";
             // 
@@ -125,19 +92,29 @@
             this.txtPath.Size = new System.Drawing.Size(199, 21);
             this.txtPath.TabIndex = 0;
             // 
-            // StructureUI
+            // pbThumbnail
+            // 
+            this.pbThumbnail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbThumbnail.Location = new System.Drawing.Point(0, 0);
+            this.pbThumbnail.Name = "pbThumbnail";
+            this.pbThumbnail.Size = new System.Drawing.Size(543, 553);
+            this.pbThumbnail.TabIndex = 0;
+            this.pbThumbnail.TabStop = false;
+            // 
+            // ThumbnailUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
-            this.Name = "StructureUI";
-            this.Size = new System.Drawing.Size(834, 494);
+            this.Name = "ThumbnailUI";
+            this.Size = new System.Drawing.Size(856, 553);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -146,10 +123,8 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.TextBox txtPath;
-        private System.Windows.Forms.TreeView tvStructure;
-        private System.Windows.Forms.ImageList imgTree;
+        private System.Windows.Forms.PictureBox pbThumbnail;
     }
 }

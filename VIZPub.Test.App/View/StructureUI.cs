@@ -31,7 +31,8 @@ namespace VIZPub.Test.App.View
 
         private void ExportMetadata(string path)
         {
-            string output_metadata = string.Format("{0}\\{1}.txt", System.IO.Path.GetDirectoryName(path), System.IO.Path.GetFileNameWithoutExtension(path));
+            string output_metadata = string.Format("{0}\\{1}_Metadata.txt", System.IO.Path.GetDirectoryName(path), System.IO.Path.GetFileNameWithoutExtension(path));
+            string output_attribute = string.Format("{0}\\{1}_Attribute.txt", System.IO.Path.GetDirectoryName(path), System.IO.Path.GetFileNameWithoutExtension(path));
 
             // Export Metadata
             {
@@ -69,8 +70,8 @@ namespace VIZPub.Test.App.View
             {
                 VIZPub.PublishParameter parameter = new PublishParameter();
 
-                parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model_Attribute.viz");
-                parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_Attribute.txt");
+                parameter.Add(PublishParameters.INPUT, path);
+                parameter.Add(PublishParameters.OUTPUT, output_attribute);
 
                 parameter.Add(PublishParameters.INCLUDE_BODY_ATTRIBUTE, true);                  // [Optional] True or False. Default(False)
 
@@ -80,6 +81,8 @@ namespace VIZPub.Test.App.View
                 bool result_Attribute = publish.ExportAttribute(parameter);
 
                 if (result_Attribute == false) return;
+
+
             }
         }
 

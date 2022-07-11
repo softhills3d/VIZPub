@@ -62,6 +62,12 @@
     <Compile Include="View\StructureUI.Designer.cs">
       <DependentUpon>StructureUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ThumbnailUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ThumbnailUI.Designer.cs">
+      <DependentUpon>ThumbnailUI.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +82,9 @@
     </Compile>
     <EmbeddedResource Include="View\StructureUI.resx">
       <DependentUpon>StructureUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ThumbnailUI.resx">
+      <DependentUpon>ThumbnailUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

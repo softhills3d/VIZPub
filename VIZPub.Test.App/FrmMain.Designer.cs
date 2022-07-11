@@ -30,28 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.toolbar = new System.Windows.Forms.ToolStrip();
-            this.plContainer = new System.Windows.Forms.Panel();
             this.btnStructure = new System.Windows.Forms.ToolStripButton();
+            this.plContainer = new System.Windows.Forms.Panel();
+            this.btnThumbnail = new System.Windows.Forms.ToolStripButton();
             this.toolbar.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbar
             // 
             this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnStructure});
+            this.btnStructure,
+            this.btnThumbnail});
             this.toolbar.Location = new System.Drawing.Point(0, 0);
             this.toolbar.Name = "toolbar";
             this.toolbar.Size = new System.Drawing.Size(940, 25);
             this.toolbar.TabIndex = 0;
             this.toolbar.Text = "toolStrip1";
-            // 
-            // plContainer
-            // 
-            this.plContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plContainer.Location = new System.Drawing.Point(0, 25);
-            this.plContainer.Name = "plContainer";
-            this.plContainer.Size = new System.Drawing.Size(940, 498);
-            this.plContainer.TabIndex = 1;
             // 
             // btnStructure
             // 
@@ -61,6 +55,23 @@
             this.btnStructure.Size = new System.Drawing.Size(76, 22);
             this.btnStructure.Text = "Structure";
             this.btnStructure.Click += new System.EventHandler(this.btnStructure_Click);
+            // 
+            // plContainer
+            // 
+            this.plContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plContainer.Location = new System.Drawing.Point(0, 25);
+            this.plContainer.Name = "plContainer";
+            this.plContainer.Size = new System.Drawing.Size(940, 498);
+            this.plContainer.TabIndex = 1;
+            // 
+            // btnThumbnail
+            // 
+            this.btnThumbnail.Image = ((System.Drawing.Image)(resources.GetObject("btnThumbnail.Image")));
+            this.btnThumbnail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThumbnail.Name = "btnThumbnail";
+            this.btnThumbnail.Size = new System.Drawing.Size(84, 22);
+            this.btnThumbnail.Text = "Thumbnail";
+            this.btnThumbnail.Click += new System.EventHandler(this.btnThumbnail_Click);
             // 
             // FrmMain
             // 
@@ -85,6 +96,7 @@
         private System.Windows.Forms.ToolStrip toolbar;
         private System.Windows.Forms.Panel plContainer;
         private System.Windows.Forms.ToolStripButton btnStructure;
+        private System.Windows.Forms.ToolStripButton btnThumbnail;
     }
 }
 

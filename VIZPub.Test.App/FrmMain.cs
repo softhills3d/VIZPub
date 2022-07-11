@@ -24,5 +24,14 @@ namespace VIZPub.Test.App
             plContainer.Controls.Clear();
             plContainer.Controls.Add(structure);
         }
+
+        private void btnThumbnail_Click(object sender, EventArgs e)
+        {
+            View.ThumbnailUI structure = new View.ThumbnailUI();
+            structure.Dock = DockStyle.Fill;
+
+            plContainer.Controls.Clear();
+            plContainer.Controls.Add(structure);
+        }
     }
 }
