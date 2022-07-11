@@ -92,6 +92,19 @@ namespace VIZPub
         }
 
         /// <summary>
+        /// Export XML
+        /// </summary>
+        /// <param name="parameter">Translate Parameter</param>
+        /// <returns>Translate Result</returns>
+        public bool ExportXML(TranslateParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(TranslateParameters.MODE, "xml");
+
+            return IExport(parameter);
+        }
+
+        /// <summary>
         /// Export VIZ
         /// </summary>
         /// <param name="parameter">Translate Parameter</param>
@@ -346,7 +359,7 @@ namespace VIZPub
         public bool ExportVIZW(TranslateParameter parameter)
         {
             // Add Mode
-            parameter.Add(TranslateParameters.MODE, "vizw");
+            parameter.Add(TranslateParameters.MODE, "web");
 
             return IExport(parameter);
         }

@@ -151,7 +151,7 @@ namespace VIZPub
                     parameter = string.Format("-info {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.REFERENCE_FILE_PATH:
-                    parameter = string.Format("-reffp {0}", GetReferenceFilePath(value));
+                    parameter = string.Format("-path {0}", GetReferenceFilePath(value));
                     break;
                 case TranslateParameters.THUMBNAIL_IMAGE_WIDTH:
                     parameter = string.Format("-iw {0}", GetInteger(value));
@@ -159,8 +159,38 @@ namespace VIZPub
                 case TranslateParameters.THUMBNAIL_IMAGE_HEIGHT:
                     parameter = string.Format("-ih {0}", GetInteger(value));
                     break;
+                case TranslateParameters.RESOLUTION:
+                    parameter = string.Format("-dpi {0}", GetInteger(value));
+                    break;
+                case TranslateParameters.IMAGE_QUALITY:
+                    parameter = string.Format("-iq {0}", GetInteger(value));
+                    break;
+                case TranslateParameters.THUMBNAIL_DEFAULT_VIEW:
+                    parameter = string.Format("-dv {0}", GetInteger(value));
+                    break;
                 case TranslateParameters.THUMBNAIL_TARGET:
                     parameter = string.Format("-subimg {0}", (int)((ThumbnailImageTarget)value));
+                    break;
+                case TranslateParameters.SPLIT_COUNT:
+                    parameter = string.Format("-spcnt {0}", GetInteger(value));
+                    break;
+                case TranslateParameters.USE_MULTI_PROCESS:
+                    parameter = string.Format("-useMulti {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.CREATE_NODE_MISSING_FILE:
+                    parameter = string.Format("-cmfn {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.SPLIT_NAME_OPTION:
+                    parameter = string.Format("-spName {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.READ_BREP:
+                    parameter = string.Format("-brep {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.READ_DGMC:
+                    parameter = string.Format("-dgmc {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case TranslateParameters.READ_DGFC:
+                    parameter = string.Format("-dgfc {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.CAD2CAD:
                     parameter = string.Format("-c2c {0}", value);

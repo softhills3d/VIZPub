@@ -571,11 +571,6 @@ namespace VIZPub
         WITH_PMI,
 
         /// <summary>
-        /// IMPORT UDA
-        /// </summary>
-        UDA,
-
-        /// <summary>
         /// REFERENCE NAME
         /// </summary>
         REFERENCE_NAME,
@@ -701,9 +696,59 @@ namespace VIZPub
         THUMBNAIL_IMAGE_HEIGHT,
 
         /// <summary>
+        /// RESOLUTION
+        /// </summary>
+        RESOLUTION,
+
+        /// <summary>
+        /// IMAGE QUALITY
+        /// </summary>
+        IMAGE_QUALITY,
+
+        /// <summary>
         /// THUMBNAIL TARGET
         /// </summary>
         THUMBNAIL_TARGET,
+
+        /// <summary>
+        /// THUMBNAIL DEFAULT VIEW
+        /// </summary>
+        THUMBNAIL_DEFAULT_VIEW,
+
+        /// <summary>
+        /// VIZW SPLIT COUNT
+        /// </summary>
+        SPLIT_COUNT,
+
+        /// <summary>
+        /// USE MULTI PROCESS
+        /// </summary>
+        USE_MULTI_PROCESS,
+
+        /// <summary>
+        /// CREATE NODE MISSING FILE
+        /// </summary>
+        CREATE_NODE_MISSING_FILE,
+
+        /// <summary>
+        /// SPLIT NAME OPTION
+        /// </summary>
+        SPLIT_NAME_OPTION,
+
+        /// <summary>
+        /// READ BREP
+        /// </summary>
+        READ_BREP,
+
+        /// <summary>
+        /// READ DGMC
+        /// </summary>
+        READ_DGMC,
+
+        /// <summary>
+        /// READ DGFC
+        /// </summary>
+        READ_DGFC,
 
         /// <summary>
         /// CAD TO CAD
