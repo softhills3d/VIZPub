@@ -55,7 +55,7 @@ namespace VIZPub.Test.Console
             //Simplify_Case1();             // Simplify
             //Simplify_Case2();             // Simplify
 
-            ExportVIZWide3D();            // Export VIZWide3D
+            //ExportVIZWide3D();            // Export VIZWide3D
 
             //ChangeColor();                // Change Color
             //ChangeColor_XML();             // Change Color (XML)
