@@ -13,6 +13,8 @@ namespace VIZPub.Test.App.View
     {
         public Dictionary<int, List<VIZPub.Node>> Relation { get; set; }
 
+        public Dictionary<int, List<VIZPub.AttributeItem>> UDA { get; set; }
+
         public StructureUI()
         {
             InitializeComponent();
@@ -64,6 +66,8 @@ namespace VIZPub.Test.App.View
                 Relation = items[0].Relation;
 
                 ShowStructure(path, items);
+
+                ShowNodes(items);
             }
 
             // Export Attribute
@@ -82,7 +86,13 @@ namespace VIZPub.Test.App.View
 
                 if (result_Attribute == false) return;
 
+                VIZPub.AttributeLoader loader = new AttributeLoader();
+                Dictionary<int, List<VIZPub.AttributeItem>> uda = new Dictionary<int, List<AttributeItem>>();
+                loader.Load(output_attribute, out uda);
+                UDA = uda;
 
+                ShowUDA(uda);
+                ShowUDATree(loader);
             }
         }
 
@@ -128,11 +138,14 @@ namespace VIZPub.Test.App.View
             {
                 VIZPub.Node node = children[i];
 
+                //if (node.Kind == Node.NodeKind.BODY) continue;
+
                 string name = node.Name;
                 if (String.IsNullOrEmpty(name) == true)
                     name = string.Format("BODY ({0})", node.ID);
 
                 TreeNode tNode = new TreeNode(name);
+                tNode.Tag = node;
 
                 switch (node.Kind)
                 {
@@ -156,6 +169,114 @@ namespace VIZPub.Test.App.View
 
                 parentNode.Nodes.Add(tNode);
             }
+        }
+
+        public void ShowNodes (List<VIZPub.Node> items)
+        {
+            lvNodes.BeginUpdate();
+
+            lvNodes.Items.Clear();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                VIZPub.Node node = items[i];
+
+                //if (node.Kind == Node.NodeKind.BODY) continue;
+
+                string name = node.Name;
+                if (String.IsNullOrEmpty(name) == true)
+                    name = string.Format("BODY ({0})", node.ID);
+
+                ListViewItem lvi = new ListViewItem(
+                    new string[] 
+                    {
+                        node.ID.ToString()
+                        , node.PARENTID.ToString()
+                        , node.Depth.ToString()
+                        , name
+                        , node.Kind.ToString()
+                        , string.Format("{0}, {1}, {2}, {3}, {4}, {5}"
+                            , Convert.ToInt32(node.BoundBoxMinX)
+                            , Convert.ToInt32(node.BoundBoxMinY)
+                            , Convert.ToInt32(node.BoundBoxMinZ)
+                            , Convert.ToInt32(node.BoundBoxMaxX)
+                            , Convert.ToInt32(node.BoundBoxMaxY)
+                            , Convert.ToInt32(node.BoundBoxMaxZ)
+                        )
+                        , node.NodePath
+                    }
+                    );
+                lvNodes.Items.Add(lvi);
+            }
+
+            lvNodes.EndUpdate();
+        }
+
+        public void ShowUDA(Dictionary<int, List<VIZPub.AttributeItem>> uda)
+        {
+            lvUDA.BeginUpdate();
+            lvUDA.Items.Clear();
+
+            foreach (KeyValuePair<int, List<VIZPub.AttributeItem>> item in uda)
+            {
+                foreach (VIZPub.AttributeItem vals in item.Value)
+                {
+                    ListViewItem lvi = new ListViewItem(new string[] { item.Key.ToString(), vals.Key, vals.Value });
+                    lvUDA.Items.Add(lvi);
+                }
+            }
+
+            lvUDA.EndUpdate();
+        }
+
+        public void ShowUDATree(VIZPub.AttributeLoader loader)
+        {
+            tvUDA.BeginUpdate();
+
+            tvUDA.Nodes.Clear();
+
+            TreeNode root = new TreeNode("UDA");
+            tvUDA.Nodes.Add(root);
+
+            List<string> keys = loader.GetKeys();
+            foreach (string key in keys)
+            {
+                TreeNode node = new TreeNode(key);
+                root.Nodes.Add(node);
+
+                List<string> valuse = loader.GetValues(key);
+                foreach (string value in valuse)
+                {
+                    TreeNode vNode = new TreeNode(value);
+                    node.Nodes.Add(vNode);
+                }
+            }
+
+            root.Expand();
+
+            tvUDA.EndUpdate();
+        }
+
+        private void tvStructure_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeNode node = e.Node;
+            if (node == null) return;
+
+            VIZPub.Node vNode = (VIZPub.Node)node.Tag;
+            if (vNode == null) return;
+
+            if (UDA == null) return;
+            if (UDA.ContainsKey(vNode.ID) == false) return;
+
+            List<VIZPub.AttributeItem> items = UDA[vNode.ID];
+            lvSelectedUDA.BeginUpdate();
+            lvSelectedUDA.Items.Clear();
+            foreach (VIZPub.AttributeItem item in items)
+            {
+                ListViewItem lvi = new ListViewItem(new string[] { item.NodeID.ToString(), item.Key, item.Value });
+                lvSelectedUDA.Items.Add(lvi);
+            }
+            lvSelectedUDA.EndUpdate();
         }
     }
 }
