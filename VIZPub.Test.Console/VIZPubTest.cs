@@ -43,7 +43,7 @@ namespace VIZPub.Test.Console
             //ExportImage_Case1();          // Image - Whole Model
             //ExportImage_Case2();          // Image - Node
 
-            //ExportAttribute();            // Export Attribute
+            ExportAttribute();            // Export Attribute
             //LoadAttribute();              // Load Attribute
             //ImportAttribute();            // Import Attribute
             //ClearAttribute();             // Clear Attribute
