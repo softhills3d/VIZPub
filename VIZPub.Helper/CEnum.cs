@@ -753,8 +753,20 @@ namespace VIZPub
         /// <summary>
         /// CAD TO CAD
         /// </summary>
-        CAD2CAD
+        CAD2CAD,
+
+        /// <summary>
+        /// SERVER IP
+        /// </summary>
+        SERVER_IP,
+
+        /// <summary>
+        /// SERVER PORT
+        /// </summary>
+        SERVER_PORT
     }
+
+    
 
     /// <summary>
     /// Thumbnail Image Target
@@ -1011,5 +1023,370 @@ namespace VIZPub
         /// Tessellation
         /// </summary>
         Tessellation = 2
+    }
+
+    /// <summary>
+    /// Bom Xml Generator Parameters
+    /// </summary>
+    public enum BomXmlParameters
+    {
+        /// <summary>
+        /// MODE 
+        /// </summary>
+        MODE = 0,
+
+        /// <summary>
+        /// INPUT FILE
+        /// </summary>
+        INPUT,
+
+        /// <summary>
+        /// OUTPUT FILE
+        /// </summary>
+        OUTPUT,
+
+        /// <summary>
+        /// LOG
+        /// </summary>
+        LOG,
+
+        /// <summary>
+        /// SUPRESSED ENTITY
+        /// </summary>
+        SUPRESSED_ENTITY,
+
+        /// <summary>
+        /// REFERENCE NAME
+        /// </summary>
+        REFERENCE_NAME,
+
+        /// <summary>
+        /// EXPORT FULL STRUCTURE
+        /// </summary>
+        EXPORT_FULL_STRUCTURE,
+
+        /// <summary>
+        /// EXPORT PART ATTRIBUTE
+        /// </summary>
+        EXPORT_PART_ATTRIBUTE,
+
+        /// <summary>
+        /// EXPORT CAD INFORMATION
+        /// </summary>
+        EXPORT_CAD_INFORMATION,
+
+        /// <summary>
+        /// REFERENCE CAD FILE PATH
+        /// </summary>
+        REFERENCE_FILE_PATH,
+
+        /// <summary>
+        /// THUMBNAIL IMAGE WIDTH
+        /// </summary>
+        THUMBNAIL_IMAGE_WIDTH,
+
+        /// <summary>
+        /// THUMBNAIL IMAGE HEIGHT
+        /// </summary>
+        THUMBNAIL_IMAGE_HEIGHT,
+
+        /// <summary>
+        /// RESOLUTION
+        /// </summary>
+        RESOLUTION,
+
+        /// <summary>
+        /// IMAGE QUALITY
+        /// </summary>
+        IMAGE_QUALITY,
+
+        /// <summary>
+        /// THUMBNAIL TARGET
+        /// </summary>
+        THUMBNAIL_TARGET,
+
+        /// <summary>
+        /// USE MULTI PROCESS
+        /// </summary>
+        USE_MULTI_PROCESS,
+
+        /// <summary>
+        /// CREATE NODE MISSING FILE
+        /// </summary>
+        CREATE_NODE_MISSING_FILE,
+
+        /// <summary>
+        /// SPLIT NAME OPTION
+        /// </summary>
+        SPLIT_NAME_OPTION,
+
+        /// <summary>
+        /// READ BREP
+        /// </summary>
+        READ_BREP,
+
+        /// <summary>
+        /// READ DGMC
+        /// </summary>
+        READ_DGMC,
+
+        /// <summary>
+        /// READ DGFC
+        /// </summary>
+        READ_DGFC,
+
+
+        /// <summary>
+        /// SERVER IP
+        /// </summary>
+        SERVER_IP,
+
+        /// <summary>
+        /// SERVER PORT
+        /// </summary>
+        SERVER_PORT
+    }
+
+    /// <summary>
+    /// CAD Type
+    /// </summary>
+    public enum Format
+    {
+        /// <summary>
+        /// BST
+        /// </summary>
+        BST = 0,
+
+        /// <summary>
+        /// Acis
+        /// </summary>
+        Acis = 1,
+
+        /// <summary>
+        /// CatiaV4
+        /// </summary>
+        CatiaV4 = 2,
+
+        /// <summary>
+        /// CatiaV5
+        /// </summary>
+        CatiaV5 = 3,
+
+        /// <summary>
+        /// IGES
+        /// </summary>
+        IGES = 4,
+
+        /// <summary>
+        /// Invertor
+        /// </summary>
+        Invertor = 5,
+
+        /// <summary>
+        /// JT
+        /// </summary>
+        JT = 6,
+
+        /// <summary>
+        /// Parasolid
+        /// </summary>
+        Parasolid = 7,
+
+        /// <summary>
+        /// ProE
+        /// </summary>
+        ProE = 8,
+
+        /// <summary>
+        /// SolidWorks
+        /// </summary>
+        SolidWorks = 9,
+
+        /// <summary>
+        /// STEP
+        /// </summary>
+        STEP = 10,
+
+        /// <summary>
+        /// UGorProE
+        /// </summary>
+        UGorProE = 11,
+
+        /// <summary>
+        /// VDA
+        /// </summary>
+        VDA = 12,
+
+        /// <summary>
+        /// UG
+        /// </summary>
+        UG = 13,
+
+        /// <summary>
+        /// DAV
+        /// </summary>
+        DAV = 14,
+
+        /// <summary>
+        /// REV
+        /// </summary>
+        REV = 15,
+
+        /// <summary>
+        /// RVM
+        /// </summary>
+        RVM = 16,
+
+        /// <summary>
+        /// DGN
+        /// </summary>
+        DGN = 17,
+
+        /// <summary>
+        /// SITF
+        /// </summary>
+        SITF = 18,
+
+        /// <summary>
+        /// SolidEdge
+        /// </summary>
+        SolidEdge = 19,
+
+        /// <summary>
+        /// ProEorSolidEdge
+        /// </summary>
+        ProEorSolidEdge = 20,
+
+        /// <summary>
+        /// STL
+        /// </summary>
+        STL = 21,
+
+        /// <summary>
+        /// _3DXML
+        /// </summary>
+        _3DXML = 22,
+
+        /// <summary>
+        /// CGR
+        /// </summary>
+        CGR = 23,
+
+        /// <summary>
+        /// XCGM
+        /// </summary>
+        XCGM = 24,
+
+        /// <summary>
+        /// IFC
+        /// </summary>
+        IFC = 25,
+
+        /// <summary>
+        /// RVT
+        /// </summary>
+        RVT = 26,
+
+        /// <summary>
+        /// FBX
+        /// </summary>
+        FBX = 27,
+
+        /// <summary>
+        /// DWG
+        /// </summary>
+        DWG = 28,
+
+        /// <summary>
+        /// DXF
+        /// </summary>
+        DXF = 29,
+
+        /// <summary>
+        /// Universal3D
+        /// </summary>
+        Universal3D = 30,
+
+        /// <summary>
+        /// VRML
+        /// </summary>
+        VRML = 31,
+
+        /// <summary>
+        /// IDEAS
+        /// </summary>
+        IDEAS = 32,
+
+        /// <summary>
+        /// PRC
+        /// </summary>
+        PRC = 33,
+
+        /// <summary>
+        /// RHINO3D
+        /// </summary>
+        RHINO3D = 34,
+
+        /// <summary>
+        /// OBJ
+        /// </summary>
+        OBJ = 35,
+
+        /// <summary>
+        /// GLTF
+        /// </summary>
+        GLTF = 36,
+
+        /// <summary>
+        /// AUTODESK3DS
+        /// </summary>
+        AUTODESK3DS = 37,
+
+        /// <summary>
+        /// COLLADA
+        /// </summary>
+        COLLADA = 38,
+
+        /// <summary>
+        /// AUTODESKDWF
+        /// </summary>
+        AUTODESKDWF = 39,
+
+        /// <summary>
+        /// STEPXML
+        /// </summary>
+        STEPXML = 40,
+
+        /// <summary>
+        /// HMF
+        /// </summary>
+        HMF = 41,
+
+        /// <summary>
+        /// NWD
+        /// </summary>
+        NWD = 42,
+
+        /// <summary>
+        /// _3DPDF
+        /// </summary>
+        _3DPDF = 43,
+
+        /// <summary>
+        /// _3MF
+        /// </summary>
+        _3MF = 44,
+
+        /// <summary>
+        /// _3DPDF
+        /// </summary>
+        XML = 100,
+
+        /// <summary>
+        /// Unknown
+        /// </summary>
+        Unknown = -1
+
+
     }
 }
