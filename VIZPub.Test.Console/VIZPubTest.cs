@@ -617,6 +617,8 @@ namespace VIZPub.Test.Console
 
             parameter.Add(PublishParameters.LOG, LogKind.INFORMATION);                      // [Optional] Default(None)
 
+            parameter.Add(PublishParameters.COMPRESS_VIZW, true);                           // [Optional] Default(False)
+
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);

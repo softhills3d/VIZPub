@@ -208,6 +208,9 @@ namespace VIZPub
                 case PublishParameters.ROTATE_Z:
                     parameter = string.Format("-rz {0}", value);
                     break;
+                case PublishParameters.COMPRESS_VIZW:
+                    parameter = string.Format("-comp {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;

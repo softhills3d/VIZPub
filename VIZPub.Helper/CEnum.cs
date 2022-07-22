@@ -397,6 +397,11 @@ namespace VIZPub
         ROTATE_Z,
 
         /// <summary>
+        /// COMPRESS VIZW (VIZWide3D)
+        /// </summary>
+        COMPRESS_VIZW,
+
+        /// <summary>
         /// DEBUG
         /// </summary>
         DEBUG,
