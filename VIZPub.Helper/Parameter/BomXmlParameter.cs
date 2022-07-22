@@ -8,12 +8,12 @@ namespace VIZPub
     /// <summary>
     /// Translate Parameter Class
     /// </summary>
-    public class TranslateParameter
+    public class BomXmlParameter
     {
         // ================================================
         // Attribute & Property
         // ================================================
-        internal Dictionary<TranslateParameters, object> Parameter { get; set; }
+        internal Dictionary<BomXmlParameters, object> Parameter { get; set; }
 
 
         // ================================================
@@ -22,9 +22,9 @@ namespace VIZPub
         /// <summary>
         /// Construction
         /// </summary>
-        public TranslateParameter()
+        public BomXmlParameter()
         {
-            Parameter = new Dictionary<TranslateParameters, object>();
+            Parameter = new Dictionary<BomXmlParameters, object>();
         }
 
         // ================================================
@@ -63,143 +63,80 @@ namespace VIZPub
             return string.Join(";", items.ToArray());
         }
 
-        internal string GetParameter(TranslateParameters key, object value)
+        internal string GetParameter(BomXmlParameters key, object value)
         {
             string parameter = String.Empty;
 
             switch (key)
             {
-                case TranslateParameters.MODE:
+                case BomXmlParameters.MODE:
                     parameter = string.Format("-mode {0}", value);
                     break;
-                case TranslateParameters.INPUT:
+                case BomXmlParameters.INPUT:
                     parameter = string.Format("-i \"{0}\"", value);
                     break;
-                case TranslateParameters.OUTPUT:
+                case BomXmlParameters.OUTPUT:
                     parameter = string.Format("-o \"{0}\"", value);
                     break;
-                case TranslateParameters.SERVER_IP:
+                case BomXmlParameters.SERVER_IP:
                     parameter = string.Format("-si \"{0}\"", value);
                     break;
-                case TranslateParameters.SERVER_PORT:
+                case BomXmlParameters.SERVER_PORT:
                     parameter = string.Format("-sp \"{0}\"", value);
                     break;
-                case TranslateParameters.MASS_PROPERTY:
-                    parameter = string.Format("-mprop {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.TESSELLATION_QUALITY:
-                    parameter = string.Format("-tq {0}", (int)((TesselationQuality)value));
-                    break;
-                case TranslateParameters.PSKERNEL:
-                    parameter = string.Format("-ps {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.HEALING:
-                    parameter = string.Format("-heal {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.FREE_POINT:
-                    parameter = string.Format("-freep {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.FREE_SURFACE:
-                    parameter = string.Format("-frees {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.FREE_CURVE:
-                    parameter = string.Format("-freec {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.HIDDEN_ENTITY:
-                    parameter = string.Format("-hidden {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.SUPRESSED_ENTITY:
-                    parameter = string.Format("-supressed {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.LOG:
+                case BomXmlParameters.LOG:
                     parameter = string.Format("-log {0}", (int)((TranslateLog)value));
                     break;
-                case TranslateParameters.VIZ_VERSION:
-                    parameter = string.Format("-ver {0}", (int)((VIZVersion)value));
-                    break;
-                case TranslateParameters.WITH_PMI:
-                    parameter = string.Format("-pmi {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.REFERENCE_NAME:
-                    parameter = string.Format("-refName {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.OUTPUT_THUMBNAIL:
-                    parameter = string.Format("-thumbnail {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.OUTPUT_VIZM:
-                    parameter = string.Format("-vizm {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.ASSEMBLY_ONLY:
-                    parameter = string.Format("-assemblycon {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.BODY_TO_PART:
-                    parameter = string.Format("-BodyToPart {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.VISIBLE_LAYER_ONLY:
-                    parameter = string.Format("-vlayer {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.NURBS:
-                    parameter = string.Format("-nurbs {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.OUTPUT_VIZW_PATH:
-                    parameter = string.Format("-ovizw {0}", value);
-                    break;
-                case TranslateParameters.OUTPUT_THUMBNAIL_PATH:
-                    parameter = string.Format("-othumb {0}", value);
-                    break;
-                case TranslateParameters.EXPORT_FULL_STRUCTURE:
+                case BomXmlParameters.EXPORT_FULL_STRUCTURE:
                     parameter = string.Format("-fs {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.EXPORT_PART_ATTRIBUTE:
+                case BomXmlParameters.EXPORT_PART_ATTRIBUTE:
                     parameter = string.Format("-att {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.EXPORT_CAD_INFORMATION:
+                case BomXmlParameters.EXPORT_CAD_INFORMATION:
                     parameter = string.Format("-info {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.REFERENCE_FILE_PATH:
+                case BomXmlParameters.REFERENCE_FILE_PATH:
                     parameter = string.Format("-path {0}", GetReferenceFilePath(value));
                     break;
-                case TranslateParameters.THUMBNAIL_IMAGE_WIDTH:
+                case BomXmlParameters.SUPRESSED_ENTITY:
+                    parameter = string.Format("-supressed {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case BomXmlParameters.REFERENCE_NAME:
+                    parameter = string.Format("-refName {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
+                case BomXmlParameters.THUMBNAIL_IMAGE_WIDTH:
                     parameter = string.Format("-iw {0}", GetInteger(value));
                     break;
-                case TranslateParameters.THUMBNAIL_IMAGE_HEIGHT:
+                case BomXmlParameters.THUMBNAIL_IMAGE_HEIGHT:
                     parameter = string.Format("-ih {0}", GetInteger(value));
                     break;
-                case TranslateParameters.RESOLUTION:
+                case BomXmlParameters.RESOLUTION:
                     parameter = string.Format("-dpi {0}", GetInteger(value));
                     break;
-                case TranslateParameters.IMAGE_QUALITY:
+                case BomXmlParameters.IMAGE_QUALITY:
                     parameter = string.Format("-iq {0}", GetInteger(value));
                     break;
-                case TranslateParameters.THUMBNAIL_DEFAULT_VIEW:
-                    parameter = string.Format("-dv {0}", GetInteger(value));
-                    break;
-                case TranslateParameters.THUMBNAIL_TARGET:
+                case BomXmlParameters.THUMBNAIL_TARGET:
                     parameter = string.Format("-subimg {0}", (int)((ThumbnailImageTarget)value));
                     break;
-                case TranslateParameters.SPLIT_COUNT:
-                    parameter = string.Format("-spcnt {0}", GetInteger(value));
-                    break;
-                case TranslateParameters.USE_MULTI_PROCESS:
+                case BomXmlParameters.USE_MULTI_PROCESS:
                     parameter = string.Format("-useMulti {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.CREATE_NODE_MISSING_FILE:
+                case BomXmlParameters.CREATE_NODE_MISSING_FILE:
                     parameter = string.Format("-cmfn {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.SPLIT_NAME_OPTION:
+                case BomXmlParameters.SPLIT_NAME_OPTION:
                     parameter = string.Format("-spName {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.READ_BREP:
+                case BomXmlParameters.READ_BREP:
                     parameter = string.Format("-brep {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.READ_DGMC:
+                case BomXmlParameters.READ_DGMC:
                     parameter = string.Format("-dgmc {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
-                case TranslateParameters.READ_DGFC:
+                case BomXmlParameters.READ_DGFC:
                     parameter = string.Format("-dgfc {0}", GetBoolean(value) == true ? "t" : "f");
-                    break;
-                case TranslateParameters.CAD2CAD:
-                    parameter = string.Format("-c2c {0}", value);
                     break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
@@ -223,7 +160,7 @@ namespace VIZPub
         /// <param name="key">Key</param>
         /// <param name="value">Value</param>
         /// <returns>Result</returns>
-        public bool Add(TranslateParameters key, object value)
+        public bool Add(BomXmlParameters key, object value)
         {
             if (Parameter.ContainsKey(key) == true) return false;
 
@@ -236,7 +173,7 @@ namespace VIZPub
         /// </summary>
         /// <param name="key">Key</param>
         /// <returns>Result</returns>
-        public bool Exist(TranslateParameters key)
+        public bool Exist(BomXmlParameters key)
         {
             return Parameter.ContainsKey(key);
         }
@@ -246,7 +183,7 @@ namespace VIZPub
         /// </summary>
         /// <param name="key">Key</param>
         /// <returns>Result</returns>
-        public object GetValue(TranslateParameters key)
+        public object GetValue(BomXmlParameters key)
         {
             if (Exist(key) == true) return Parameter[key];
             else return null;
@@ -257,7 +194,7 @@ namespace VIZPub
         /// </summary>
         /// <param name="key">Key</param>
         /// <param name="value">Value</param>
-        public void SetValue(TranslateParameters key, object value)
+        public void SetValue(BomXmlParameters key, object value)
         {
             if (Exist(key) == false)
                 Add(key, value);
@@ -273,7 +210,7 @@ namespace VIZPub
         {
             string parameter = String.Empty;
 
-            foreach (KeyValuePair<TranslateParameters, object> item in Parameter)
+            foreach (KeyValuePair<BomXmlParameters, object> item in Parameter)
             {
                 parameter += string.Format(" {0}", GetParameter(item.Key, item.Value));
             }
