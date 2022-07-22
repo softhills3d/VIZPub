@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShxBomXmlGenTest.cs" />
     <Compile Include="VIZCoreTransTest.cs" />
     <Compile Include="VIZPubTest.cs" />
     <Compile Include="VIZXMLTest.cs" />

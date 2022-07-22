@@ -55,10 +55,12 @@
     <Compile Include="Merge\MergeItemManager.cs" />
     <Compile Include="Metadata\MetadataLoader.cs" />
     <Compile Include="Metadata\Node.cs" />
+    <Compile Include="Parameter\BomXmlParameter.cs" />
     <Compile Include="Process\ProcessHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishManager.cs" />
     <Compile Include="Parameter\PublishParameter.cs" />
+    <Compile Include="BomXmlManager.cs" />
     <Compile Include="TranslateManager.cs" />
     <Compile Include="Parameter\TranslateParameter.cs" />
     <Compile Include="VIZXML\VIZXMLManager.cs" />
