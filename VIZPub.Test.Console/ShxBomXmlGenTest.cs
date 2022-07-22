@@ -16,13 +16,11 @@ namespace VIZPub.Test.Console
 
         public void Test()
         {
-
             //ExportEbomXml_Single_Top_Level_Assembly();
             //ExportEbomXml_Multiple_Top_Level_Assemblies();
 
             //ExportThumbnail_Model();
             //ExportThumbnail_AllNode();
-
         }
 
         public void ExportXML()
@@ -56,7 +54,6 @@ namespace VIZPub.Test.Console
             {
                 parameter.Add(BomXmlParameters.REFERENCE_FILE_PATH, referencePath);  // [Optional] 
             }
-
 
             // ShxBomXmlGen
             // Path : Ex) C:\SOFTHILLS\VIZPub\ShxBomXmlGen.exe
@@ -210,6 +207,5 @@ namespace VIZPub.Test.Console
             BomXmlManager translate = new BomXmlManager(ShxBomXmlGen_Path);
             bool result = translate.GetCADType(parameter);
         }
-
     }
 }
