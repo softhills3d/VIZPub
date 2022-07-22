@@ -13,7 +13,7 @@ namespace VIZPub.Test.Console
             // VIZPub
             // ================================================
             VIZPubTest test_VIZPub = new VIZPubTest();
-            //test_VIZPub.Test();
+            test_VIZPub.Test();
 
             // ================================================
             // VIZCoreTrans
