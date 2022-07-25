@@ -36,6 +36,7 @@ namespace VIZPub.Test.Console
             parameter.Add(BomXmlParameters.EXPORT_CAD_INFORMATION, false);           // [Optional] Default(False), CAD 정보 추출 여부
             parameter.Add(BomXmlParameters.REFERENCE_NAME, false);                   // [Optional] Default(False), Hoops Reference Name 사용 여부
             parameter.Add(BomXmlParameters.USE_MULTI_PROCESS, false);                // [Optional] Default(False), Multi Process 사용 여부
+            parameter.Add(BomXmlParameters.HIDDEN_ENTITY, false);                    // [Optional] Default(False), Hidden Entity 변환 여부 (InterOP)
 
             parameter.Add(BomXmlParameters.CREATE_NODE_MISSING_FILE, false);         // [Optional] Default(False), Missing File Node 생성 여부 (invertor)
             parameter.Add(BomXmlParameters.SPLIT_NAME_OPTION, false);                // [Optional] Default(False), Split Name Node 이름 필요없는 부분 삭제 여부 (invertor)
@@ -69,6 +70,7 @@ namespace VIZPub.Test.Console
             parameter.Add(BomXmlParameters.INPUT, "C:\\Temp\\sample.prt");           // INPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.OUTPUT, "C:\\Temp\\sample.xml");          // OUTPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.LOG, TranslateLog.OUTPUT_ALWAYS);         // 결과 XML 생성 여부
+
             parameter.Add(BomXmlParameters.SERVER_IP, "");                           // SERVER IP
             parameter.Add(BomXmlParameters.SERVER_PORT, "");                         // SERVER PORT
             parameter.Add(BomXmlParameters.EXPORT_FULL_STRUCTURE, true);             // [Optional] Default(False), Full Structure 추출 여부
@@ -101,6 +103,7 @@ namespace VIZPub.Test.Console
             parameter.Add(BomXmlParameters.INPUT, "C:\\Temp\\sample.prt");           // INPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.OUTPUT, "C:\\Temp\\sample");              // OUTPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.LOG, TranslateLog.OUTPUT_ALWAYS);         // 결과 XML 생성 여부
+
             parameter.Add(BomXmlParameters.SERVER_IP, "");                           // SERVER IP
             parameter.Add(BomXmlParameters.SERVER_PORT, "");                         // SERVER PORT
             parameter.Add(BomXmlParameters.EXPORT_PART_ATTRIBUTE, false);            // [Optional] Default(False), Part Attribute 추출 여부
@@ -131,6 +134,7 @@ namespace VIZPub.Test.Console
             parameter.Add(BomXmlParameters.INPUT, "C:\\Temp\\sample.prt");                  // INPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.OUTPUT, "C:\\Temp\\sample.jpg");                 // OUTPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                // 결과 XML 생성 여부
+
             parameter.Add(BomXmlParameters.SERVER_IP, "");                                  // SERVER IP
             parameter.Add(BomXmlParameters.SERVER_PORT, "");                                // SERVER PORT
             parameter.Add(BomXmlParameters.THUMBNAIL_IMAGE_WIDTH, 400);                     // [Optional] Default(400), Thumbnail Image 너비값
@@ -167,6 +171,7 @@ namespace VIZPub.Test.Console
             parameter.Add(BomXmlParameters.INPUT, "C:\\Temp\\sample.prt");                           // INPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.OUTPUT, "C:\\Temp\\Image");                               // OUTPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                         // 결과 XML 생성 여부
+
             parameter.Add(BomXmlParameters.SERVER_IP, "");                                           // SERVER IP
             parameter.Add(BomXmlParameters.SERVER_PORT, "");                                         // SERVER PORT
             parameter.Add(BomXmlParameters.THUMBNAIL_IMAGE_WIDTH, 400);                              // [Optional] Default(400), Thumbnail Image 너비값

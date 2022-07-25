@@ -1116,6 +1116,11 @@ namespace VIZPub
         USE_MULTI_PROCESS,
 
         /// <summary>
+        /// HIDDEN ENTITY
+        /// </summary>
+        HIDDEN_ENTITY,
+
+        /// <summary>
         /// CREATE NODE MISSING FILE
         /// </summary>
         CREATE_NODE_MISSING_FILE,

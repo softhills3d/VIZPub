@@ -123,6 +123,9 @@ namespace VIZPub
                 case BomXmlParameters.USE_MULTI_PROCESS:
                     parameter = string.Format("-useMulti {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
+                case BomXmlParameters.HIDDEN_ENTITY:
+                    parameter = string.Format("-hidden {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
                 case BomXmlParameters.CREATE_NODE_MISSING_FILE:
                     parameter = string.Format("-cmfn {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
