@@ -62,8 +62,8 @@ namespace VIZPub
 
             if (value is System.String)
                 val = Convert.ToSingle((string)value);
-            else if (value is System.Int32)
-                val = Convert.ToSingle((string)value);
+            else if (value is System.Single)
+                val = Convert.ToSingle(value);
 
             return val;
         }

@@ -32,6 +32,12 @@ namespace VIZPub.Test.Console
             // ================================================
             ShxBomXmlGenTest test_ShxBomXmlGen = new ShxBomXmlGenTest();
             //test_ShxBomXmlGen.Test();
+
+            // ================================================
+            // VIZPub 2D
+            // ================================================
+            VIZPub2DTest test_VIZPub2D = new VIZPub2DTest();
+            test_VIZPub2D.Test();
         }
     }
 }
