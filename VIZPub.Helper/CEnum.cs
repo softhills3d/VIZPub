@@ -1396,7 +1396,41 @@ namespace VIZPub
         /// Unknown
         /// </summary>
         Unknown = -1
+    }
 
+    /// <summary>
+    /// Image Parameters
+    /// </summary>
+    public enum ImageParameters
+    {
+        /// <summary>
+        /// INPUT FILE : DWG/DXF
+        /// </summary>
+        INPUT = 0,
 
+        /// <summary>
+        /// OUTPUT FILE : JPG IMAGE FORMAT ONLY
+        /// </summary>
+        OUTPUT,
+
+        /// <summary>
+        /// OUTPUT IMAGE WIDTH
+        /// </summary>
+        WIDTH,
+
+        /// <summary>
+        /// OUTPUT IMAGE HEIGHT
+        /// </summary>
+        HEIGHT,
+
+        /// <summary>
+        /// OUTPUT IMAGE SCALE : 0.1, 0.2, ... 1, 2, 3, ...
+        /// </summary>
+        SCALE,
+
+        /// <summary>
+        /// CONVERSION LOG
+        /// </summary>
+        LOG
     }
 }
