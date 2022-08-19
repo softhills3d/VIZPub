@@ -106,6 +106,9 @@ namespace VIZPub
             if (System.IO.File.Exists(original_input) == false)
                 throw new System.IO.FileNotFoundException(string.Format("Input File Not Found.\r\n\r\n{0}", original_input));
 
+            string ext = System.IO.Path.GetExtension(original_output).ToUpper();
+            if (ext != ".JPG") return false;
+
             string argument = parameter.ToString();
 
             // Publish
