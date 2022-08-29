@@ -455,7 +455,7 @@ namespace VIZPub.Test.Console
             TranslateParameter parameter = new TranslateParameter();
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                       // INPUT FILE 경로(절대경로)
-            parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.vizw");                     // OUTPUT FILE 경로(절대경로)
+            parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.viz");                      // OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                     // 결과 XML 생성 여부
 
             parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                 // CAD to CAD XML 경로
@@ -463,7 +463,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False), Mass Property 사용 여부
             parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);     // [Optional] Default(Normal), Tessellation 품질
             parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL, false);                             // [Optional] Default(False), 썸네일 EXPORT 여부
-            parameter.Add(TranslateParameters.OUTPUT_VIZW_PATH, "C:\\Temp\\sample");                // [Optional] VIZW 추출 경로
+            parameter.Add(TranslateParameters.OUTPUT_VIZW_PATH, "C:\\Temp\\sample\\sample.vizw");   // [Optional] VIZW 추출 경로
             parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL_PATH, "C:\\Temp\\sample");           // [Optional] Thumbnail 추출 경로
             parameter.Add(TranslateParameters.THUMBNAIL_IMAGE_WIDTH, 400);                          // [Optional] Default(400), Thumbnail Image 너비값
             parameter.Add(TranslateParameters.THUMBNAIL_IMAGE_HEIGHT, 300);                         // [Optional] Default(300), Thumbnail Image 높이값
@@ -479,9 +479,11 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.REFERENCE_NAME, false);                               // [Optional] Default(False), Hoops Reference Name 사용 여부 
             parameter.Add(TranslateParameters.ASSEMBLY_ONLY, false);                                // [Optional] Default(False), Assembly만 변환할 것인지 여부 
-            parameter.Add(TranslateParameters.BODY_TO_PART, false);                                  // [Optional] Default(False), Body를 Part로 변환할 것인지 여부
-            parameter.Add(TranslateParameters.FREE_SURFACE, false);                                  // [Optional] Default(False), Free Surface 변환 여부 
+            parameter.Add(TranslateParameters.BODY_TO_PART, false);                                 // [Optional] Default(False), Body를 Part로 변환할 것인지 여부
+            parameter.Add(TranslateParameters.FREE_SURFACE, false);                                 // [Optional] Default(False), Free Surface 변환 여부 
             parameter.Add(TranslateParameters.VISIBLE_LAYER_ONLY, false);                           // [Optional] Default(False), Visible Layer만 변환할 것인지 여부 
+
+            parameter.Add(TranslateParameters.COMPRESSION, true);                                   // [Optional] Compress VIZW
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportVIZW(parameter);

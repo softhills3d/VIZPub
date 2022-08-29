@@ -142,7 +142,14 @@ namespace VIZPub
                     parameter = string.Format("-nurbs {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.OUTPUT_VIZW_PATH:
-                    parameter = string.Format("-ovizw {0}", value);
+                    {
+                        string fullPath = (string)value;
+                        parameter = string.Format("-ovizw {0}", fullPath);
+
+                        string path = System.IO.Path.GetDirectoryName(fullPath);
+                        if (System.IO.Directory.Exists(path) == false)
+                            System.IO.Directory.CreateDirectory(path);
+                    }
                     break;
                 case TranslateParameters.OUTPUT_THUMBNAIL_PATH:
                     parameter = string.Format("-othumb {0}", value);
