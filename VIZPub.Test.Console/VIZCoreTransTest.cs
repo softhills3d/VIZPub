@@ -57,9 +57,10 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.READ_DGFC, false);                        // [Optional] Default(False), Display Generic Form for Flexible Boolean Components (PRO-E)
 
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if (referencePath.Count > 0)
             {
@@ -192,9 +193,10 @@ namespace VIZPub.Test.Console
 
             // If File Exists
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if(referencePath.Count > 0)
             {
@@ -212,7 +214,7 @@ namespace VIZPub.Test.Console
             TranslateParameter parameter = new TranslateParameter();
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");           // INPUT FILE 경로(절대경로)
-            parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample");              // OUTPUT FILE 경로(절대경로)
+            parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.txt");          // OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);         // 결과 XML 생성 여부
             parameter.Add(TranslateParameters.SERVER_IP, "");                           // SERVER IP
             parameter.Add(TranslateParameters.SERVER_PORT, "");                         // SERVER PORT
@@ -222,9 +224,10 @@ namespace VIZPub.Test.Console
 
             // If File Exists
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if (referencePath.Count > 0)
             {
@@ -255,9 +258,10 @@ namespace VIZPub.Test.Console
 
             // If File Exists
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if (referencePath.Count > 0)
             {
@@ -278,7 +282,7 @@ namespace VIZPub.Test.Console
             TranslateParameter parameter = new TranslateParameter();
 
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                           // INPUT FILE 경로(절대경로)
-            parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\Image");                               // OUTPUT FILE 경로(절대경로)
+            parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\Image.txt");                           // OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                         // 결과 XML 생성 여부
             parameter.Add(TranslateParameters.SERVER_IP, "");                                           // SERVER IP
             parameter.Add(TranslateParameters.SERVER_PORT, "");                                         // SERVER PORT
@@ -291,9 +295,10 @@ namespace VIZPub.Test.Console
 
             // If File Exists
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if (referencePath.Count > 0)
             {

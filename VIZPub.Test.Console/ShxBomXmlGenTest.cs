@@ -47,9 +47,10 @@ namespace VIZPub.Test.Console
             parameter.Add(BomXmlParameters.READ_DGFC, false);                        // [Optional] Default(False), Display Generic Form for Flexible Boolean Components (PRO-E)
 
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if (referencePath.Count > 0)
             {
@@ -81,9 +82,10 @@ namespace VIZPub.Test.Console
 
             // If File Exists
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if(referencePath.Count > 0)
             {
@@ -101,7 +103,7 @@ namespace VIZPub.Test.Console
             BomXmlParameter parameter = new BomXmlParameter();
 
             parameter.Add(BomXmlParameters.INPUT, "C:\\Temp\\sample.prt");           // INPUT FILE 경로(절대경로)
-            parameter.Add(BomXmlParameters.OUTPUT, "C:\\Temp\\sample");              // OUTPUT FILE 경로(절대경로)
+            parameter.Add(BomXmlParameters.OUTPUT, "C:\\Temp\\sample.txt");          // OUTPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.LOG, TranslateLog.OUTPUT_ALWAYS);         // 결과 XML 생성 여부
 
             parameter.Add(BomXmlParameters.SERVER_IP, "");                           // SERVER IP
@@ -112,9 +114,10 @@ namespace VIZPub.Test.Console
 
             // If File Exists
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if (referencePath.Count > 0)
             {
@@ -146,9 +149,10 @@ namespace VIZPub.Test.Console
 
             // If File Exists
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if (referencePath.Count > 0)
             {
@@ -169,7 +173,7 @@ namespace VIZPub.Test.Console
             BomXmlParameter parameter = new BomXmlParameter();
 
             parameter.Add(BomXmlParameters.INPUT, "C:\\Temp\\sample.prt");                           // INPUT FILE 경로(절대경로)
-            parameter.Add(BomXmlParameters.OUTPUT, "C:\\Temp\\Image");                               // OUTPUT FILE 경로(절대경로)
+            parameter.Add(BomXmlParameters.OUTPUT, "C:\\Temp\\Image.txt");                           // OUTPUT FILE 경로(절대경로)
             parameter.Add(BomXmlParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                         // 결과 XML 생성 여부
 
             parameter.Add(BomXmlParameters.SERVER_IP, "");                                           // SERVER IP
@@ -183,9 +187,10 @@ namespace VIZPub.Test.Console
 
             // If File Exists
             List<string> referencePath = new List<string>();
-            referencePath.Add("C:\\Common\\ST-PART");
-            referencePath.Add("C:\\Common\\MECA-PART");
-            referencePath.Add("C:\\Common\\EQUIP-PART");
+            ///referencePath.Add("C:\\Common\\ST-PART");
+            ///referencePath.Add("C:\\Common\\MECA-PART");
+            ///referencePath.Add("C:\\Common\\EQUIP-PART");
+            referencePath.Add("C:\\RefPath.txt");
 
             if (referencePath.Count > 0)
             {
