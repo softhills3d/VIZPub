@@ -30,7 +30,7 @@ namespace VIZPub.Test.Console
             //ExportThumbnail_Model();
             //ExportThumbnail_AllNode();
 
-            //ExportVIZW();
+            ExportVIZW();
         }
 
         public void ExportXML()
@@ -474,8 +474,8 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.REFERENCE_NAME, false);                               // [Optional] Default(False), Hoops Reference Name 사용 여부 
             parameter.Add(TranslateParameters.ASSEMBLY_ONLY, false);                                // [Optional] Default(False), Assembly만 변환할 것인지 여부 
-            parameter.Add(TranslateParameters.BODY_TO_PART,false);                                  // [Optional] Default(False), Body를 Part로 변환할 것인지 여부
-            parameter.Add(TranslateParameters.FREE_SURFACE,false);                                  // [Optional] Default(False), Free Surface 변환 여부 
+            parameter.Add(TranslateParameters.BODY_TO_PART, false);                                  // [Optional] Default(False), Body를 Part로 변환할 것인지 여부
+            parameter.Add(TranslateParameters.FREE_SURFACE, false);                                  // [Optional] Default(False), Free Surface 변환 여부 
             parameter.Add(TranslateParameters.VISIBLE_LAYER_ONLY, false);                           // [Optional] Default(False), Visible Layer만 변환할 것인지 여부 
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
