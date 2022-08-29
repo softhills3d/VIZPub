@@ -768,7 +768,12 @@ namespace VIZPub
         /// <summary>
         /// SERVER PORT
         /// </summary>
-        SERVER_PORT
+        SERVER_PORT,
+
+        /// <summary>
+        /// COMPRESSION
+        /// </summary>
+        COMPRESSION
     }
 
     

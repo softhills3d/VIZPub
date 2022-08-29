@@ -359,10 +359,9 @@ namespace VIZPub
         public bool ExportVIZW(TranslateParameter parameter)
         {
             // Add Mode
-            parameter.Add(TranslateParameters.MODE, "web");
+            parameter.Add(TranslateParameters.MODE, "vw3d");
 
             return IExport(parameter);
         }
-
     }
 }

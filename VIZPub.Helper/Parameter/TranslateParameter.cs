@@ -201,6 +201,9 @@ namespace VIZPub
                 case TranslateParameters.CAD2CAD:
                     parameter = string.Format("-c2c {0}", value);
                     break;
+                case TranslateParameters.COMPRESSION:
+                    parameter = string.Format("-comp {0}", GetBoolean(value) == true ? "t" : "f");
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;
