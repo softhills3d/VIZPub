@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIZPub.Test.Console", "VIZP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIZPub.Test.App", "VIZPub.Test.App\VIZPub.Test.App.csproj", "{D4254D98-C5EF-4380-B564-C71D07FF2C46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishManagerDemo", "PublishManagerDemo\PublishManagerDemo.csproj", "{011F535C-6797-432B-861B-3193BD862BF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D4254D98-C5EF-4380-B564-C71D07FF2C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4254D98-C5EF-4380-B564-C71D07FF2C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4254D98-C5EF-4380-B564-C71D07FF2C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{011F535C-6797-432B-861B-3193BD862BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011F535C-6797-432B-861B-3193BD862BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011F535C-6797-432B-861B-3193BD862BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011F535C-6797-432B-861B-3193BD862BF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
