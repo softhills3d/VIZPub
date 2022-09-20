@@ -52,6 +52,7 @@
     <Compile Include="Colors\ColorItem.cs" />
     <Compile Include="Colors\ColorManager.cs" />
     <Compile Include="ImageManager.cs" />
+    <Compile Include="EnvironmentInterOp.cs" />
     <Compile Include="Merge\MergeItem.cs" />
     <Compile Include="Merge\MergeItemManager.cs" />
     <Compile Include="Metadata\MetadataLoader.cs" />
