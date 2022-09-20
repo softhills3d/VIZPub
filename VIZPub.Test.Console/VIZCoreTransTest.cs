@@ -462,12 +462,15 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False), Mass Property 사용 여부
             parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);     // [Optional] Default(Normal), Tessellation 품질
-            parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL, false);                             // [Optional] Default(False), 썸네일 EXPORT 여부
+
             parameter.Add(TranslateParameters.OUTPUT_VIZW_PATH, "C:\\Temp\\sample\\sample.vizw");   // [Optional] VIZW 추출 경로
+
+            parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL, false);                             // [Optional] Default(False), 썸네일 EXPORT 여부
             parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL_PATH, "C:\\Temp\\sample");           // [Optional] Thumbnail 추출 경로
             parameter.Add(TranslateParameters.THUMBNAIL_IMAGE_WIDTH, 400);                          // [Optional] Default(400), Thumbnail Image 너비값
             parameter.Add(TranslateParameters.THUMBNAIL_IMAGE_HEIGHT, 300);                         // [Optional] Default(300), Thumbnail Image 높이값
             parameter.Add(TranslateParameters.THUMBNAIL_DEFAULT_VIEW, 0);                           // [Optional] Default(0), Thumbnail defualt
+
             parameter.Add(TranslateParameters.VIZ_VERSION, VIZVersion.V302);                        // [Optional] Default(302), VIZ FILE 버전
             parameter.Add(TranslateParameters.SPLIT_COUNT, 1);                                      // [Optional] Default(1), VIZW 파일분할 개수
 
