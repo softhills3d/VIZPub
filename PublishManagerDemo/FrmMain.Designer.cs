@@ -54,6 +54,9 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnOpen = new System.Windows.Forms.Button();
+            this.btnClearHistory = new System.Windows.Forms.Button();
+            this.btnExportHistory = new System.Windows.Forms.Button();
+            this.btnExportNavigation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,12 +74,15 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnExportNavigation);
             this.splitContainer1.Panel1.Controls.Add(this.btnOpen);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnExportHistory);
+            this.splitContainer1.Panel2.Controls.Add(this.btnClearHistory);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer1.Size = new System.Drawing.Size(1014, 498);
             this.splitContainer1.SplitterDistance = 430;
@@ -256,9 +262,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.lvHistory);
-            this.groupBox3.Location = new System.Drawing.Point(9, 54);
+            this.groupBox3.Location = new System.Drawing.Point(9, 41);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(559, 432);
+            this.groupBox3.Size = new System.Drawing.Size(559, 445);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "History";
@@ -279,7 +285,7 @@
             this.lvHistory.HideSelection = false;
             this.lvHistory.Location = new System.Drawing.Point(3, 17);
             this.lvHistory.Name = "lvHistory";
-            this.lvHistory.Size = new System.Drawing.Size(553, 412);
+            this.lvHistory.Size = new System.Drawing.Size(553, 425);
             this.lvHistory.TabIndex = 0;
             this.lvHistory.UseCompatibleStateImageBehavior = false;
             this.lvHistory.View = System.Windows.Forms.View.Details;
@@ -299,7 +305,6 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.DisplayIndex = 3;
             this.columnHeader4.Text = "Finish";
             this.columnHeader4.Width = 87;
             // 
@@ -313,20 +318,51 @@
             // 
             // columnHeader7
             // 
-            this.columnHeader7.DisplayIndex = 4;
-            this.columnHeader7.Text = "Elappsed";
+            this.columnHeader7.Text = "Elapsed";
             this.columnHeader7.Width = 83;
             // 
             // btnOpen
             // 
-            this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Location = new System.Drawing.Point(346, 265);
+            this.btnOpen.Location = new System.Drawing.Point(12, 265);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 5;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // btnClearHistory
+            // 
+            this.btnClearHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearHistory.Location = new System.Drawing.Point(493, 12);
+            this.btnClearHistory.Name = "btnClearHistory";
+            this.btnClearHistory.Size = new System.Drawing.Size(75, 23);
+            this.btnClearHistory.TabIndex = 1;
+            this.btnClearHistory.Text = "Clear";
+            this.btnClearHistory.UseVisualStyleBackColor = true;
+            this.btnClearHistory.Click += new System.EventHandler(this.btnClearHistory_Click);
+            // 
+            // btnExportHistory
+            // 
+            this.btnExportHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportHistory.Location = new System.Drawing.Point(412, 12);
+            this.btnExportHistory.Name = "btnExportHistory";
+            this.btnExportHistory.Size = new System.Drawing.Size(75, 23);
+            this.btnExportHistory.TabIndex = 2;
+            this.btnExportHistory.Text = "Export";
+            this.btnExportHistory.UseVisualStyleBackColor = true;
+            this.btnExportHistory.Click += new System.EventHandler(this.btnExportHistory_Click);
+            // 
+            // btnExportNavigation
+            // 
+            this.btnExportNavigation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportNavigation.Location = new System.Drawing.Point(346, 265);
+            this.btnExportNavigation.Name = "btnExportNavigation";
+            this.btnExportNavigation.Size = new System.Drawing.Size(75, 23);
+            this.btnExportNavigation.TabIndex = 6;
+            this.btnExportNavigation.Text = "Export";
+            this.btnExportNavigation.UseVisualStyleBackColor = true;
+            this.btnExportNavigation.Click += new System.EventHandler(this.btnExportNavigation_Click);
             // 
             // FrmMain
             // 
@@ -378,6 +414,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnClearHistory;
+        private System.Windows.Forms.Button btnExportHistory;
+        private System.Windows.Forms.Button btnExportNavigation;
     }
 }
 

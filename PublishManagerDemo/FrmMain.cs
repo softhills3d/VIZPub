@@ -45,7 +45,7 @@ namespace PublishManagerDemo
 
             if (String.IsNullOrEmpty(model) == false)
             {
-                if(System.IO.Directory.Exists(model) == true)
+                if (System.IO.Directory.Exists(model) == true)
                 {
                     VIZWide3D_MODEL = model;
                     txtModel.Text = model;
@@ -128,7 +128,9 @@ namespace PublishManagerDemo
                 }
             }
 
-            if(rbVIZPubManager.Checked == true)
+            this.Cursor = Cursors.WaitCursor;
+
+            if (rbVIZPubManager.Checked == true)
             {
                 VIZPub.PublishParameter parameter = new VIZPub.PublishParameter();
 
@@ -160,21 +162,22 @@ namespace PublishManagerDemo
 
                 AddHistory(input, "", output_vizw_path, start, DateTime.Now, result);
             }
-            else if(rbVIZPubMechanical.Checked == true)
+            else if (rbVIZPubMechanical.Checked == true)
             {
                 VIZPub.TranslateParameter parameter = new VIZPub.TranslateParameter();
 
-                parameter.Add(VIZPub.TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                       // INPUT FILE 경로(절대경로)
-                parameter.Add(VIZPub.TranslateParameters.OUTPUT, "C:\\Temp\\sample.viz");                      // OUTPUT FILE 경로(절대경로)
+                parameter.Add(VIZPub.TranslateParameters.INPUT, input);                       // INPUT FILE 경로(절대경로)
+                parameter.Add(VIZPub.TranslateParameters.OUTPUT, output_viz);                      // OUTPUT FILE 경로(절대경로)
                 parameter.Add(VIZPub.TranslateParameters.LOG, VIZPub.TranslateLog.OUTPUT_ALWAYS);                   // 결과 XML 생성 여부
 
                 //parameter.Add(VIZPub.TranslateParameters.CAD2CAD, "C:\\Temp");                                    // CAD to CAD XML 경로
 
                 parameter.Add(VIZPub.TranslateParameters.MASS_PROPERTY, false);                                     // [Optional] True or False. Default(False), Mass Property 사용 여부
                 parameter.Add(VIZPub.TranslateParameters.TESSELLATION_QUALITY, VIZPub.TesselationQuality.Normal);   // [Optional] Default(Normal), Tessellation 품질
-                parameter.Add(VIZPub.TranslateParameters.OUTPUT_THUMBNAIL, false);                                  // [Optional] Default(False), 썸네일 EXPORT 여부
-                parameter.Add(VIZPub.TranslateParameters.OUTPUT_VIZW_PATH, "C:\\Temp\\sample\\sample.vizw");   // [Optional] VIZW 추출 경로
 
+                parameter.Add(VIZPub.TranslateParameters.OUTPUT_VIZW_PATH, output_vizw);   // [Optional] VIZW 추출 경로
+
+                //parameter.Add(VIZPub.TranslateParameters.OUTPUT_THUMBNAIL, false);                                  // [Optional] Default(False), 썸네일 EXPORT 여부
                 //parameter.Add(VIZPub.TranslateParameters.OUTPUT_THUMBNAIL_PATH, "C:\\Temp\\sample");           // [Optional] Thumbnail 추출 경로
                 //parameter.Add(VIZPub.TranslateParameters.THUMBNAIL_IMAGE_WIDTH, 400);                          // [Optional] Default(400), Thumbnail Image 너비값
                 //parameter.Add(VIZPub.TranslateParameters.THUMBNAIL_IMAGE_HEIGHT, 300);                         // [Optional] Default(300), Thumbnail Image 높이값
@@ -197,17 +200,25 @@ namespace PublishManagerDemo
 
                 parameter.Add(VIZPub.TranslateParameters.COMPRESSION, true);                                    // [Optional] Compress VIZW
 
+                DateTime start = DateTime.Now;
+
                 VIZPub.TranslateManager translate = new VIZPub.TranslateManager(VIZPub_Mechanical_Path);
                 bool result = translate.ExportVIZW(parameter);
+
+                AddHistory(input, output_viz, output_vizw_path, start, DateTime.Now, result);
+
+                ClearTempVIZ(VIZWide3D_MODEL);
             }
-            else if(rbVIZPubBOM.Checked == true)
+            else if (rbVIZPubBOM.Checked == true)
             {
 
             }
-            else if(rbVIZPub2D.Checked == true)
+            else if (rbVIZPub2D.Checked == true)
             {
 
             }
+
+            this.Cursor = Cursors.Default;
         }
 
         private void AddHistory(string input, string viz, string vizw, DateTime start, DateTime finish, bool result)
@@ -226,6 +237,101 @@ namespace PublishManagerDemo
                 });
 
             lvHistory.Items.Add(lvi);
+        }
+
+        private void ClearTempVIZ(string path)
+        {
+            if (String.IsNullOrEmpty(path) == true) return;
+            if (System.IO.Directory.Exists(path) == false) return;
+
+            string[] files = System.IO.Directory.GetFiles(path, "*_wm_*.viz", System.IO.SearchOption.TopDirectoryOnly);
+
+            foreach (string file in files)
+            {
+                System.IO.File.Delete(file);
+            }
+        }
+
+        private void btnClearHistory_Click(object sender, EventArgs e)
+        {
+            lvHistory.Items.Clear();
+        }
+
+        private void btnExportHistory_Click(object sender, EventArgs e)
+        {
+            if (lvHistory.Items.Count == 0)
+            {
+                MessageBox.Show("History is null.", "Publish Manager(Demo)", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "CSV (*.csv)|*.csv";
+
+            if (dlg.ShowDialog() != DialogResult.OK) return;
+
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(dlg.FileName, true, Encoding.UTF8);
+
+            sw.WriteLine("Name,Status,Start,Finish,Elapsed,VIZ,VIZW");
+
+            for (int i = 0; i < lvHistory.Items.Count; i++)
+            {
+                ListViewItem lvi = lvHistory.Items[i];
+
+                sw.WriteLine(
+                    string.Format("{0},{1},{2},{3},{4},{5},{6}"
+                    , lvi.SubItems[0].Text
+                    , lvi.SubItems[1].Text
+                    , lvi.SubItems[2].Text
+                    , lvi.SubItems[3].Text
+                    , lvi.SubItems[4].Text
+                    , lvi.SubItems[5].Text
+                    , lvi.SubItems[6].Text
+                    )
+                    );
+            }
+
+            sw.Close();
+        }
+
+        private void btnExportNavigation_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(VIZWide3D_NAVIGATION) == true) return;
+            if (System.IO.Directory.Exists(VIZWide3D_NAVIGATION) == false) return;
+
+            if (String.IsNullOrEmpty(VIZWide3D_MODEL) == true) return;
+            if (System.IO.Directory.Exists(VIZWide3D_MODEL) == false) return;
+
+            string path = System.IO.Path.Combine(VIZWide3D_NAVIGATION, "model.json");
+
+            string[] dirs = System.IO.Directory.GetDirectories(VIZWide3D_MODEL, "*.*", System.IO.SearchOption.TopDirectoryOnly);
+
+            if (dirs == null || dirs.Length == 0) return;
+
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(path, false, Encoding.UTF8);
+
+            sw.WriteLine("[");
+
+            sw.WriteLine("{ \"key\": \"1\", \"title\": \"Models\", \"expanded\": true, \"folder\": true, \"children\": [");
+
+            for (int i = 0; i < dirs.Length; i++)
+            {
+                int id = i + 1;
+                string name = new System.IO.DirectoryInfo(dirs[i]).Name;
+
+                if(i < dirs.Length - 1)
+                    sw.WriteLine("{ \"key\": \"1_" + id.ToString() + "\", \"title\": \"" + name + "\", \"expanded\": true, \"folder\": true },");
+                else
+                    sw.WriteLine("{ \"key\": \"1_" + id.ToString() + "\", \"title\": \"" + name + "\", \"expanded\": true, \"folder\": true }");
+            }
+
+            sw.WriteLine("]");
+
+            sw.WriteLine("}");
+
+            sw.WriteLine("]");
+
+            sw.Close();
         }
     }
 }
