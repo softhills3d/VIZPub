@@ -15,14 +15,24 @@ namespace VIZPub
         /// </summary>
         /// <param name="path">Path : VIZPub Mechanical InterOp EXE Path</param>
         public static void SetPath(string path)
+        {   
+            SetPath(path, Environment.Is64BitProcess);
+        }
+
+        /// <summary>
+        /// Set Path
+        /// </summary>
+        /// <param name="path">Path : VIZPub Mechanical InterOp EXE Path</param>
+        /// <param name="x64">64Bit Process</param>
+        public static void SetPath(string path, bool x64)
         {
             string ARCH = String.Empty;
             string X3DT = path;
 
-            if (Environment.Is64BitProcess)
-                ARCH = "InterOp_NT_64_DLL";
+            if (x64 == true)
+                ARCH = "NT_VC14_64_DLL";
             else
-                ARCH = "InterOp_NT_DLL";
+                ARCH = "NT_VC14_DLL";
 
             string currentPath = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Process);
             string[] paths = currentPath.Split(';');

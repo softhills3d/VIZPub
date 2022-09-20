@@ -19,7 +19,7 @@ namespace VIZPub.Test.Console
             // VIZCoreTrans
             // ================================================
             VIZCoreTransTest test_VIZCoreTrans = new VIZCoreTransTest();
-            test_VIZCoreTrans.Test();
+            //test_VIZCoreTrans.Test();
 
             // ================================================
             // VIZXML
