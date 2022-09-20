@@ -38,6 +38,12 @@ namespace VIZPub.Test.Console
             // ================================================
             VIZPub2DTest test_VIZPub2D = new VIZPub2DTest();
             //test_VIZPub2D.Test();
+
+            // ================================================
+            // VIZCoreTrans (InterOp)
+            // ================================================
+            VIZCoreTransIopTest test_VIZCoreTransIop = new VIZCoreTransIopTest();
+            test_VIZCoreTransIop.Test();
         }
     }
 }
