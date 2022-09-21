@@ -29,7 +29,7 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.INPUT, "C:\\Temp\\sample.prt");                       // INPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT, "C:\\Temp\\sample.viz");                      // OUTPUT FILE 경로(절대경로)
             parameter.Add(TranslateParameters.OUTPUT_VIZW_PATH, "C:\\Temp\\sample\\sample.vizw");   // [Optional] VIZW 추출 경로
-
+            
             parameter.Add(TranslateParameters.COMPRESSION, true);                                   // [Optional] Compress VIZW
             parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                     // 결과 XML 생성 여부
 
