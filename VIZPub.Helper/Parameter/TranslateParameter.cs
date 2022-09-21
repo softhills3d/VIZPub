@@ -144,7 +144,7 @@ namespace VIZPub
                 case TranslateParameters.OUTPUT_VIZW_PATH:
                     {
                         string fullPath = (string)value;
-                        parameter = string.Format("-ovizw {0}", fullPath);
+                        parameter = string.Format("-ovizw \"{0}\"", fullPath);
 
                         string path = System.IO.Path.GetDirectoryName(fullPath);
                         if (System.IO.Directory.Exists(path) == false)
@@ -152,7 +152,7 @@ namespace VIZPub
                     }
                     break;
                 case TranslateParameters.OUTPUT_THUMBNAIL_PATH:
-                    parameter = string.Format("-othumb {0}", value);
+                    parameter = string.Format("-othumb \"{0}\"", value);
                     break;
                 case TranslateParameters.EXPORT_FULL_STRUCTURE:
                     parameter = string.Format("-fs {0}", GetBoolean(value) == true ? "t" : "f");
@@ -164,7 +164,7 @@ namespace VIZPub
                     parameter = string.Format("-info {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.REFERENCE_FILE_PATH:
-                    parameter = string.Format("-path {0}", GetReferenceFilePath(value));
+                    parameter = string.Format("-path \"{0}\"", GetReferenceFilePath(value));
                     break;
                 case TranslateParameters.THUMBNAIL_IMAGE_WIDTH:
                     parameter = string.Format("-iw {0}", GetInteger(value));
@@ -206,7 +206,7 @@ namespace VIZPub
                     parameter = string.Format("-dgfc {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case TranslateParameters.CAD2CAD:
-                    parameter = string.Format("-c2c {0}", value);
+                    parameter = string.Format("-c2c \"{0}\"", value);
                     break;
                 case TranslateParameters.COMPRESSION:
                     parameter = string.Format("-comp {0}", GetBoolean(value) == true ? "t" : "f");
