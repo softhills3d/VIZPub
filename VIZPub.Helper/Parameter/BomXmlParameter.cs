@@ -97,7 +97,7 @@ namespace VIZPub
                     parameter = string.Format("-info {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case BomXmlParameters.REFERENCE_FILE_PATH:
-                    parameter = string.Format("-path {0}", GetReferenceFilePath(value));
+                    parameter = string.Format("-path \"{0}\"", GetReferenceFilePath(value));
                     break;
                 case BomXmlParameters.SUPRESSED_ENTITY:
                     parameter = string.Format("-supressed {0}", GetBoolean(value) == true ? "t" : "f");

@@ -131,40 +131,40 @@ namespace VIZPub
                     parameter = string.Format("-nu {0}", (int)value);
                     break;
                 case PublishParameters.THUMBNAIL_IMAGE_MATRIX:
-                    parameter = string.Format("-matrix {0}", value);
+                    parameter = string.Format("-matrix \"{0}\"", value);
                     break;
                 case PublishParameters.COLOR:
                     parameter = string.Format("-ca {0} -cr {1} -cg {2} -cb {3}", ((System.Drawing.Color)value).A, ((System.Drawing.Color)value).R, ((System.Drawing.Color)value).G, ((System.Drawing.Color)value).B);
                     break;
                 case PublishParameters.COLOR_XML:
-                    parameter = string.Format("-cxml {0}", value);
+                    parameter = string.Format("-cxml \"{0}\"", value);
                     break;
                 case PublishParameters.BOUNDBOX_INSPECTIOIN:
                     parameter = string.Format("-eb {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.BOUNDBOX_MIN_X:
-                    parameter = string.Format("-minx {0}", value);
+                    parameter = string.Format("-minx {0}", GetInteger(value));
                     break;
                 case PublishParameters.BOUNDBOX_MIN_Y:
-                    parameter = string.Format("-miny {0}", value);
+                    parameter = string.Format("-miny {0}", GetInteger(value));
                     break;
                 case PublishParameters.BOUNDBOX_MIN_Z:
-                    parameter = string.Format("-minz {0}", value);
+                    parameter = string.Format("-minz {0}", GetInteger(value));
                     break;
                 case PublishParameters.BOUNDBOX_MAX_X:
-                    parameter = string.Format("-maxx {0}", value);
+                    parameter = string.Format("-maxx {0}", GetInteger(value));
                     break;
                 case PublishParameters.BOUNDBOX_MAX_Y:
-                    parameter = string.Format("-maxy {0}", value);
+                    parameter = string.Format("-maxy {0}", GetInteger(value));
                     break;
                 case PublishParameters.BOUNDBOX_MAX_Z:
-                    parameter = string.Format("-maxz {0}", value);
+                    parameter = string.Format("-maxz {0}", GetInteger(value));
                     break;
                 case PublishParameters.LIMIT_TRIANGLE:
                     parameter = string.Format("-lt {0}", GetBoolean(value) == true ? 1 : 0);
                     break;
                 case PublishParameters.LIMIT_TRIANGEL_COUNT:
-                    parameter = string.Format("-tc {0}", value);
+                    parameter = string.Format("-tc {0}", GetInteger(value));
                     break;
                 case PublishParameters.KEEP_STRUCTURE:
                     parameter = string.Format("-ras {0}", GetBoolean(value) == true ? 1 : 0);
@@ -197,16 +197,16 @@ namespace VIZPub
                     parameter = string.Format("-bso {0}", (int)value);
                     break;
                 case PublishParameters.BOUNDBOX_XML:
-                    parameter = string.Format("-bbxml {0}", value);
+                    parameter = string.Format("-bbxml \"{0}\"", value);
                     break;
                 case PublishParameters.ROTATE_X:
-                    parameter = string.Format("-rx {0}", value);
+                    parameter = string.Format("-rx {0}", GetInteger(value));
                     break;
                 case PublishParameters.ROTATE_Y:
-                    parameter = string.Format("-ry {0}", value);
+                    parameter = string.Format("-ry {0}", GetInteger(value));
                     break;
                 case PublishParameters.ROTATE_Z:
-                    parameter = string.Format("-rz {0}", value);
+                    parameter = string.Format("-rz {0}", GetInteger(value));
                     break;
                 case PublishParameters.COMPRESS_VIZW:
                     parameter = string.Format("-comp {0}", GetBoolean(value) == true ? "t" : "f");
