@@ -361,7 +361,23 @@ namespace VIZPub
             // Add Mode
             parameter.Add(TranslateParameters.MODE, "vw3d");
 
-            return IExport(parameter);
+            bool result = IExport(parameter);
+
+            if (parameter.Exist(TranslateParameters.OUTPUT_VIZW_PATH) == false) return result;
+
+            string output_vizw = (string)parameter.GetValue(TranslateParameters.OUTPUT_VIZW_PATH);
+            if (String.IsNullOrEmpty(output_vizw) == true) return result;
+
+            string output_path = System.IO.Path.GetDirectoryName(output_vizw);
+            if (System.IO.Directory.Exists(output_path) == false) return result;
+
+            string output_path_file1 = System.IO.Path.Combine(output_path, "BoundInfo.txt");
+            string output_path_file2 = System.IO.Path.Combine(output_path, "BoundInfo4JavaScript.txt");
+
+            System.IO.File.Delete(output_path_file1);
+            System.IO.File.Delete(output_path_file2);
+
+            return result;
         }
     }
 }
