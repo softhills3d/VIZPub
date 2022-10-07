@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIZPub.Test.Console", "VIZP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIZPub.Test.App", "VIZPub.Test.App\VIZPub.Test.App.csproj", "{D4254D98-C5EF-4380-B564-C71D07FF2C46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishManagerDemo", "PublishManagerDemo\PublishManagerDemo.csproj", "{011F535C-6797-432B-861B-3193BD862BF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publish3DManagerDemo", "Publish3DManagerDemo\Publish3DManagerDemo.csproj", "{011F535C-6797-432B-861B-3193BD862BF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

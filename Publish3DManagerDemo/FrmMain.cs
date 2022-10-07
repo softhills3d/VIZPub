@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PublishManagerDemo
+namespace Publish3DManagerDemo
 {
     public partial class FrmMain : Form
     {
@@ -210,10 +210,6 @@ namespace PublishManagerDemo
                 ClearTempVIZ(VIZWide3D_MODEL);
             }
             else if (rbVIZPubBOM.Checked == true)
-            {
-
-            }
-            else if (rbVIZPub2D.Checked == true)
             {
 
             }

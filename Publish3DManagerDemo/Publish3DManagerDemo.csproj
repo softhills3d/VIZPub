@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{011F535C-6797-432B-861B-3193BD862BF9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PublishManagerDemo</RootNamespace>
-    <AssemblyName>PublishManagerDemo</AssemblyName>
+    <RootNamespace>Publish3DManagerDemo</RootNamespace>
+    <AssemblyName>Publish3DManagerDemo</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -64,6 +64,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
