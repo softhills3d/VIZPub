@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SOFTHILLS Co., Ltd.")]
-[assembly: AssemblyProduct("Publish3DManagerDemo")]
+[assembly: AssemblyProduct("Publish2DManagerDemo")]
 [assembly: AssemblyCopyright("© 2022. SOFTHILLS Co., Ltd. All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

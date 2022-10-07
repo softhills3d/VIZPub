@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIZPub.Test.App", "VIZPub.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publish3DManagerDemo", "Publish3DManagerDemo\Publish3DManagerDemo.csproj", "{011F535C-6797-432B-861B-3193BD862BF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publish2DManagerDemo", "Publish2DManagerDemo\Publish2DManagerDemo.csproj", "{B19FCD35-B271-4CD3-BB9E-5112D5D48D4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{011F535C-6797-432B-861B-3193BD862BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{011F535C-6797-432B-861B-3193BD862BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{011F535C-6797-432B-861B-3193BD862BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B19FCD35-B271-4CD3-BB9E-5112D5D48D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19FCD35-B271-4CD3-BB9E-5112D5D48D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19FCD35-B271-4CD3-BB9E-5112D5D48D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19FCD35-B271-4CD3-BB9E-5112D5D48D4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

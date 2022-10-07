@@ -14,7 +14,6 @@ namespace Publish3DManagerDemo
         public string VIZPub_Manager_Path { get; set; }
         public string VIZPub_Mechanical_Path { get; set; }
         public string VIZPub_BOM_Path { get; set; }
-        public string VIZPub_2D_Path { get; set; }
 
 
         public string VIZWide3D_URI { get; set; }
@@ -33,8 +32,6 @@ namespace Publish3DManagerDemo
             VIZPub_Manager_Path = System.Configuration.ConfigurationManager.AppSettings.Get("VIZPub_Manager");
             VIZPub_Mechanical_Path = System.Configuration.ConfigurationManager.AppSettings.Get("VIZPub_Mechanical");
             VIZPub_BOM_Path = System.Configuration.ConfigurationManager.AppSettings.Get("VIZPub_BOM");
-            VIZPub_2D_Path = System.Configuration.ConfigurationManager.AppSettings.Get("VIZPub_2D");
-
 
             string uri = System.Configuration.ConfigurationManager.AppSettings.Get("VIZWide3D_URI");
             string model = System.Configuration.ConfigurationManager.AppSettings.Get("VIZWide3D_VIZW_PATH");
