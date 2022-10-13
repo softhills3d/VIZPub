@@ -43,6 +43,10 @@
             this.txtUri = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtImageHeight = new System.Windows.Forms.TextBox();
+            this.txtImageWidth = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.rbVIZPub2D = new System.Windows.Forms.RadioButton();
             this.btnExportHistory = new System.Windows.Forms.Button();
             this.btnClearHistory = new System.Windows.Forms.Button();
@@ -88,7 +92,7 @@
             // 
             // btnSelectPath
             // 
-            this.btnSelectPath.Location = new System.Drawing.Point(108, 203);
+            this.btnSelectPath.Location = new System.Drawing.Point(108, 255);
             this.btnSelectPath.Name = "btnSelectPath";
             this.btnSelectPath.Size = new System.Drawing.Size(90, 23);
             this.btnSelectPath.TabIndex = 7;
@@ -99,7 +103,7 @@
             // btnExportNavigation
             // 
             this.btnExportNavigation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportNavigation.Location = new System.Drawing.Point(346, 203);
+            this.btnExportNavigation.Location = new System.Drawing.Point(346, 255);
             this.btnExportNavigation.Name = "btnExportNavigation";
             this.btnExportNavigation.Size = new System.Drawing.Size(75, 23);
             this.btnExportNavigation.TabIndex = 6;
@@ -109,7 +113,7 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(12, 203);
+            this.btnOpen.Location = new System.Drawing.Point(12, 255);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(90, 23);
             this.btnOpen.TabIndex = 5;
@@ -130,7 +134,7 @@
             this.groupBox2.Controls.Add(this.txtModel);
             this.groupBox2.Controls.Add(this.txtUri);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 71);
+            this.groupBox2.Location = new System.Drawing.Point(12, 123);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(409, 126);
             this.groupBox2.TabIndex = 4;
@@ -230,13 +234,51 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.txtImageHeight);
+            this.groupBox1.Controls.Add(this.txtImageWidth);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.rbVIZPub2D);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(409, 53);
+            this.groupBox1.Size = new System.Drawing.Size(409, 105);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "VIZPub";
+            // 
+            // txtImageHeight
+            // 
+            this.txtImageHeight.Location = new System.Drawing.Point(96, 68);
+            this.txtImageHeight.Name = "txtImageHeight";
+            this.txtImageHeight.Size = new System.Drawing.Size(100, 21);
+            this.txtImageHeight.TabIndex = 4;
+            this.txtImageHeight.Text = "15360";
+            // 
+            // txtImageWidth
+            // 
+            this.txtImageWidth.Location = new System.Drawing.Point(96, 43);
+            this.txtImageWidth.Name = "txtImageWidth";
+            this.txtImageWidth.Size = new System.Drawing.Size(100, 21);
+            this.txtImageWidth.TabIndex = 3;
+            this.txtImageWidth.Text = "15360";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 12);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Height";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Width";
             // 
             // rbVIZPub2D
             // 
@@ -382,6 +424,10 @@
         private System.Windows.Forms.Button btnExportHistory;
         private System.Windows.Forms.Button btnExportNavigation;
         private System.Windows.Forms.Button btnSelectPath;
+        private System.Windows.Forms.TextBox txtImageHeight;
+        private System.Windows.Forms.TextBox txtImageWidth;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }
 

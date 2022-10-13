@@ -140,6 +140,9 @@ namespace Publish2DManagerDemo
                     parameter.Add(VIZPub.ImageParameters.OUTPUT, output_image);
                     parameter.Add(VIZPub.ImageParameters.LOG, false);
 
+                    parameter.Add(VIZPub.ImageParameters.WIDTH, Convert.ToInt32(txtImageWidth.Text));
+                    parameter.Add(VIZPub.ImageParameters.HEIGHT, Convert.ToInt32(txtImageHeight.Text));
+
                     DateTime start = DateTime.Now;
 
                     // Conversion
