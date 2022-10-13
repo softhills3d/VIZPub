@@ -16,15 +16,15 @@ namespace VIZPub.Test.Console
 
         public void Test()
         {
-            //Export();
+            Export();
             Export_Simple();
 
-            //Export_Size();
-            //Export_Scale();
-            //Export_SizeScale();
+            Export_Size();
+            Export_Scale();
+            Export_SizeScale();
 
-            //Export_BackgroundColor();
-            //Export_SingleColor();
+            Export_BackgroundColor();
+            Export_SingleColor();
         }
 
         public void Export()
