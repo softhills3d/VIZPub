@@ -16,13 +16,15 @@ namespace VIZPub.Test.Console
 
         public void Test()
         {
-            Export();
-            Export_Size();
-            Export_Scale();
-            Export_SizeScale();
+            //Export();
+            Export_Simple();
 
-            Export_BackgroundColor();
-            Export_SingleColor();
+            //Export_Size();
+            //Export_Scale();
+            //Export_SizeScale();
+
+            //Export_BackgroundColor();
+            //Export_SingleColor();
         }
 
         public void Export()
@@ -38,7 +40,17 @@ namespace VIZPub.Test.Console
             bool result = image.Export(parameter);
         }
 
-        
+        public void Export_Simple()
+        {
+            // Parameter
+            VIZPub.ImageParameter parameter = new VIZPub.ImageParameter();
+
+            parameter.Add(VIZPub.ImageParameters.INPUT, "C:\\Temp\\Drawing.dwg");
+
+            // Conversion
+            VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
+            bool result = image.Export(parameter);
+        }
 
         public void Export_Size()
         {

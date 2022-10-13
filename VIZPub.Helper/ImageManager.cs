@@ -91,7 +91,9 @@ namespace VIZPub
                 throw new NullReferenceException("INPUT is null.");
 
             if (parameter.Exist(ImageParameters.OUTPUT) == false)
-                throw new NullReferenceException("OUTPUT is null.");
+            {
+                parameter.Add(ImageParameters.OUTPUT, System.IO.Path.ChangeExtension((string)parameter.GetValue(ImageParameters.INPUT), ".png"));
+            }
 
             // Working : Local, Original
             string original_input = (string)parameter.GetValue(ImageParameters.INPUT);
@@ -105,8 +107,6 @@ namespace VIZPub
 
             if (System.IO.File.Exists(original_input) == false)
                 throw new System.IO.FileNotFoundException(string.Format("Input File Not Found.\r\n\r\n{0}", original_input));
-
-            string ext = System.IO.Path.GetExtension(original_output).ToUpper();
 
             string argument = parameter.ToString();
 
