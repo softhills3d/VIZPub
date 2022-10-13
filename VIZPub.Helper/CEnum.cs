@@ -1434,8 +1434,18 @@ namespace VIZPub
         SCALE,
 
         /// <summary>
-        /// CONVERSION LOG
+        /// BACKGROUND COLOR
         /// </summary>
-        LOG
+        BACKGROUND_COLOR,
+
+        /// <summary>
+        /// DRAW TYPE
+        /// </summary>
+        DRAW_TYPE,
+
+        /// <summary>
+        /// DRAW COLOR
+        /// </summary>
+        DRAW_COLOR
     }
 }

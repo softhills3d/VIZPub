@@ -20,70 +20,110 @@ namespace VIZPub.Test.Console
             Export_Size();
             Export_Scale();
             Export_SizeScale();
+
+            Export_BackgroundColor();
+            Export_SingleColor();
         }
 
         public void Export()
         {
             // Parameter
-            ImageParameter parameter = new ImageParameter();
+            VIZPub.ImageParameter parameter = new VIZPub.ImageParameter();
 
-            parameter.Add(ImageParameters.INPUT, "C:\\Temp\\Drawing.dxf");
-            parameter.Add(ImageParameters.OUTPUT, "C:\\Temp\\Drawing.jpg");
-            parameter.Add(ImageParameters.LOG, false);
+            parameter.Add(VIZPub.ImageParameters.INPUT, "C:\\Temp\\Drawing.dwg");
+            parameter.Add(VIZPub.ImageParameters.OUTPUT, "C:\\Temp\\Drawing.png");
 
             // Conversion
-            ImageManager image = new ImageManager(VIZPub2D_Path);
+            VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
             bool result = image.Export(parameter);
         }
 
         public void Export_Size()
         {
             // Parameter
-            ImageParameter parameter = new ImageParameter();
+            VIZPub.ImageParameter parameter = new VIZPub.ImageParameter();
 
-            parameter.Add(ImageParameters.INPUT, "C:\\Temp\\Drawing.dxf");
-            parameter.Add(ImageParameters.OUTPUT, "C:\\Temp\\Drawing_Size.jpg");
-            parameter.Add(ImageParameters.LOG, false);
+            parameter.Add(VIZPub.ImageParameters.INPUT, "C:\\Temp\\Drawing.dwg");
+            parameter.Add(VIZPub.ImageParameters.OUTPUT, "C:\\Temp\\Drawing_Size.png");
 
-            parameter.Add(ImageParameters.WIDTH, 1024);
-            parameter.Add(ImageParameters.HEIGHT, 768);
+            parameter.Add(VIZPub.ImageParameters.WIDTH, 15360);
+            parameter.Add(VIZPub.ImageParameters.HEIGHT, 15360);
 
             // Conversion
-            ImageManager image = new ImageManager(VIZPub2D_Path);
+            VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
             bool result = image.Export(parameter);
         }
 
         public void Export_Scale()
         {
             // Parameter
-            ImageParameter parameter = new ImageParameter();
+            VIZPub.ImageParameter parameter = new VIZPub.ImageParameter();
 
-            parameter.Add(ImageParameters.INPUT, "C:\\Temp\\Drawing.dxf");
-            parameter.Add(ImageParameters.OUTPUT, "C:\\Temp\\Drawing_Scale.jpg");
-            parameter.Add(ImageParameters.LOG, false);
+            parameter.Add(VIZPub.ImageParameters.INPUT, "C:\\Temp\\Drawing.dwg");
+            parameter.Add(VIZPub.ImageParameters.OUTPUT, "C:\\Temp\\Drawing_Scale.png");
 
-            parameter.Add(ImageParameters.SCALE, 2.0f);
+            parameter.Add(VIZPub.ImageParameters.SCALE, 4.0f);
 
             // Conversion
-            ImageManager image = new ImageManager(VIZPub2D_Path);
+            VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
             bool result = image.Export(parameter);
         }
 
         public void Export_SizeScale()
         {
             // Parameter
-            ImageParameter parameter = new ImageParameter();
+            VIZPub.ImageParameter parameter = new VIZPub.ImageParameter();
 
-            parameter.Add(ImageParameters.INPUT, "C:\\Temp\\Drawing.dxf");
-            parameter.Add(ImageParameters.OUTPUT, "C:\\Temp\\Drawing_SizeScale.jpg");
-            parameter.Add(ImageParameters.LOG, false);
+            parameter.Add(VIZPub.ImageParameters.INPUT, "C:\\Temp\\Drawing.dwg");
+            parameter.Add(VIZPub.ImageParameters.OUTPUT, "C:\\Temp\\Drawing_SizeScale.png");
 
-            parameter.Add(ImageParameters.WIDTH, 1024);
-            parameter.Add(ImageParameters.HEIGHT, 768);
-            parameter.Add(ImageParameters.SCALE, 2.0f);
+            parameter.Add(VIZPub.ImageParameters.WIDTH, 15360);
+            parameter.Add(VIZPub.ImageParameters.HEIGHT, 15360);
+            parameter.Add(VIZPub.ImageParameters.SCALE, 1.0f);
 
             // Conversion
-            ImageManager image = new ImageManager(VIZPub2D_Path);
+            VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
+            bool result = image.Export(parameter);
+        }
+
+        public void Export_BackgroundColor()
+        {
+            // Parameter
+            VIZPub.ImageParameter parameter = new VIZPub.ImageParameter();
+
+            parameter.Add(VIZPub.ImageParameters.INPUT, "C:\\Temp\\Drawing.dwg");
+            parameter.Add(VIZPub.ImageParameters.OUTPUT, "C:\\Temp\\Drawing_BackgroundColor_Black.png");
+
+            parameter.Add(VIZPub.ImageParameters.WIDTH, 15360);
+            parameter.Add(VIZPub.ImageParameters.HEIGHT, 15360);
+            parameter.Add(VIZPub.ImageParameters.SCALE, 1.0f);
+
+            parameter.Add(VIZPub.ImageParameters.BACKGROUND_COLOR, System.Drawing.Color.Black);
+            parameter.Add(VIZPub.ImageParameters.DRAW_TYPE, 1); // 0 (DrawColor), 1 (ObjectColor)
+
+            // Conversion
+            VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
+            bool result = image.Export(parameter);
+        }
+
+        public void Export_SingleColor()
+        {
+            // Parameter
+            VIZPub.ImageParameter parameter = new VIZPub.ImageParameter();
+
+            parameter.Add(VIZPub.ImageParameters.INPUT, "C:\\Temp\\Drawing.dwg");
+            parameter.Add(VIZPub.ImageParameters.OUTPUT, "C:\\Temp\\Drawing_SingleColor.png");
+
+            parameter.Add(VIZPub.ImageParameters.WIDTH, 15360);
+            parameter.Add(VIZPub.ImageParameters.HEIGHT, 15360);
+            parameter.Add(VIZPub.ImageParameters.SCALE, 1.0f);
+
+            parameter.Add(VIZPub.ImageParameters.BACKGROUND_COLOR, System.Drawing.Color.White);
+            parameter.Add(VIZPub.ImageParameters.DRAW_TYPE, 0); // 0 (DrawColor), 1 (ObjectColor)
+            parameter.Add(VIZPub.ImageParameters.DRAW_COLOR, System.Drawing.Color.Black);
+
+            // Conversion
+            VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
             bool result = image.Export(parameter);
         }
     }

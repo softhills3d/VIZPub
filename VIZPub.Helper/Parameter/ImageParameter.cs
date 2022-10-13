@@ -89,8 +89,14 @@ namespace VIZPub
                 case ImageParameters.SCALE:
                     parameter = string.Format("-is {0}", GetFloat(value));
                     break;
-                case ImageParameters.LOG:
-                    parameter = string.Format("-log {0}", GetBoolean(value) == true ? "t" : "f");
+                case ImageParameters.BACKGROUND_COLOR:
+                    parameter = string.Format("-bc {0},{1},{2},{3}", ((System.Drawing.Color)value).R, ((System.Drawing.Color)value).G, ((System.Drawing.Color)value).B, ((System.Drawing.Color)value).A);
+                    break;
+                case ImageParameters.DRAW_TYPE:
+                    parameter = string.Format("-dt {0}", GetInteger(value));
+                    break;
+                case ImageParameters.DRAW_COLOR:
+                    parameter = string.Format("-dc {0},{1},{2},{3}", ((System.Drawing.Color)value).R, ((System.Drawing.Color)value).G, ((System.Drawing.Color)value).B, ((System.Drawing.Color)value).A);
                     break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
