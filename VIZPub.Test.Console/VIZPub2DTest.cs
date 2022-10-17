@@ -25,6 +25,8 @@ namespace VIZPub.Test.Console
 
             Export_BackgroundColor();
             Export_SingleColor();
+
+            Export_Folder();
         }
 
         public void Export()
@@ -139,6 +141,35 @@ namespace VIZPub.Test.Console
             // Conversion
             VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
             bool result = image.Export(parameter);
+        }
+
+        public void Export_Folder()
+        {
+            string path = "C:\\Temp\\DWGs";
+
+            if (System.IO.Directory.Exists(path) == false) return;
+
+            string[] files = System.IO.Directory.GetFiles(path, "*.dwg", System.IO.SearchOption.TopDirectoryOnly);
+
+            foreach (string file in files)
+            {
+                // Parameter
+                VIZPub.ImageParameter parameter = new VIZPub.ImageParameter();
+
+                parameter.Add(VIZPub.ImageParameters.INPUT, file);
+
+                parameter.Add(VIZPub.ImageParameters.WIDTH, 15360);
+                parameter.Add(VIZPub.ImageParameters.HEIGHT, 15360);
+                parameter.Add(VIZPub.ImageParameters.SCALE, 1.0f);
+
+                parameter.Add(VIZPub.ImageParameters.BACKGROUND_COLOR, System.Drawing.Color.White);
+                parameter.Add(VIZPub.ImageParameters.DRAW_TYPE, 0); // 0 (DrawColor), 1 (ObjectColor)
+                parameter.Add(VIZPub.ImageParameters.DRAW_COLOR, System.Drawing.Color.Black);
+
+                // Conversion
+                VIZPub.ImageManager image = new VIZPub.ImageManager(VIZPub2D_Path);
+                bool result = image.Export(parameter);
+            }
         }
     }
 }
