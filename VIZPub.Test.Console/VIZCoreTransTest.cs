@@ -30,7 +30,50 @@ namespace VIZPub.Test.Console
             //ExportThumbnail_Model();
             //ExportThumbnail_AllNode();
 
-            ExportVIZW();
+            //ExportVIZW();
+
+            ExportVIZFromDir();
+        }
+
+        public void ExportVIZFromDir()
+        {
+            string path = "E:\\TEMP\\Models";
+            string[] files = System.IO.Directory.GetFiles(path, "*.rvt", System.IO.SearchOption.TopDirectoryOnly);
+
+            foreach (string file in files)
+            {
+                TranslateParameter parameter = new TranslateParameter();
+
+                parameter.Add(TranslateParameters.INPUT, file);                                         // INPUT FILE 경로(절대경로)
+                parameter.Add(TranslateParameters.OUTPUT, System.IO.Path.ChangeExtension(file, ".viz"));// OUTPUT FILE 경로(절대경로)
+                parameter.Add(TranslateParameters.LOG, TranslateLog.OUTPUT_ALWAYS);                     // 결과 XML 생성 여부
+
+                parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                 // CAD to CAD XML 경로
+
+                parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False), Mass Property 사용 여부
+                parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);     // [Optional] Default(Normal), Tessellation 품질
+                parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL, false);                             // [Optional] Default(False), 썸네일 EXPORT 여부
+                parameter.Add(TranslateParameters.OUTPUT_VIZM, false);                                  // [Optional] Default(False), VIZM FILE EXPORT 여부
+                parameter.Add(TranslateParameters.VIZ_VERSION, VIZVersion.V303);                        // [Optional] Default(203), VIZ FILE 버전 지정
+
+                parameter.Add(TranslateParameters.HEALING, false);                                      // [Optional] Default(False), Healing 여부
+                parameter.Add(TranslateParameters.FREE_POINT, false);                                   // [Optional] Default(False), Free Point 변환 여부
+                parameter.Add(TranslateParameters.FREE_CURVE, false);                                   // [Optional] Default(False), Free Curve 변환 여부
+                parameter.Add(TranslateParameters.HIDDEN_ENTITY, false);                                // [Optional] Default(False), Hidden Entity 변환 여부
+                parameter.Add(TranslateParameters.SUPRESSED_ENTITY, false);                             // [Optional] Default(False), Supressed Entity 변환 여부
+
+                parameter.Add(TranslateParameters.REFERENCE_NAME, false);                               // [Optional] Default(False), Hoops Reference Name 사용 여부
+                parameter.Add(TranslateParameters.ASSEMBLY_ONLY, false);                                // [Optional] Default(False), Assembly만 변환할 것인지 여부
+                parameter.Add(TranslateParameters.BODY_TO_PART, false);                                 // [Optional] Default(False), Body를 Part로 변환할 것인지 여부
+                parameter.Add(TranslateParameters.FREE_SURFACE, false);                                 // [Optional] Default(False), Free Surface 변환 여부
+                parameter.Add(TranslateParameters.VISIBLE_LAYER_ONLY, false);                            // [Optional] Default(False), Visible Layer만 변환할 것인지 여부
+                parameter.Add(TranslateParameters.WITH_PMI, false);                                     // [Optional] Default(False), PMI Data 변환여부
+
+                // VIZCoreTrans
+                // Path : Ex) C:\SOFTHILLS\VIZPub\VIZCoreTrans.exe
+                TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
+                bool result = translate.ExportVIZ(parameter);
+            }
         }
 
         public void ExportXML()
