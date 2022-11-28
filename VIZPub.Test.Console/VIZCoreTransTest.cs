@@ -364,8 +364,9 @@ namespace VIZPub.Test.Console
             parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\Parasolid");// CAD to CAD XML 경로
 
             parameter.Add(TranslateParameters.WRITE_TESSELATION, false);                // [Optional] Default(False), Tessellation 변환 여부
+            parameter.Add(TranslateParameters.SOLID_AS_FACE, false);                    // [Optional] Default(False), Solid를 Face로 변환할 것인지 여부
             parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);                   // [Optional] Default(False), 파일 Binary 저장 여부
-            parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);             // [Optional] Default(False), Hidden Entity 변환 여부 (visible entity로 변환)
+            parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);                    // [Optional] Default(False), Hidden Entity 변환 여부 (visible entity로 변환)
             parameter.Add(TranslateParameters.STRICT_ASSEMBLY_STRUCTURE, false);        // [Optional] Default(False), Parasolid Assembly Tree를 Origin Software 방식에 가깝게 변환
             parameter.Add(TranslateParameters.MAKE_POINT_WITH_COORDSYSTEM, false);      // [Optional] Default(False), Coordinate System을 Point로 변환 여부
             parameter.Add(TranslateParameters.EXPLODE_MULTI_BODY, false);               // [Optional] Default(False), 다중 연결 B-rep을 Multi Body로 변환 여부

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CAD2CAD>
   <Import ReadingMode="1" TessQuality="2" ChordLimit="0" ChordHeightRatio="2000" MaximumChordHeight="1" AngleTolerance="40" MassProperty="false" DisassembleBody="false" UDA="true" Solids="true" Surfaces="true" Wireframes="true" Attributes="true" HiddenObjects="true" FreeCurve="true" FreePoint="true" ConstructionAndReferences="false" ActiveFilter="true" PMI="false" NumberOfProcsses="1" ConvertNURBS="false" HealOrientations="false" SplitSurfaceModel="true" />
-  <Export WriteTessellation="false" WriteHiddenObjects="false" BStrictAssemblyStructure="false" ExplodeMultiBodies="false" MakePointsWithCoordinateSystem="false" SaveAsBinary="false"/>
+  <Export WriteTessellation="false" SaveSolidsAsFaces="false" WriteHiddenObjects="false" BStrictAssemblyStructure="false" ExplodeMultiBodies="false" MakePointsWithCoordinateSystem="false" SaveAsBinary="false"/>
 </CAD2CAD>
