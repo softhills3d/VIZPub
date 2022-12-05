@@ -729,6 +729,11 @@ namespace VIZPub
         // ================================================
         // Method :: 3DXML to VIZ
         // ================================================
+        /// <summary>
+        /// 3DXML to VIZ
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool Convert3DXMLtoVIZ(PublishParameter parameter)
         {
             // Add Mode
@@ -737,6 +742,11 @@ namespace VIZPub
             return IExport(parameter);
         }
 
+        /// <summary>
+        /// 3DXML to VIZXML
+        /// </summary>
+        /// <param name="parameter">Publish Parameter</param>
+        /// <returns>Publish Result</returns>
         public bool Convert3DXMLtoVIZXML(PublishParameter parameter)
         {
             // Add Mode
