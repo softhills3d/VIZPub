@@ -798,7 +798,23 @@ namespace VIZPub
         /// <summary>
         /// COMPRESSION
         /// </summary>
-        COMPRESSION
+        COMPRESSION,
+
+        /// <summary>
+        /// STRICT ASSEMBLY STRUCTURE
+        /// </summary>
+        STRICT_ASSEMBLY_STRUCTURE,
+
+        /// <summary>
+        /// EXPLODE MULTI BODY
+        /// </summary>
+        EXPLODE_MULTI_BODY,
+
+        /// <summary>
+        /// MAKE POINT WITH COORDSYSTEM
+        /// </summary>
+        MAKE_POINT_WITH_COORDSYSTEM
+
     }
 
     
