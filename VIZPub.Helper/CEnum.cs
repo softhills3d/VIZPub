@@ -48,6 +48,21 @@ namespace VIZPub
     }
 
     /// <summary>
+    /// OUTPUT 3DXML FILE FORMAT
+    /// </summary>
+    public enum Output3dxmlFileFormat
+    {
+        /// <summary>
+        /// VIZXML
+        /// </summary>
+        VIZXML = 0,
+        /// <summary>
+        /// VIZ
+        /// </summary>
+        VIZ = 1,
+    }
+
+    /// <summary>
     /// VIZ FILE VERSION
     /// </summary>
     public enum FileVersion
@@ -400,6 +415,16 @@ namespace VIZPub
         /// COMPRESS VIZW (VIZWide3D)
         /// </summary>
         COMPRESS_VIZW,
+
+        /// <summary>
+        /// 3DXML TO VIZ/VIZXML
+        /// </summary>
+        OUTPUT_3DXML_FILE_FORMAT,
+
+        /// <summary>
+        /// 3DXML NODE NAME KIND
+        /// </summary>
+        OUTPUT_3DXML_NAME_KIND,
 
         /// <summary>
         /// DEBUG
@@ -1447,5 +1472,28 @@ namespace VIZPub
         /// DRAW COLOR
         /// </summary>
         DRAW_COLOR
+    }
+
+    /// <summary>
+    /// Output 3dxml Node Name Kind
+    /// </summary>
+    public enum Output3dxmlNameKind
+    {
+        /// <summary>
+        /// Default
+        /// </summary>
+        Default = 0,
+        /// <summary>
+        /// InstanceRep Name
+        /// </summary>
+        InstanceRep_Name = 1,
+        /// <summary>
+        /// Reference3D Name
+        /// </summary>
+        Reference3D_Name = 2,
+        /// <summary>
+        /// PLM_ExternalID
+        /// </summary>
+        PLM_ExternalID = 3
     }
 }
