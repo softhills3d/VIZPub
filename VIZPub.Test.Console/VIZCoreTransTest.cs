@@ -16,7 +16,7 @@ namespace VIZPub.Test.Console
 
         public void Test()
         {
-            //ExportVIZ();
+            ExportVIZ();
 
             //ExportStep();
 
@@ -32,7 +32,7 @@ namespace VIZPub.Test.Console
 
             //ExportVIZW();
 
-            ExportVIZFromDir();
+            //ExportVIZFromDir();
         }
 
         public void ExportVIZFromDir()
