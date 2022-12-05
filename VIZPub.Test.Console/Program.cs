@@ -13,7 +13,7 @@ namespace VIZPub.Test.Console
             // VIZPub
             // ================================================
             VIZPubTest test_VIZPub = new VIZPubTest();
-            //test_VIZPub.Test();
+            test_VIZPub.Test();
 
             // ================================================
             // VIZCoreTrans
@@ -37,7 +37,7 @@ namespace VIZPub.Test.Console
             // VIZPub 2D
             // ================================================
             VIZPub2DTest test_VIZPub2D = new VIZPub2DTest();
-            test_VIZPub2D.Test();
+            //test_VIZPub2D.Test();
 
             // ================================================
             // VIZCoreTrans (InterOp)
