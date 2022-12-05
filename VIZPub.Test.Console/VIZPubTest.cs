@@ -76,6 +76,9 @@ namespace VIZPub.Test.Console
             //ExportOutside();                // Export Outside
 
             //RotateModel();                  // Rotate Model
+
+            Convert3DXMLtoVIZ();
+            //Convert3DXMLtoVIZXML();
         }
 
         private void ExportVIZ()
@@ -870,6 +873,40 @@ namespace VIZPub.Test.Console
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
             VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
             bool result = publish.RotateModel(parameter);
+        }
+
+        public void Convert3DXMLtoVIZ()
+        {
+            // Publish
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Sample.3dxml");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\3dxml.viz");
+
+            parameter.Add(PublishParameters.OUTPUT_3DXML_FILE_FORMAT, Output3dxmlFileFormat.VIZ);
+            parameter.Add(PublishParameters.OUTPUT_3DXML_NAME_KIND, Output3dxmlNameKind.Default);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.Convert3DXMLtoVIZ(parameter);
+        }
+
+        public void Convert3DXMLtoVIZXML()
+        {
+            // Publish
+            VIZPub.PublishParameter parameter = new PublishParameter();
+
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Sample.3dxml");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\3dxml.vizxml");
+
+            parameter.Add(PublishParameters.OUTPUT_3DXML_FILE_FORMAT, Output3dxmlFileFormat.VIZXML);
+            parameter.Add(PublishParameters.OUTPUT_3DXML_NAME_KIND, Output3dxmlNameKind.Default);
+
+            // VIZPub
+            // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
+            VIZPub.PublishManager publish = new PublishManager(VIZPub_Path);
+            bool result = publish.Convert3DXMLtoVIZXML(parameter);
         }
     }
 }
