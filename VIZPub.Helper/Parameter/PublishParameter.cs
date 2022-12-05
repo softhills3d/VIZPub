@@ -212,10 +212,10 @@ namespace VIZPub
                     parameter = string.Format("-comp {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
                 case PublishParameters.OUTPUT_3DXML_FILE_FORMAT:
-                    parameter = string.Format("-oxml {0}", GetInteger(value));
+                    parameter = string.Format("-oxml {0}", (int)value);
                     break;
                 case PublishParameters.OUTPUT_3DXML_NAME_KIND:
-                    parameter = string.Format("-nmtype {0}", GetInteger(value));
+                    parameter = string.Format("-nmtype {0}", (int)value);
                     break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
