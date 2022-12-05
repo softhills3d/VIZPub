@@ -211,6 +211,12 @@ namespace VIZPub
                 case PublishParameters.COMPRESS_VIZW:
                     parameter = string.Format("-comp {0}", GetBoolean(value) == true ? "t" : "f");
                     break;
+                case PublishParameters.OUTPUT_3DXML_FILE_FORMAT:
+                    parameter = string.Format("-oxml {0}", GetInteger(value));
+                    break;
+                case PublishParameters.OUTPUT_3DXML_NAME_KIND:
+                    parameter = string.Format("-nmtype {0}", GetInteger(value));
+                    break;
                 default:
                     throw new NullReferenceException("Undefined Parameter.");
                     //break;
