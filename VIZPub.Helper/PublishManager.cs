@@ -725,5 +725,24 @@ namespace VIZPub
 
             return IExport(parameter);
         }
+
+        // ================================================
+        // Method :: 3DXML to VIZ
+        // ================================================
+        public bool Convert3DXMLtoVIZ(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 300);
+
+            return IExport(parameter);
+        }
+
+        public bool Convert3DXMLtoVIZXML(PublishParameter parameter)
+        {
+            // Add Mode
+            parameter.Add(PublishParameters.MODE, 300);
+
+            return IExport(parameter);
+        }
     }
 }
