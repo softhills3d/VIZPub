@@ -50,8 +50,8 @@ namespace VIZPub.Test.Console
 
                 parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                 // CAD to CAD XML 경로
 
-                parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False), Mass Property 사용 여부
-                parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);     // [Optional] Default(Normal), Tessellation 품질
+                parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] Default(False), Mass Property 사용 여부
+                parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);     // [Optional] Default(Normal), Tessellation 품질 설정
                 parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL, false);                             // [Optional] Default(False), 썸네일 EXPORT 여부
                 parameter.Add(TranslateParameters.OUTPUT_VIZM, false);                                  // [Optional] Default(False), VIZM FILE EXPORT 여부
                 parameter.Add(TranslateParameters.VIZ_VERSION, VIZVersion.V303);                        // [Optional] Default(203), VIZ FILE 버전 지정
@@ -127,7 +127,7 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp");                                 // CAD to CAD XML 경로
 
-            parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] True or False. Default(False), Mass Property 사용 여부
+            parameter.Add(TranslateParameters.MASS_PROPERTY, false);                                // [Optional] Default(False), Mass Property 사용 여부
             parameter.Add(TranslateParameters.TESSELLATION_QUALITY, TesselationQuality.Normal);     // [Optional] Default(Normal), Tessellation 품질
             parameter.Add(TranslateParameters.OUTPUT_THUMBNAIL, false);                             // [Optional] Default(False), 썸네일 EXPORT 여부
             parameter.Add(TranslateParameters.OUTPUT_VIZM, false);                                  // [Optional] Default(False), VIZM FILE EXPORT 여부
@@ -185,9 +185,9 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.NURBS, false);                                        // [Optional] Default(False), NURBS 저장 여부
             parameter.Add(TranslateParameters.FACET_TO_WIREFRAME, false);                           // [Optional] Default(False), Facet을 Wireframe으로 변환할 것인지 여부
-            parameter.Add(TranslateParameters.SOLID_AS_FACE, false);                                // [Optional] Default(False), Solid를 Face로 변환할 것인지 여부
-            parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);                                // [Optional] Default(False), Hidden Object 변환 여부
-            parameter.Add(TranslateParameters.WRITE_TESSELATION, false);                            // [Optional] Default(False), Tessellation 변환 여부
+            parameter.Add(TranslateParameters.SOLID_AS_FACE, false);                                // [Optional] Default(False), True일 경우 Solid가 독립적인 면으로 작성됩니다.
+            parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);                                // [Optional] Default(False), 숨겨진 Entity를 출력합니다.
+            parameter.Add(TranslateParameters.WRITE_TESSELATION, false);                            // [Optional] Default(False), True일 경우 Tessellation Body로 변환합니다.
 
             // VIZCoreTrans
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZCoreTrans.exe
@@ -363,13 +363,13 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\Parasolid");// CAD to CAD XML 경로
 
-            parameter.Add(TranslateParameters.WRITE_TESSELATION, false);                // [Optional] Default(False), Tessellation 변환 여부
-            parameter.Add(TranslateParameters.SOLID_AS_FACE, false);                    // [Optional] Default(False), Solid를 Face로 변환할 것인지 여부
-            parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);                   // [Optional] Default(False), 파일 Binary 저장 여부
-            parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);                    // [Optional] Default(False), Hidden Entity 변환 여부 (visible entity로 변환)
-            parameter.Add(TranslateParameters.STRICT_ASSEMBLY_STRUCTURE, false);        // [Optional] Default(False), Parasolid Assembly Tree를 Origin Software 방식에 가깝게 변환
-            parameter.Add(TranslateParameters.MAKE_POINT_WITH_COORDSYSTEM, false);      // [Optional] Default(False), Coordinate System을 Point로 변환 여부
-            parameter.Add(TranslateParameters.EXPLODE_MULTI_BODY, false);               // [Optional] Default(False), 다중 연결 B-rep을 Multi Body로 변환 여부
+            parameter.Add(TranslateParameters.WRITE_TESSELATION, false);                // [Optional] Default(False), True일 경우 Tessellation Body로 변환합니다.
+            parameter.Add(TranslateParameters.SOLID_AS_FACE, false);                    // [Optional] Default(False), True일 경우 Solid가 독립적인 면으로 작성됩니다.
+            parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);                   // [Optional] Default(False), Binary 형식으로 저장합니다.
+            parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);                    // [Optional] Default(False), 숨겨진 Entity를 출력합니다.
+            parameter.Add(TranslateParameters.STRICT_ASSEMBLY_STRUCTURE, false);        // [Optional] Default(True), 원본 파일의 구조를 최대한 동일하게 유지합니다.
+            parameter.Add(TranslateParameters.MAKE_POINT_WITH_COORDSYSTEM, false);      // [Optional] Default(False), 좌표계를 점으로 작성합니다. (Parasoid 형식에는 해당 항목이 존재하지 않음)
+            parameter.Add(TranslateParameters.EXPLODE_MULTI_BODY, false);               // [Optional] Default(False), B-reps를 여러바디로 분해합니다.
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportPS(parameter);
@@ -397,7 +397,7 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\STL"); // CAD to CAD XML 경로
 
-            parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);             // [Optional] Default(False), Binary 사용 여부
+            parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);             // [Optional] Default(False),Binary 형식으로 저장합니다.
             parameter.Add(TranslateParameters.KEEP_TESSELLATION, false);          // [Optional] Default(False), 현재 Tessellation 유지 여부
             parameter.Add(TranslateParameters.ACCURATE_TESSELLATION, false);      // [Optional] Default(False), 적합한 Tessellation 설정 여부
 
@@ -415,8 +415,8 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\ACIS");// CAD to CAD XML 경로
 
-            parameter.Add(TranslateParameters.SAVE_AS_MILLIMETER, false);           // [Optional] Default(False), 현재 모델 단위 대신 mm로 저장할 것인지 여부
-            parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);               // [Optional] Default(False), Binary File로 저장할 것인지 여부
+            parameter.Add(TranslateParameters.SAVE_AS_MILLIMETER, false);           // [Optional] Default(False), TRUE일 경우 현재 모델 단위 대신 mm로 저장됩니다.
+            parameter.Add(TranslateParameters.SAVE_AS_BINARY, false);               // [Optional] Default(False), Binary 형식으로 저장합니다.
 
             TranslateManager translate = new TranslateManager(VIZCoreTrans_Path);
             bool result = translate.ExportACIS(parameter);
@@ -431,7 +431,7 @@ namespace VIZPub.Test.Console
 
             parameter.Add(TranslateParameters.CAD2CAD, "C:\\Temp\\VIZCoreTrans Test XML\\JT");// CAD to CAD XML 경로
 
-            parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);                         // [Optional] Default(False), Hidden Object 변환 여부
+            parameter.Add(TranslateParameters.HIDDEN_OBJECT, false);                         // [Optional] Default(False), 숨겨진 Entity를 출력합니다.
             parameter.Add(TranslateParameters.WRITE_PMI, false);                             // [Optional] Default(False), PMI Data 변환 여부
             parameter.Add(TranslateParameters.JT_VERSION, JtVersion.JT_801);                 // [Optional] Default(801), JT FILE 버전 선택
             parameter.Add(TranslateParameters.WRITE_MODE, WritingMode.Tessellation);         // [Optional] Default(Tessellation), Model File 작성 모드 선택
