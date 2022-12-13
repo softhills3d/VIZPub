@@ -105,6 +105,8 @@ namespace VIZPub
                     }
                 }
 
+                sr.Close();
+
                 return true;
             }
             catch (Exception)

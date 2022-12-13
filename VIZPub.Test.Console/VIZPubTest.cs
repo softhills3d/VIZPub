@@ -21,7 +21,7 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model2.rvm");
             //ExportVIZ("C:\\Temp\\Model3.rvm");
 
-            //ExportVIZ_VIZXML();
+            ExportVIZ_VIZXML();
             //ExportVIZ_FBX();
 
             //ExportVIZ_Dir();
@@ -77,7 +77,7 @@ namespace VIZPub.Test.Console
 
             //RotateModel();                  // Rotate Model
 
-            Convert3DXMLtoVIZ();
+            //Convert3DXMLtoVIZ();
             //Convert3DXMLtoVIZXML();
         }
 
@@ -112,8 +112,8 @@ namespace VIZPub.Test.Console
         {
             VIZPub.PublishParameter parameter = new PublishParameter();
 
-            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\VIZXML_Case6.vizxml");
-            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_VIZXML.viz");
+            parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.vizxml");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model_VIZXML2.viz");
 
             parameter.Add(PublishParameters.GENERATE_EDGE, true);                           // [Optional] True or False. Default(True)
             parameter.Add(PublishParameters.GENERATE_THUMBNAIL, true);                      // [Optional] True or False. Default(True)
@@ -549,7 +549,7 @@ namespace VIZPub.Test.Console
             VIZPub.PublishParameter parameter = new PublishParameter();
 
             parameter.Add(PublishParameters.INPUT, "C:\\Temp\\Model.viz");
-            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Node");
+            parameter.Add(PublishParameters.OUTPUT, "C:\\Temp\\Model");
             parameter.Add(PublishParameters.OUTPUT_FILE_FORMAT, OutputFileFormat.VIZ);
             parameter.Add(PublishParameters.OUTPUT_NAME_KIND, NameKind.NODE_ID);
             parameter.Add(PublishParameters.OUTPUT_TARGET_NODE, TargetNodeKind.PART);

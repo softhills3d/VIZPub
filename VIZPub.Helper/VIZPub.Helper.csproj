@@ -66,6 +66,7 @@
     <Compile Include="BomXmlManager.cs" />
     <Compile Include="TranslateManager.cs" />
     <Compile Include="Parameter\TranslateParameter.cs" />
+    <Compile Include="VIZXML\VIZXMLGenerator.cs" />
     <Compile Include="VIZXML\VIZXMLManager.cs" />
     <Compile Include="VIZXML\VIZXMLNode.cs" />
   </ItemGroup>

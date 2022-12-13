@@ -195,5 +195,123 @@ namespace VIZPub
                 Name = "(NONAME)";
             */
         }
+
+
+        // ================================================
+        // Function
+        // ================================================
+        internal string GetDepthString()
+        {
+            string str = String.Empty;
+
+            for (int i = 0; i < Depth; i++)
+            {
+                str += "\t";
+            }
+
+            return str;
+        }
+
+        internal VIZXMLNodeType GetVIZXMLNodeKind()
+        {
+            VIZXMLNodeType kind = VIZXMLNodeType.Assembly;
+
+            switch (Kind)
+            {
+                case NodeKind.ASSEMBLY:
+                    kind = VIZXMLNodeType.Assembly;
+                    break;
+                case NodeKind.PART:
+                    kind = VIZXMLNodeType.Part;
+                    break;
+                case NodeKind.BODY:
+                    kind = VIZXMLNodeType.Body;
+                    break;
+                default:
+                    break;
+            }
+
+
+            return kind;
+        }
+
+
+        // ================================================
+        // Method
+        // ================================================
+        /// <summary>
+        /// Get VIZXML Node String
+        /// </summary>
+        /// <param name="leafKind">Leaf Node Kind</param>
+        /// <param name="modelPath">Base Model Path</param>
+        /// <returns>VIZXML Node String</returns>
+        public string GetVIZXMLNodeString(NodeKind leafKind, string modelPath)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (leafKind == NodeKind.PART && Kind == NodeKind.BODY) return String.Empty;
+
+            // Has Children
+            if (Relation.ContainsKey(ID) == true)
+            {
+                if (Kind == leafKind)
+                {
+                    sb.Append(string.Format("{0}<Node Name=\"{1}\" Type=\"{2}\" HideAndLock=\"False\" ExtLinkFile=\"{3}\\{4}.viz\" />", GetDepthString(), Name, GetVIZXMLNodeKind(), modelPath, ID));
+                }
+                else
+                {
+                    sb.AppendLine(string.Format("{0}<Node Name=\"{1}\" Type=\"{2}\">", GetDepthString(), Name, GetVIZXMLNodeKind()));
+
+                    List<Node> children = Relation[ID];
+
+                    for (int i = 0; i < children.Count; i++)
+                    {
+                        Node child = children[i];
+
+                        string childNode = child.GetVIZXMLNodeString(leafKind, modelPath);
+
+                        if (String.IsNullOrEmpty(childNode) == false)
+                            sb.AppendLine(childNode);
+                    }
+
+                    sb.Append(string.Format("{0}</Node>", GetDepthString()));
+                }
+            }
+            else // Leaf Node
+            {
+                if (leafKind == NodeKind.PART && Kind == NodeKind.PART)
+                {
+                    sb.Append(string.Format("{0}<Node Name=\"{1}\" Type=\"{2}\" HideAndLock=\"False\" ExtLinkFile=\"{3}\\{4}.viz\" />", GetDepthString(), Name, GetVIZXMLNodeKind(), modelPath, ID));
+                }
+                else if(leafKind == NodeKind.BODY && Kind == NodeKind.BODY)
+                {
+                    sb.Append(string.Format("{0}<Node Name=\"{1}\" Type=\"{2}\" HideAndLock=\"False\" ExtLinkFile=\"{3}\\{4}.viz\" />", GetDepthString(), Name, GetVIZXMLNodeKind(), modelPath, ID));
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Get Node String Format
+        /// </summary>
+        /// <returns>Node String</returns>
+        public string GetString()
+        {
+            return string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}"
+                , ID
+                , PARENTID
+                , (int)Kind
+                , BoundBoxMinX
+                , BoundBoxMinY
+                , BoundBoxMinZ
+                , BoundBoxMaxX
+                , BoundBoxMaxY
+                , BoundBoxMaxZ
+                , Depth
+                , Name
+                , NodePath
+                );
+        }
     }
 }

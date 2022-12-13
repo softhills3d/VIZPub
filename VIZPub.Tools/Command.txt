@@ -1,0 +1,14 @@
+﻿VIZ2VIZXML
+	- VIZ 파일을 VIZXML로 변환
+
+	Arguments
+		- INDEX[0] : COMMAND - VIZ2VIZXML
+		- INDEX[1] : INPUT FILE
+		- INDEX[2] : OUTPUT FILE
+		- INDEX[3] : 0 (PART) / 1 (BODY)
+
+// PART 단위로 VIZXML 생성
+VIZPub.Tools.exe VIZ2VIZXML "C:\Temp\Model.viz" "C:\Temp\Model.vizxml" 0
+
+// BODY 단위로 VIZXML 생성
+VIZPub.Tools.exe VIZ2VIZXML "C:\Temp\Model.viz" "C:\Temp\Model.vizxml" 1

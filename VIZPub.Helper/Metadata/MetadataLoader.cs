@@ -35,8 +35,9 @@ namespace VIZPub
         /// </summary>
         /// <param name="path">Metadata File Path</param>
         /// <param name="items">Node Items</param>
+        /// <param name="deleteMetadata">Delete Metadata After Loading</param>
         /// <returns>Result</returns>
-        public bool Load(string path, out List<Node> items)
+        public bool Load(string path, out List<Node> items, bool deleteMetadata = false)
         {
             Path = path;
             items = new List<Node>();
@@ -46,6 +47,8 @@ namespace VIZPub
 
             Dictionary<int, Node> nodeCache = new Dictionary<int, Node>();
             Dictionary<int, List<Node>> nodeRelation = new Dictionary<int, List<Node>>();
+
+            bool result = false;
 
             try
             {
@@ -60,12 +63,19 @@ namespace VIZPub
                     items.Add(node);
                 }
 
-                return true;
+                sr.Close();
+
+                result = true;
             }
             catch(Exception)
             {
-                return false;
+                result = false;
             }
+
+            if (deleteMetadata == true)
+                System.IO.File.Delete(path);
+
+            return result;
         }
     }
 }

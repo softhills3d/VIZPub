@@ -180,7 +180,17 @@ namespace VIZPub
         /// <summary>
         /// 파트 노드 : ONLY PART
         /// </summary>
-        PART = 1
+        PART = 1,
+
+        /// <summary>
+        /// 바디 노드 : 형상이 포함된 BODY (형상없는 BODYSET은 제외) / 형상이 없지만 BODYSET이 아닐 경우 Empty Body 추출
+        /// </summary>
+        BODY = 2,
+
+        /// <summary>
+        /// BODYSET 추출 : BODY'S PARENT가 BODY일 경우 추출에서 제외
+        /// </summary>
+        BODYSET = 3
     }
 
     /// <summary>

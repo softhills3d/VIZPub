@@ -14,13 +14,14 @@ namespace VIZPub.Test.Console
 
         public void Test()
         {
-            CreateVIZXML_Case1();
-            CreateVIZXML_Case2();
-            CreateVIZXML_Case3();
-            CreateVIZXML_Case4();
-            CreateVIZXML_Case5();
-            CreateVIZXML_Case6();
-            CreateVIZXML_Case7();
+            //CreateVIZXML_Case1();
+            //CreateVIZXML_Case2();
+            //CreateVIZXML_Case3();
+            //CreateVIZXML_Case4();
+            //CreateVIZXML_Case5();
+            //CreateVIZXML_Case6();
+            //CreateVIZXML_Case7();
+            CreateVIZXMLByMetadata();
         }
 
         public void CreateVIZXML_Case1()
@@ -174,6 +175,21 @@ namespace VIZPub.Test.Console
             vizxml.Add(dNode);
 
             vizxml.Export("C:\\Temp\\VIZXML_Case7.vizxml");
+        }
+
+        public void CreateVIZXMLByMetadata()
+        {
+            VIZPub.VIZXMLGenerator generator = new VIZPub.VIZXMLGenerator();
+
+            generator.MetadataPath = "C:\\Temp\\Model.txt";
+
+            //generator.ModelPath = "C:\\Temp\\Model-Part";
+            //generator.ModelLinkUnit = VIZPub.Node.NodeKind.PART;
+
+            generator.ModelPath = "C:\\Temp\\Model-Body";
+            generator.ModelLinkUnit = VIZPub.Node.NodeKind.BODY;
+
+            bool result = generator.GenerateVIZXML("C:\\Temp\\Model.vizxml");
         }
     }
 }
