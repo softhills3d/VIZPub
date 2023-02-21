@@ -21,7 +21,7 @@ namespace VIZPub.Test.Console
             //ExportVIZ("C:\\Temp\\Model2.rvm");
             //ExportVIZ("C:\\Temp\\Model3.rvm");
 
-            ExportVIZ_VIZXML();
+            //ExportVIZ_VIZXML();
             //ExportVIZ_FBX();
 
             //ExportVIZ_Dir();
@@ -537,6 +537,9 @@ namespace VIZPub.Test.Console
 
             parameter.Add(PublishParameters.GENERATE_EDGE, true);                           // [Optional] True or False. Default(True)
             parameter.Add(PublishParameters.REMOVE_NODENAME_SLASH, false);                  // [Optional] True or False. Default(False)
+
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_NORMAL, 12);                // [Optional] Cylinder Side Count - 12 ~ 36. Default 12
+            parameter.Add(PublishParameters.CYLINDER_SIDE_COUNT_SMALL, 6);                  // [Optional] Cylinder Side Count - 12 ~ 36. Default 6
 
             // VIZPub
             // Path : Ex) C:\SOFTHILLS\VIZPub\VIZPub.exe
