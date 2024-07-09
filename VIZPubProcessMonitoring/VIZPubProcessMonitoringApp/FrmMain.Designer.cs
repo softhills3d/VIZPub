@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbCount = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtMaxCount = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtMaxTime = new System.Windows.Forms.NumericUpDown();
+            this.txtMaxCount = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaxCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaxCount)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -86,40 +87,31 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Options";
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Process Name";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(272, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 12);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "min.";
             // 
-            // txtName
+            // txtMaxTime
             // 
-            this.txtName.Location = new System.Drawing.Point(161, 35);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(102, 21);
-            this.txtName.TabIndex = 1;
-            this.txtName.Text = "VIZPub 2D";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Max. Process Count";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 12);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Max. Process Time";
+            this.txtMaxTime.Location = new System.Drawing.Point(161, 113);
+            this.txtMaxTime.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.txtMaxTime.Name = "txtMaxTime";
+            this.txtMaxTime.Size = new System.Drawing.Size(102, 21);
+            this.txtMaxTime.TabIndex = 5;
+            this.txtMaxTime.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             // 
             // txtMaxCount
             // 
@@ -138,22 +130,40 @@
             0,
             0});
             // 
-            // txtMaxTime
+            // label3
             // 
-            this.txtMaxTime.Location = new System.Drawing.Point(161, 113);
-            this.txtMaxTime.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.txtMaxTime.Name = "txtMaxTime";
-            this.txtMaxTime.Size = new System.Drawing.Size(102, 21);
-            this.txtMaxTime.TabIndex = 5;
-            this.txtMaxTime.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 12);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Max. Process Time";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Max. Process Count";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(161, 35);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(102, 21);
+            this.txtName.TabIndex = 1;
+            this.txtName.Text = "VIZPub 2D";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Process Name";
             // 
             // btnStart
             // 
@@ -178,15 +188,6 @@
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(272, 118);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 12);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "min.";
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -196,6 +197,7 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Process Monitoring";
@@ -203,8 +205,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaxCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaxCount)).EndInit();
             this.ResumeLayout(false);
 
         }
